@@ -101,7 +101,7 @@ const Navbar = () => {
                         </Button>
 
                         <Button
-                            onClick={() => navigate('/i-am-talent')}
+                            onClick={() => navigate('/talent-application')}
                             variant="red"
                             size="sm"
                             className="px-5 py-2.5 text-[11px]"
@@ -128,7 +128,7 @@ const Navbar = () => {
                     {/* Right: Buttons */}
                     <div className="hidden lg:flex items-center gap-2">
                         <Button
-                            onClick={() => navigate('/i-am-influencer')}
+                            onClick={() => navigate('/influencer-partnership')}
                             variant="orange"
                             size="sm"
                             className="px-5 py-2.5 text-[11px]"
@@ -214,8 +214,8 @@ const Navbar = () => {
                             <div className="grid grid-cols-1 gap-4 w-full">
                                 {[
                                     { label: 'I Need a Talent', variant: 'cyan', href: '/hire-talent' },
-                                    { label: 'I Am a Talent', variant: 'red', href: '/i-am-talent' },
-                                    { label: 'I Am an Influencer', variant: 'orange', href: '/i-am-influencer' },
+                                    { label: 'I Am a Talent', variant: 'red', href: '/talent-application' },
+                                    { label: 'I Am an Influencer', variant: 'orange', href: '/influencer-partnership' },
                                     { label: 'Request for Quote', variant: 'yellow', href: '/request-quote' }
                                 ].map((btn, i) => (
                                     <motion.div

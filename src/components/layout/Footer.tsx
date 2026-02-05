@@ -10,8 +10,8 @@ const socials = [
 const buttons = [
     { label: "Request a Quote", bg: "bg-primary", path: "/request-quote" },
     { label: "General Inquiries", bg: "bg-secondary", path: "mailto:info@herleads.com" },
-    { label: "I'm an Influencer", bg: "bg-accent-orange", path: "/i-am-influencer" },
-    { label: "I Am a Talent", bg: "bg-secondary", path: "/i-am-talent" },
+    { label: "I'm an Influencer", bg: "bg-accent-orange", path: "/influencer-partnership" },
+    { label: "I Am a Talent", bg: "bg-secondary", path: "/talent-application" },
     { label: "I Need a Talent", bg: "bg-accent-blue", path: "/hire-talent" }
 ]
 
