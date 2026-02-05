@@ -14,6 +14,14 @@ export const serviceCards = [
             "Press Release Writing & Distribution",
             "Reputation & Crisis Management"
         ],
+        tagSlugs: [
+            "public-relations",
+            "media-outreach-monitoring",
+            "influencer-pr-collaborations",
+            "event-publicity",
+            "press-release-writing",
+            "reputation-crisis-management"
+        ],
         video: "/videos/pr.webm",
         images: []
     },
@@ -31,6 +39,13 @@ export const serviceCards = [
             "Brand Guidelines",
             "Videography"
         ],
+        tagSlugs: [
+            "brand-identity",
+            "visual-branding",
+            "messaging-positioning",
+            "brand-guidelines",
+            "videography"
+        ],
         video: "/videos/brand.webm",
         images: []
     },
@@ -46,6 +61,12 @@ export const serviceCards = [
             "Website Redesign & Development",
             "UX/UI Strategy",
             "Website Content Structuring"
+        ],
+        tagSlugs: [
+            "website-designing",
+            "website-redesign-development",
+            "ux-ui-strategy",
+            "website-content-structuring"
         ],
         video: "/videos/book.webm",
         images: ["/images/service-legacy/web.webp"]
@@ -64,6 +85,13 @@ export const serviceCards = [
             "Instagram ads",
             "LinkedIn ads"
         ],
+        tagSlugs: [
+            "meta-ads",
+            "google-ads",
+            "facebook-ads",
+            "instagram-ads",
+            "linkedin-ads"
+        ],
         images: ["/images/service-legacy/ads.webp"]
     },
     {
@@ -79,6 +107,12 @@ export const serviceCards = [
             "Team Productivity & Culture Workshops",
             "Personal Branding for Professionals"
         ],
+        tagSlugs: [
+            "corporate-trainings",
+            "leadership-communication-training",
+            "team-productivity-culture",
+            "personal-branding-professionals"
+        ],
         images: ["/images/service-legacy/training.webp"]
     },
     {
@@ -93,6 +127,12 @@ export const serviceCards = [
             "Mock Interviews with Personal Feedback",
             "Professional Grooming and Appearance Training",
             "Resume Building & Job Search"
+        ],
+        tagSlugs: [
+            "live-training-program",
+            "mock-interviews-feedback",
+            "professional-grooming-training",
+            "resume-building-job-search"
         ],
         images: ["/images/service-legacy/talent.webp"]
     }

@@ -12,6 +12,7 @@ interface ServiceCardProps {
         textColor: string;
         variant: string;
         tags: string[];
+        tagSlugs: string[];
         video?: string;
         images: string[];
     };
@@ -95,21 +96,21 @@ const ServiceCard = ({ group }: ServiceCardProps) => {
 
     return (
         <motion.div
-            onClick={() => navigate(`/services/${group.slug}`)}
             whileHover={{ scale: 1.01 }}
             initial="hidden"
             whileInView="visible"
             viewport={{ once: true, margin: "-10%" }}
             variants={containerVariants}
             className={`relative w-[96%] sm:w-[92%] md:w-[98%] lg:w-full h-[90%] md:h-[85%] group/card overflow-hidden rounded-3xl sm:rounded-4xl md:rounded-[3.5rem]
-              ${group.color} ${group.textColor} border-2 border-white mx-auto cursor-pointer will-change-transform transform-gpu`}
+              ${group.color} ${group.textColor} border-2 border-white mx-auto will-change-transform transform-gpu`}
         >
             <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] h-full overflow-hidden">
                 {/* CONTENT SIDE */}
                 <div className="relative z-10 p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex flex-col justify-start lg:justify-between h-auto lg:h-full">
                     <div>
                         <h3
-                            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading font-black leading-[1.1] tracking-tighter mb-4 sm:mb-5 lg:mb-10 text-center lg:text-left uppercase"
+                            onClick={() => navigate(`/legacy/${group.slug}`)}
+                            className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading font-black leading-[1.1] tracking-tighter mb-4 sm:mb-5 lg:mb-10 text-center lg:text-left uppercase cursor-pointer hover:opacity-80 transition-opacity"
                         >
                             {group.title}
                         </h3>
@@ -118,7 +119,11 @@ const ServiceCard = ({ group }: ServiceCardProps) => {
                             {group.tags.map((tag, i) => (
                                 <div
                                     key={i}
-                                    className="flex items-center justify-between gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 lg:px-6 lg:py-4 rounded-full bg-white border-2 border-black text-black text-[11px] sm:text-xs md:text-sm lg:text-base font-bold transition-colors hover:bg-black hover:text-white"
+                                    onClick={(e) => {
+                                        e.stopPropagation();
+                                        navigate(`/legacy/${group.tagSlugs[i]}`);
+                                    }}
+                                    className="flex items-center justify-between gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 lg:px-6 lg:py-4 rounded-full bg-white border-2 border-black text-black text-[11px] sm:text-xs md:text-sm lg:text-base font-bold transition-colors hover:bg-black hover:text-white cursor-pointer"
                                 >
                                     <span className="truncate">{tag}</span>
                                     <ArrowUpRight size={12} className="shrink-0 hidden sm:block lg:w-4 lg:h-4" />
