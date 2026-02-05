@@ -13,9 +13,9 @@ const Home = () => {
             <section id="hero">
                 <HeroSection />
             </section>
-            {/* <section id="about">
+            <section id="about">
                 <AboutSection />
-            </section> */}
+            </section>
             <section id="services">
                 <ServicesSection />
             </section>
@@ -28,9 +28,9 @@ const Home = () => {
             <section id="process">
                 <ProcessSections />
             </section>
-            {/* <section id="blogs">
+            <section id="blogs">
                 <BlogsSection />
-            </section> */}
+            </section>
             <section id="partners">
                 <PartnersSection />
             </section>

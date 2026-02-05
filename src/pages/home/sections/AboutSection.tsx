@@ -1,4 +1,4 @@
-import React, { useRef } from 'react';
+import { useRef } from 'react';
 import { motion, useScroll, useTransform } from 'motion/react';
 import { aboutContent } from '../../../constants/about';
 
@@ -26,20 +26,7 @@ const AboutSection = () => {
         { text: "PREMIUM DESIGN", font: "font-heading font-black uppercase" }
     ];
 
-    const splitText = (text: string) => {
-        return text.split("").map((char, i) => (
-            <motion.span
-                key={i}
-                variants={{
-                    hidden: { y: "100%", opacity: 0 },
-                    visible: { y: 0, opacity: 1 }
-                }}
-                className="inline-block whitespace-pre"
-            >
-                {char}
-            </motion.span>
-        ));
-    };
+
 
     return (
         <section
@@ -182,58 +169,54 @@ const AboutSection = () => {
             >
                 {/* Central Visual */}
                 <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] h-[60vh] md:w-[45vw] md:h-[70vh] z-10 flex items-center justify-center pointer-events-none">
-                    <motion.div
-                        initial={{ clipPath: "inset(20% 20% 20% 20%)" }}
-                        whileInView={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                        transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1] }}
-                        className="w-full h-full overflow-hidden relative"
-                    >
-                        <motion.img
-                            initial={{ scale: 1.2, opacity: 0 }}
-                            whileInView={{ scale: 1, opacity: 1 }}
-                            transition={{ duration: 1.5, ease: [0.76, 0, 0.24, 1] }}
+                    <div className="w-full h-full overflow-hidden relative">
+                        <img
                             src="/images/about/showcase.webp"
                             alt="Hero Focal Point"
                             className="w-full h-full object-cover"
                         />
                         <div className="absolute inset-0 bg-black/40 ring-1 ring-inset ring-white/10"></div>
-                    </motion.div>
+                    </div>
                 </div>
 
                 {/* Typography Layers */}
                 <motion.div
-                    style={{ y: titleTopY }}
+                    style={{ y: titleTopY, willChange: "transform" }}
                     className="absolute top-[13%] md:top-[15%] left-1/2 -translate-x-1/2 z-20 w-full text-center pointer-events-none"
                 >
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ staggerChildren: 0.05 }}
-                        className="font-display font-bold text-[22vw] md:text-[10vw] leading-none uppercase tracking-tighter text-secondary"
-                    >
-                        {splitText("Modern")}
-                    </motion.div>
+                    <div className="overflow-hidden">
+                        <motion.div
+                            initial={{ y: "100%", opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
+                            className="font-display font-bold text-[22vw] md:text-[10vw] leading-none uppercase tracking-tighter text-secondary"
+                        >
+                            Modern
+                        </motion.div>
+                    </div>
                 </motion.div>
 
                 <motion.div
-                    style={{ y: titleBottomY }}
+                    style={{ y: titleBottomY, willChange: "transform" }}
                     className="absolute bottom-[23%] md:bottom-[23%] left-1/2 -translate-x-1/2 z-20 w-full text-center pointer-events-none"
                 >
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        transition={{ staggerChildren: 0.05, delayChildren: 0.5 }}
-                        className="font-heading font-black text-[22vw] md:text-[10vw] leading-none uppercase tracking-tighter text-secondary"
-                    >
-                        {splitText("Brand")}
-                    </motion.div>
+                    <div className="overflow-hidden">
+                        <motion.div
+                            initial={{ y: "100%", opacity: 0 }}
+                            whileInView={{ y: 0, opacity: 1 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 1, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
+                            className="font-heading font-black text-[22vw] md:text-[10vw] leading-none uppercase tracking-tighter text-secondary"
+                        >
+                            Brand
+                        </motion.div>
+                    </div>
                 </motion.div>
 
                 {/* Meta Data */}
                 <div className="absolute top-12 left-8 md:top-16 md:left-12 z-30 flex flex-col gap-2">
-                    <span className="font-heading font-black text-[10px] uppercase tracking-widest text-black">Est. 2024</span>
+                    <span className="font-heading font-black text-[10px] uppercase tracking-widest text-black">Est. 2026</span>
                     <div className="w-10 h-px bg-black/20"></div>
                 </div>
 
@@ -248,18 +231,24 @@ const AboutSection = () => {
                 <div className="absolute bottom-0 w-full bg-secondary text-white py-8 md:py-12 z-50 overflow-hidden border-t border-white/5">
                     <motion.div
                         animate={{ x: "-50%" }}
-                        transition={{ repeat: Infinity, duration: 25, ease: "linear" }}
+                        transition={{
+                            repeat: Infinity,
+                            duration: 5,
+                            ease: "linear",
+                            repeatType: "loop"
+                        }}
                         className="flex whitespace-nowrap"
+                        style={{ willChange: "transform" }}
                     >
-                        {[...Array(4)].map((_, i) => (
-                            <div key={i} className="flex items-center gap-12 md:gap-20 pr-12 md:pr-20">
+                        {[...Array(2)].map((_, i) => (
+                            <div key={i} className="flex items-center gap-12 md:gap-20">
                                 {marqueeWords.map((word, idx) => (
-                                    <React.Fragment key={idx}>
+                                    <div key={idx} className="flex items-center gap-12 md:gap-20 pr-12 md:pr-20">
                                         <span className={`text-2xl md:text-5xl tracking-widest text-white shrink-0 ${word.font}`}>
                                             {word.text}
                                         </span>
                                         <span className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-white shrink-0"></span>
-                                    </React.Fragment>
+                                    </div>
                                 ))}
                             </div>
                         ))}
