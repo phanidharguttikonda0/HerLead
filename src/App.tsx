@@ -1,12 +1,29 @@
 import { RouterProvider } from 'react-router-dom';
 import { router } from './router';
 import SmoothScroll from './components/common/SmoothScroll';
+import SplashScreen from './components/common/SplashScreen';
+import { SplashProvider, useSplash } from './hooks/useSplash';
+
+const AppContent = () => {
+  const { isSplashFinished, setSplashFinished } = useSplash();
+
+  return (
+    <>
+      <SplashScreen onComplete={() => setSplashFinished(true)} />
+      <SmoothScroll>
+        <div style={{ opacity: isSplashFinished ? 1 : 0, transition: 'opacity 1s ease-in-out' }}>
+          <RouterProvider router={router} />
+        </div>
+      </SmoothScroll>
+    </>
+  );
+};
 
 const App = () => {
   return (
-    <SmoothScroll>
-      <RouterProvider router={router} />
-    </SmoothScroll>
+    <SplashProvider>
+      <AppContent />
+    </SplashProvider>
   );
 };
 
