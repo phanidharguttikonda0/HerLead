@@ -20,7 +20,7 @@ interface ServiceCardProps {
 
 const PhoneFrame = ({ children, className = "" }: { children: React.ReactNode, className?: string }) => {
     return (
-        <div className={`relative mx-auto border-2 sm:border-4 md:border-10 border-[#1A1A1A] rounded-2xl sm:rounded-4xl md:rounded-[2.8rem] h-[240px] w-[85%] sm:h-[320px] sm:w-[90%] md:h-[520px] md:w-[94%] bg-[#000] overflow-hidden ${className}`}>
+        <div className={`relative mx-auto border-2 sm:border-4 md:border-10 border-[#1A1A1A] rounded-2xl sm:rounded-4xl md:rounded-[2.8rem] h-[280px] w-[92%] sm:h-[360px] sm:w-[95%] md:h-[520px] md:w-[94%] bg-[#000] overflow-hidden ${className}`}>
             <div className="absolute -left-0.5 top-8 sm:top-12 w-0.5 h-4 sm:h-6 bg-[#1A1A1A] rounded-r-full z-10" />
             <div className="absolute -left-0.5 top-14 sm:top-20 w-0.5 h-6 sm:h-10 bg-[#1A1A1A] rounded-r-full z-10" />
             <div className="relative w-full h-full rounded-xl sm:rounded-[1.8rem] md:rounded-[2.2rem] overflow-hidden bg-neutral-100">
@@ -69,7 +69,7 @@ const ServiceCard = ({ group }: ServiceCardProps) => {
                 ) : null;
             case "double":
                 return (
-                    <div className="relative w-full h-full flex items-center justify-center scale-[0.5] sm:scale-[0.65] md:scale-[0.8]">
+                    <div className="relative w-full h-full flex items-center justify-center scale-[0.6] sm:scale-[0.75] md:scale-[0.85]">
                         <PhoneFrame className="-rotate-6 -translate-x-16 sm:-translate-x-24 md:-translate-x-40 translate-y-4 scale-95">
                             <img src={group.images[1]} alt="" className="w-full h-full object-cover" loading="lazy" />
                         </PhoneFrame>
@@ -134,7 +134,7 @@ const ServiceCard = ({ group }: ServiceCardProps) => {
                 </div>
 
                 {/* VISUAL SIDE */}
-                <div className="flex relative flex-1 items-center justify-center p-1 sm:p-2 md:p-4 lg:p-10 min-h-[240px] sm:min-h-[280px] md:min-h-[320px] lg:min-h-0">
+                <div className="flex relative flex-1 items-center justify-center p-1 sm:p-2 md:p-4 lg:p-10 min-h-[300px] sm:min-h-[380px] md:min-h-[420px] lg:min-h-0">
                     <motion.div
                         variants={{
                             hidden: { scale: 0.9, opacity: 0 },

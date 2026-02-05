@@ -59,8 +59,8 @@ const AboutSection = () => {
                     </div>
                 </motion.div>
 
-                <div className='grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start'>
-                    {/* Image */}
+                <div className='grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-24 items-start'>
+                    {/* Image - Back to First place on Mobile */}
                     <motion.div
                         initial={{ x: -20, opacity: 0 }}
                         whileInView={{ x: 0, opacity: 1 }}
@@ -78,8 +78,8 @@ const AboutSection = () => {
                         </div>
                     </motion.div>
 
-                    {/* Content */}
-                    <div className='lg:col-span-6 space-y-12'>
+                    {/* Content - Second on Mobile */}
+                    <div className='lg:col-span-6 space-y-10 -mt-4 lg:mt-0'>
                         <div className='space-y-6'>
                             <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-main-heading font-heading font-black leading-[1.1] md:leading-[0.9] tracking-tighter text-text uppercase'>
                                 <span className="block">BUILDING</span>
@@ -88,7 +88,7 @@ const AboutSection = () => {
                             </h2>
                         </div>
 
-                        <div className='max-w-xl space-y-8'>
+                        <div className='max-w-xl space-y-6 md:space-y-8'>
                             <p className='text-lg md:text-body-custom font-body font-bold text-text leading-relaxed'>
                                 {aboutContent.intro}
                             </p>
@@ -98,7 +98,7 @@ const AboutSection = () => {
                                 dangerouslySetInnerHTML={{ __html: aboutContent.mainDescription }}
                             />
 
-                            <div className='grid grid-cols-2 md:grid-cols-3 gap-10 pt-10 border-t border-black/5'>
+                            <div className='grid grid-cols-2 md:grid-cols-3 gap-8 pt-6 border-t border-black/5'>
                                 {[
                                     { label: 'Experience', value: '10+' },
                                     { label: 'Brands', value: '50+' },
@@ -118,7 +118,7 @@ const AboutSection = () => {
             {/* Showcase Visual Section */}
             <div
                 ref={showcaseRef}
-                className="relative w-screen left-1/2 -translate-x-1/2 h-screen md:h-[130vh] bg-bg-light flex flex-col items-center justify-center overflow-hidden mt-20"
+                className="relative w-screen left-1/2 -translate-x-1/2 h-[110vh] md:h-[130vh] bg-bg-light flex flex-col items-center justify-center overflow-hidden mt-20"
             >
                 {/* Central Visual */}
                 <div className="absolute top-[45%] left-1/2 -translate-x-1/2 -translate-y-1/2 w-[85vw] h-[60vh] md:w-[45vw] md:h-[70vh] z-10 flex items-center justify-center pointer-events-none">
@@ -145,7 +145,7 @@ const AboutSection = () => {
 
                 <motion.div
                     style={{ y: titleBottomY }}
-                    className="absolute bottom-[23%] md:bottom-[23%] left-1/2 -translate-x-1/2 z-20 w-full text-center pointer-events-none"
+                    className="absolute bottom-[32%] md:bottom-[23%] left-1/2 -translate-x-1/2 z-20 w-full text-center pointer-events-none"
                 >
                     <div className="font-heading font-black text-[22vw] md:text-[10vw] leading-none uppercase tracking-tighter text-secondary">
                         Brand

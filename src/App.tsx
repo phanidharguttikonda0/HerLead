@@ -9,9 +9,12 @@ const AppContent = () => {
 
   return (
     <>
-      <SplashScreen onComplete={() => setSplashFinished(true)} />
+      {!isSplashFinished && <SplashScreen onComplete={() => setSplashFinished(true)} />}
       <SmoothScroll>
-        <div style={{ opacity: isSplashFinished ? 1 : 0, transition: 'opacity 1s ease-in-out' }}>
+        <div style={{
+          opacity: isSplashFinished ? 1 : 0,
+          transition: isSplashFinished && !sessionStorage.getItem('splash_shown') ? 'opacity 1s ease-in-out' : 'none'
+        }}>
           <RouterProvider router={router} />
         </div>
       </SmoothScroll>

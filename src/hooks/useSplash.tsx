@@ -8,7 +8,19 @@ interface SplashContextType {
 const SplashContext = createContext<SplashContextType | undefined>(undefined);
 
 export const SplashProvider = ({ children }: { children: ReactNode }) => {
-    const [isSplashFinished, setSplashFinished] = useState(false);
+    const [isSplashFinished, setSplashFinishedState] = useState(() => {
+        if (typeof window !== 'undefined') {
+            return sessionStorage.getItem('splash_shown') === 'true';
+        }
+        return false;
+    });
+
+    const setSplashFinished = (value: boolean) => {
+        setSplashFinishedState(value);
+        if (value && typeof window !== 'undefined') {
+            sessionStorage.setItem('splash_shown', 'true');
+        }
+    };
 
     return (
         <SplashContext.Provider value={{ isSplashFinished, setSplashFinished }}>

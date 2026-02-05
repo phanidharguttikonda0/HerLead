@@ -73,7 +73,7 @@ const ServicesSection = () => {
                 <div className="grid grid-cols-1 lg:grid-cols-[1.1fr_0.9fr] gap-12 lg:gap-48 items-start">
                     {/* Visual Content Column */}
                     <div className="w-full">
-                        <div className="min-h-[350px] md:min-h-[500px] flex flex-col justify-center items-center">
+                        <div className="min-h-[550px] sm:min-h-[600px] md:min-h-[650px] flex flex-col justify-center items-center">
                             <motion.div
                                 layout
                                 onClick={() => navigate(`/services/${services[hoveredIndex].slug}`)}
@@ -110,9 +110,9 @@ const ServicesSection = () => {
                                     </AnimatePresence>
                                 </div>
 
-                                {/* Text Content */}
+                                {/* Text Content - Locked Height on Mobile to prevent ANY jump */}
                                 <motion.div
-                                    className="w-full max-w-lg text-center px-4"
+                                    className="w-full max-w-lg text-center px-4 h-[200px] md:h-auto md:min-h-[120px]"
                                     initial={{ opacity: 0 }}
                                     animate={{ opacity: 1 }}
                                     transition={{ duration: 0.5 }}
