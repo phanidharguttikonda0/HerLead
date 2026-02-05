@@ -1,15 +1,7 @@
 import { useRef, useState, useEffect } from 'react';
 import { motion, type Variants, useMotionValue, useSpring } from 'motion/react';
-import { ArrowLeft, ArrowRight, Sparkles, Target, Zap, Rocket, BarChart3, MoveRight } from 'lucide-react';
+import { ArrowLeft, ArrowRight, MoveRight } from 'lucide-react';
 import { processSteps } from '../../../constants/process';
-
-const iconMap: Record<string, React.ReactNode> = {
-    "01": <Sparkles className="w-8 h-8" />,
-    "02": <Target className="w-8 h-8" />,
-    "03": <Zap className="w-8 h-8" />,
-    "04": <Rocket className="w-8 h-8" />,
-    "05": <BarChart3 className="w-8 h-8" />,
-};
 
 const ProcessSections = () => {
     const sliderRef = useRef<HTMLDivElement>(null);
@@ -178,20 +170,16 @@ const ProcessSections = () => {
                                 whileHover={{
                                     y: -8
                                 }}
-                                className="group relative shrink-0 w-[310px] md:w-[400px] lg:w-[450px] h-[420px] md:h-[500px] lg:h-[550px] bg-secondary border-2 border-white rounded-[3rem] p-10 md:p-14 flex flex-col justify-between overflow-hidden snap-center will-change-transform transform-gpu select-none"
+                                className="group relative shrink-0 w-[280px] md:w-[360px] lg:w-[400px] h-[380px] md:h-[460px] lg:h-[500px] bg-secondary border-2 border-white rounded-[3rem] p-8 md:p-12 flex flex-col justify-between overflow-hidden snap-center will-change-transform transform-gpu select-none"
                             >
-                                <div className="absolute top-10 right-10 flex flex-col items-end group-hover:opacity-20 transition-opacity duration-700">
-                                    <span className="text-[5rem] md:text-[6.5rem] font-heading font-black leading-none text-white select-none -translate-y-8 md:-translate-y-10">
+                                <div className="absolute top-8 right-10 flex flex-col items-end opacity-20">
+                                    <span className="text-[4rem] md:text-[5.5rem] font-heading font-black leading-none text-white select-none -translate-y-6 md:-translate-y-8">
                                         {step.number}
                                     </span>
                                 </div>
 
                                 <div className="relative z-10 pointer-events-none">
-                                    <div className="w-16 h-16 md:w-20 md:h-20 rounded-2xl bg-white border border-white flex items-center justify-center mb-10 text-secondary transition-all duration-500 group-hover:rotate-6">
-                                        {iconMap[step.number]}
-                                    </div>
-
-                                    <h3 className="text-2xl md:text-4xl lg:text-4xl font-heading font-black text-white mb-6 uppercase tracking-tight">
+                                    <h3 className="text-3xl md:text-4xl lg:text-4xl font-heading font-black text-white mb-6 uppercase tracking-tight">
                                         {step.title}
                                     </h3>
 
@@ -201,9 +189,9 @@ const ProcessSections = () => {
                                 </div>
 
                                 <div className="relative z-10 mt-auto pointer-events-none">
-                                    <div className="h-px w-full bg-white mb-8" />
+                                    <div className="h-px w-full bg-white mb-6" />
                                     <div className="flex items-center justify-between">
-                                        <p className="text-[10px] md:text-[11px] font-heading font-black text-white tracking-widest uppercase italic">
+                                        <p className="text-[11px] md:text-[12px] font-heading font-black text-white tracking-widest uppercase italic">
                                             {step.details}
                                         </p>
                                         <MoveRight className="text-white transform group-hover:translate-x-2 transition-transform duration-500" size={20} />

@@ -31,7 +31,7 @@ const partners = [
 
 const PartnersSection = () => {
     return (
-        <section className="w-full bg-bg-light pt-12 md:pt-24 pb-8 md:pb-24 border-t-2 border-black overflow-hidden">
+        <section className="w-full bg-bg-light pt-12 md:pt-24 pb-8 md:pb-24 overflow-hidden">
             <div className="max-w-7xl mx-auto">
                 {/* Section Header */}
                 <div className="text-center mb-10 md:mb-24 px-6 md:px-12 lg:px-20">
@@ -56,36 +56,40 @@ const PartnersSection = () => {
 
                 {/* Icons Marquee */}
                 <div className="w-full mb-12 md:mb-32 overflow-hidden relative">
-                    <motion.div
-                        className="flex whitespace-nowrap gap-16 md:gap-32 py-10"
-                        animate={{
-                            x: [0, -1200],
-                        }}
-                        transition={{
-                            x: {
-                                repeat: Infinity,
-                                repeatType: "loop",
-                                duration: 25,
-                                ease: "linear",
-                            },
-                        }}
-                        style={{ width: "fit-content" }}
-                    >
-                        {/* Triplicating for seamless loop */}
-                        {[...partners, ...partners, ...partners].map((partner, i) => (
-                            <div
-                                key={i}
-                                className="flex items-center justify-center group cursor-pointer will-change-transform transform-gpu"
-                            >
-                                <div
-                                    className="p-4 md:p-6 rounded-3xl border-2 border-black transition-all duration-300 transform group-hover:scale-110 group-hover:-rotate-6 bg-white"
-                                    style={{ color: partner.color }}
-                                >
-                                    {partner.icon}
-                                </div>
+                    <style>
+                        {`
+                            @keyframes partners-marquee {
+                                from { transform: translateX(0); }
+                                to { transform: translateX(-50%); }
+                            }
+                            .partners-container {
+                                display: flex;
+                                width: max-content;
+                                animation: partners-marquee 35s linear infinite;
+                                will-change: transform;
+                            }
+                        `}
+                    </style>
+                    <div className="partners-container gap-16 md:gap-32 py-10">
+                        {/* Duplicating once for seamless loop with -50% translate */}
+                        {[...Array(2)].map((_, i) => (
+                            <div key={i} className="flex gap-16 md:gap-32">
+                                {partners.map((partner, idx) => (
+                                    <div
+                                        key={idx}
+                                        className="flex items-center justify-center group cursor-pointer will-change-transform transform-gpu"
+                                    >
+                                        <div
+                                            className="p-4 md:p-6 rounded-3xl shadow-md transition-all duration-300 transform group-hover:scale-110 group-hover:-rotate-6 bg-white shrink-0"
+                                            style={{ color: partner.color }}
+                                        >
+                                            {partner.icon}
+                                        </div>
+                                    </div>
+                                ))}
                             </div>
                         ))}
-                    </motion.div>
+                    </div>
                 </div>
             </div>
         </section>

@@ -15,19 +15,6 @@ const AboutSection = () => {
     const titleTopY = useTransform(scrollYProgress, [0, 1], [0, -100]);
     const titleBottomY = useTransform(scrollYProgress, [0, 1], [0, 100]);
 
-    const marqueeWords = [
-        { text: "ELEVATING AUTHORITY", font: "font-heading font-black uppercase" },
-        { text: "DIGITAL IMPACT", font: "font-heading font-black uppercase" },
-        { text: "STRATEGIC GROWTH", font: "font-heading font-black uppercase" },
-        { text: "MODERN BRANDING", font: "font-heading font-black uppercase" },
-        { text: "CREATIVE EXCELLENCE", font: "font-heading font-black uppercase" },
-        { text: "VISUAL IDENTITY", font: "font-heading font-black uppercase" },
-        { text: "NEXT-GEN SOLUTIONS", font: "font-heading font-black uppercase" },
-        { text: "PREMIUM DESIGN", font: "font-heading font-black uppercase" }
-    ];
-
-
-
     return (
         <section
             ref={containerRef}
@@ -75,77 +62,43 @@ const AboutSection = () => {
                 <div className='grid grid-cols-1 lg:grid-cols-12 gap-16 lg:gap-24 items-start'>
                     {/* Image */}
                     <motion.div
-                        initial={{ x: -60, opacity: 0, scale: 0.95 }}
-                        whileInView={{ x: 0, opacity: 1, scale: 1 }}
-                        transition={{ duration: 1.2, ease: "easeOut" }}
+                        initial={{ x: -20, opacity: 0 }}
+                        whileInView={{ x: 0, opacity: 1 }}
+                        transition={{ duration: 0.8 }}
                         viewport={{ once: true }}
-                        className='lg:col-span-6 relative order-1 lg:order-1'
+                        className='lg:col-span-6 relative'
                     >
                         <div className='relative aspect-square w-full max-w-xl overflow-hidden rounded-sm bg-neutral-100'>
                             <img
                                 src="/images/about/about.webp"
                                 alt="About HerLead"
-                                className="w-full h-full object-cover transition-transform duration-700 hover:scale-105"
+                                loading="lazy"
+                                className="w-full h-full object-cover"
                             />
                         </div>
                     </motion.div>
 
                     {/* Content */}
-                    <motion.div
-                        initial="hidden"
-                        whileInView="visible"
-                        viewport={{ once: true }}
-                        className='lg:col-span-6 space-y-12 order-2 lg:order-2'
-                    >
+                    <div className='lg:col-span-6 space-y-12'>
                         <div className='space-y-6'>
                             <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-main-heading font-heading font-black leading-[1.1] md:leading-[0.9] tracking-tighter text-text uppercase'>
-                                {["BUILDING", "DIGITAL", "IMPACT."].map((word, idx) => (
-                                    <div key={idx} className='overflow-hidden'>
-                                        <motion.span
-                                            variants={{
-                                                hidden: { y: "100%" },
-                                                visible: { y: 0 }
-                                            }}
-                                            transition={{ duration: 0.8, delay: idx * 0.1, ease: [0.33, 1, 0.68, 1] }}
-                                            className={`inline-block ${idx === 1 ? 'text-secondary' : idx === 2 ? 'text-primary' : ''}`}
-                                        >
-                                            {word}
-                                        </motion.span>
-                                    </div>
-                                ))}
+                                <span className="block">BUILDING</span>
+                                <span className="block text-secondary">DIGITAL</span>
+                                <span className="block text-primary">IMPACT.</span>
                             </h2>
                         </div>
 
                         <div className='max-w-xl space-y-8'>
-                            <motion.p
-                                variants={{
-                                    hidden: { y: 30, opacity: 0 },
-                                    visible: { y: 0, opacity: 1 }
-                                }}
-                                transition={{ duration: 0.8, delay: 0.4 }}
-                                className='text-lg md:text-body-custom font-body font-bold text-text leading-relaxed'
-                            >
+                            <p className='text-lg md:text-body-custom font-body font-bold text-text leading-relaxed'>
                                 {aboutContent.intro}
-                            </motion.p>
+                            </p>
 
-                            <motion.p
-                                variants={{
-                                    hidden: { y: 30, opacity: 0 },
-                                    visible: { y: 0, opacity: 1 }
-                                }}
-                                transition={{ duration: 0.8, delay: 0.5 }}
+                            <p
                                 className='text-lg md:text-body-custom font-body text-text leading-relaxed whitespace-pre-line'
                                 dangerouslySetInnerHTML={{ __html: aboutContent.mainDescription }}
                             />
 
-                            <motion.div
-                                variants={{
-                                    hidden: { y: 30, opacity: 0 },
-                                    visible: { y: 0, opacity: 1 }
-                                }}
-                                transition={{ duration: 0.8, delay: 0.6 }}
-                                className='grid grid-cols-2 md:grid-cols-3 gap-10 pt-10 border-t border-black/5'
-                            >
+                            <div className='grid grid-cols-2 md:grid-cols-3 gap-10 pt-10 border-t border-black/5'>
                                 {[
                                     { label: 'Experience', value: '10+' },
                                     { label: 'Brands', value: '50+' },
@@ -156,9 +109,9 @@ const AboutSection = () => {
                                         <span className='text-4xl md:text-5xl font-black font-heading text-text'>{stat.value}</span>
                                     </div>
                                 ))}
-                            </motion.div>
+                            </div>
                         </div>
-                    </motion.div>
+                    </div>
                 </div>
             </div>
 
@@ -173,44 +126,29 @@ const AboutSection = () => {
                         <img
                             src="/images/about/showcase.webp"
                             alt="Hero Focal Point"
+                            loading="eager"
                             className="w-full h-full object-cover"
                         />
-                        <div className="absolute inset-0 bg-black/40 ring-1 ring-inset ring-white/10"></div>
+                        <div className="absolute inset-0 bg-black/40"></div>
                     </div>
                 </div>
 
-                {/* Typography Layers */}
+                {/* Typography Layers - CSS PARALLAX for speed */}
                 <motion.div
-                    style={{ y: titleTopY, willChange: "transform" }}
+                    style={{ y: titleTopY }}
                     className="absolute top-[13%] md:top-[15%] left-1/2 -translate-x-1/2 z-20 w-full text-center pointer-events-none"
                 >
-                    <div className="overflow-hidden">
-                        <motion.div
-                            initial={{ y: "100%", opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, ease: [0.33, 1, 0.68, 1] }}
-                            className="font-display font-bold text-[22vw] md:text-[10vw] leading-none uppercase tracking-tighter text-secondary"
-                        >
-                            Modern
-                        </motion.div>
+                    <div className="font-display font-bold text-[22vw] md:text-[10vw] leading-none uppercase tracking-tighter text-secondary">
+                        Modern
                     </div>
                 </motion.div>
 
                 <motion.div
-                    style={{ y: titleBottomY, willChange: "transform" }}
+                    style={{ y: titleBottomY }}
                     className="absolute bottom-[23%] md:bottom-[23%] left-1/2 -translate-x-1/2 z-20 w-full text-center pointer-events-none"
                 >
-                    <div className="overflow-hidden">
-                        <motion.div
-                            initial={{ y: "100%", opacity: 0 }}
-                            whileInView={{ y: 0, opacity: 1 }}
-                            viewport={{ once: true }}
-                            transition={{ duration: 1, delay: 0.2, ease: [0.33, 1, 0.68, 1] }}
-                            className="font-heading font-black text-[22vw] md:text-[10vw] leading-none uppercase tracking-tighter text-secondary"
-                        >
-                            Brand
-                        </motion.div>
+                    <div className="font-heading font-black text-[22vw] md:text-[10vw] leading-none uppercase tracking-tighter text-secondary">
+                        Brand
                     </div>
                 </motion.div>
 
@@ -227,32 +165,30 @@ const AboutSection = () => {
                     </div>
                 </div>
 
-                {/* Marquee */}
+                {/* Marquee - Standard CSS Animation for extreme performance */}
                 <div className="absolute bottom-0 w-full bg-secondary text-white py-8 md:py-12 z-50 overflow-hidden border-t border-white/5">
-                    <motion.div
-                        animate={{ x: "-50%" }}
-                        transition={{
-                            repeat: Infinity,
-                            duration: 5,
-                            ease: "linear",
-                            repeatType: "loop"
-                        }}
-                        className="flex whitespace-nowrap"
-                        style={{ willChange: "transform" }}
-                    >
-                        {[...Array(2)].map((_, i) => (
-                            <div key={i} className="flex items-center gap-12 md:gap-20">
-                                {marqueeWords.map((word, idx) => (
-                                    <div key={idx} className="flex items-center gap-12 md:gap-20 pr-12 md:pr-20">
-                                        <span className={`text-2xl md:text-5xl tracking-widest text-white shrink-0 ${word.font}`}>
-                                            {word.text}
-                                        </span>
-                                        <span className="w-2 h-2 md:w-3 md:h-3 rounded-full bg-white shrink-0"></span>
-                                    </div>
-                                ))}
-                            </div>
-                        ))}
-                    </motion.div>
+                    <style>
+                        {`
+                            @keyframes marquee-fast {
+                                from { transform: translateX(0); }
+                                to { transform: translateX(-50%); }
+                            }
+                            .marquee-container {
+                                display: flex;
+                                width: max-content;
+                                animation: marquee-fast 35s linear infinite;
+                                will-change: transform;
+                            }
+                        `}
+                    </style>
+                    <div className="marquee-container">
+                        <span className="text-2xl md:text-5xl font-heading font-black uppercase tracking-widest whitespace-nowrap px-4">
+                            {aboutContent.marqueeText + aboutContent.marqueeText}
+                        </span>
+                        <span className="text-2xl md:text-5xl font-heading font-black uppercase tracking-widest whitespace-nowrap px-4">
+                            {aboutContent.marqueeText + aboutContent.marqueeText}
+                        </span>
+                    </div>
                 </div>
             </div>
         </section>
