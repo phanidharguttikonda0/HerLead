@@ -7,10 +7,6 @@ const LegacyDetail = () => {
     const { slug } = useParams();
     const detail = legacyDetails[slug as string] || legacyDetails["pr-media-services"];
 
-    useEffect(() => {
-        window.scrollTo(0, 0);
-    }, [slug]);
-
     return (
         <main className="bg-white min-h-screen pt-12 md:pt-16 pb-0">
             {/* Hero Section */}
