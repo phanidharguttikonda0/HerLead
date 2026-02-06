@@ -667,5 +667,426 @@ export const legacyDetails: Record<string, LegacyItemDetail> = {
             },
         ],
         gallery: ["/images/service-legacy/talent.webp"]
+    },
+    "brand-identity": {
+        slug: "brand-identity",
+        title: "Brand Identity",
+        heroImage: "/images/service-legacy/brand.webp",
+        heroVideo: "/videos/brand.webm",
+        tagline: "Your identity is your signature. Make it unforgettable.",
+        description: "Complete brand identity systems that capture your essence and make you instantly recognizable in any market.",
+        overview: {
+            title: "The Foundation of Your Brand",
+            content: [
+                "Brand identity is more than just a logo—it's the complete visual and verbal system that defines who you are. It's the personality, the promise, and the perception you create in the minds of your audience.",
+                "We craft comprehensive identity systems that include naming strategy, logo design, color psychology, typography selection, and brand voice development. Every element works together to tell your unique story."
+            ]
+        },
+        features: [
+            {
+                icon: "✨",
+                title: "Brand Naming & Strategy",
+                description: "Strategic naming that resonates with your audience and stands out in your market."
+            },
+            {
+                icon: "🎯",
+                title: "Logo Design & Variations",
+                description: "Iconic logo design with multiple variations for different applications."
+            },
+            {
+                icon: "🎨",
+                title: "Color Palette Development",
+                description: "Strategic color systems based on psychology and industry standards."
+            },
+            {
+                icon: "📝",
+                title: "Typography System",
+                description: "Carefully selected typefaces that reflect your brand personality."
+            }
+        ],
+        approach: {
+            title: "Our Identity Development Process",
+            steps: [
+                { number: "01", title: "Discovery", description: "Deep dive into your business and values." },
+                { number: "02", title: "Strategy", description: "Positioning and creative direction development." },
+                { number: "03", title: "Design", description: "Creative directions with logo concepts and palettes." },
+                { number: "04", title: "Refinement", description: "Iterative refinement based on feedback." }
+            ]
+        },
+        outcomes: {
+            title: "What You'll Achieve",
+            points: ["Distinctive brand signature", "Cohesive visual presence", "Instant market recognition"]
+        },
+        stats: [
+            { number: '150+', label: 'Identities', icon: '🎨' },
+            { number: '98%', label: 'Satisfaction', icon: '⭐' }
+        ],
+        testimonial: {
+            quote: "The identity system HerLead created transformed how our customers perceive us. We finally have a brand that feels authentic.",
+            author: "Sarah Chen",
+            role: "Founder, Bloom Digital"
+        },
+        whyChooseUs: [
+            { title: 'Strategic Core', description: 'Design backed by deep market research', icon: '🎯' },
+            { title: 'Versatility', description: 'Systems that work across all platforms', icon: '📈' }
+        ],
+        gallery: ["/images/service-legacy/brand.webp"]
+    },
+    "visual-branding": {
+        slug: "visual-branding",
+        title: "Visual Branding",
+        heroImage: "/images/service-legacy/brand.webp",
+        tagline: "Make every visual touchpoint a brand statement.",
+        description: "Stunning visual assets that bring your brand to life across all platforms and create instant recognition.",
+        overview: {
+            title: "Visual Excellence",
+            content: [
+                "Visual branding is the consistent application of your brand elements across every touchpoint—from business cards to billboards, social media to storefronts.",
+                "We create comprehensive visual asset libraries that ensure your brand looks professional, cohesive, and compelling everywhere it appears."
+            ]
+        },
+        features: [
+            {
+                icon: "📇",
+                title: "Business Collateral",
+                description: "Professional business cards, letterheads, and stationery that make powerful first impressions."
+            },
+            {
+                icon: "📄",
+                title: "Marketing Materials",
+                description: "Brochures, flyers, and posters designed to capture attention and communicate effectively."
+            },
+            {
+                icon: "💻",
+                title: "Digital Assets",
+                description: "Social media templates and digital graphics optimized for online platforms."
+            }
+        ],
+        approach: {
+            title: "Our Visual Branding Process",
+            steps: [
+                { number: "01", title: "Audit", description: "Review existing assets and identify needs." },
+                { number: "02", title: "System Design", description: "Establish visual design principles and templates." },
+                { number: "03", title: "Asset Creation", description: "Produce all required visual materials." }
+            ]
+        },
+        outcomes: {
+            title: "What You'll Achieve",
+            points: ["Consistent brand look", "Professional collateral", "Memorable visual presence"]
+        },
+        stats: [
+            { number: '500+', label: 'Assets Created', icon: '📈' },
+            { number: '100%', label: 'Consistency', icon: '✨' }
+        ],
+        testimonial: {
+            quote: "HerLead's visual branding made our small business look like an international corporation. The consistency is incredible.",
+            author: "Mark Thompson",
+            role: "Owner, TechEdge"
+        },
+        whyChooseUs: [
+            { title: 'Cohesive Design', description: 'Unified visuals across all mediums', icon: '🎯' },
+            { title: 'Premium Quality', description: 'Cinema-grade assets for every need', icon: '💎' }
+        ],
+        gallery: ["/images/service-legacy/brand.webp"]
+    },
+    "messaging-positioning": {
+        slug: "messaging-positioning",
+        title: "Messaging & Positioning",
+        heroImage: "/images/service-legacy/brand.webp",
+        tagline: "The right words in the right place create unstoppable brands.",
+        description: "Strategic messaging frameworks that position your brand perfectly and create emotional connections.",
+        overview: {
+            title: "Strategic Communication",
+            content: [
+                "Your brand's position in the market and the messages you communicate are just as important as how you look.",
+                "We develop comprehensive messaging frameworks that include your brand story, value propositions, and key messages."
+            ]
+        },
+        features: [
+            {
+                icon: "🎯",
+                title: "Positioning Strategy",
+                description: "Clear statement defining your unique place in the market and target audience."
+            },
+            {
+                icon: "📖",
+                title: "Brand Story",
+                description: "Compelling narrative that explains your origin, mission, and vision."
+            },
+            {
+                icon: "💎",
+                title: "Value Proposition",
+                description: "Articulation of the unique value you provide and why customers should choose you."
+            }
+        ],
+        approach: {
+            title: "Our Messaging Process",
+            steps: [
+                { number: "01", title: "Research", description: "Deep analysis of market and target audience." },
+                { number: "02", title: "Workshop", description: "Collaborative sessions to define unique value." },
+                { number: "03", title: "Crafting", description: "Developing core messages and brand story." }
+            ]
+        },
+        outcomes: {
+            title: "What You'll Achieve",
+            points: ["Clear market position", "Emotional connection", "Consistent brand voice"]
+        },
+        stats: [
+            { number: '100+', label: 'Brands Positioned', icon: '🎯' },
+            { number: '95%', label: 'Message Clarity', icon: '💬' }
+        ],
+        testimonial: {
+            quote: "Finally, we have words that actually sell our vision. HerLead captured our soul in a few perfectly chosen sentences.",
+            author: "Elena Rossi",
+            role: "Director, LuxeLiving"
+        },
+        whyChooseUs: [
+            { title: 'Psychology-First', description: 'Messaging that understands human behavior', icon: '🧠' },
+            { title: 'Competitive Edge', description: 'Strategic positioning that stands out', icon: '🚀' }
+        ],
+        gallery: ["/images/service-legacy/brand.webp"]
+    },
+    "brand-guidelines": {
+        slug: "brand-guidelines",
+        title: "Brand Guidelines",
+        heroImage: "/images/service-legacy/brand.webp",
+        tagline: "Consistency creates recognition. Guidelines ensure it.",
+        description: "Comprehensive brand guideline documents that ensure perfect consistency across all platforms.",
+        overview: {
+            title: "The Brand Bible",
+            content: [
+                "Brand guidelines are the instruction manual for your brand. They document every aspect of your identity.",
+                "We create detailed, beautiful guideline documents that ensure everyone knows exactly how to represent your brand."
+            ]
+        },
+        features: [
+            {
+                icon: "📐",
+                title: "Identity Standards",
+                description: "Documentation of logo usage, color systems, and typography rules."
+            },
+            {
+                icon: "💬",
+                title: "Voice Standards",
+                description: "Communication guidelines including tone, voice, and key messages."
+            },
+            {
+                icon: "📱",
+                title: "Application Rules",
+                description: "Real-world examples showing correct brand application everywhere."
+            }
+        ],
+        approach: {
+            title: "Our Guidelines Process",
+            steps: [
+                { number: "01", title: "Planning", description: "Outline all elements that need documentation." },
+                { number: "02", title: "Creation", description: "Write clear, detailed rules for each element." },
+                { number: "03", title: "Layout", description: "Design the guideline document to be beautiful." }
+            ]
+        },
+        outcomes: {
+            title: "What You'll Achieve",
+            points: ["End-to-end consistency", "Empowered internal teams", "Protected brand equity"]
+        },
+        stats: [
+            { number: '120+', label: 'Guides Created', icon: '📖' },
+            { number: '100%', label: 'Recognition', icon: '✨' }
+        ],
+        testimonial: {
+            quote: "These guidelines are so clear that our new vendors get everything right the first time. They saved us countless hours.",
+            author: "James Wilson",
+            role: "CMO, GlobalCorp"
+        },
+        whyChooseUs: [
+            { title: 'Practical Focus', description: 'Rules that are actually easy to follow', icon: '🛠️' },
+            { title: 'Future-Proof', description: 'Guidelines that grow with your business', icon: '🌱' }
+        ],
+        gallery: ["/images/service-legacy/brand.webp"]
+    },
+    "videography": {
+        slug: "videography",
+        title: "Videography",
+        heroImage: "/images/service-legacy/brand.webp",
+        heroVideo: "/videos/brand.webm",
+        tagline: "Stories that move. Videos that convert.",
+        description: "Premium video production that brings your brand story to life with cinematic quality.",
+        overview: {
+            title: "Cinematic Storytelling",
+            content: [
+                "Video is the most engaging form of content. We create videos that don't just look beautiful—they achieve results.",
+                "From brand films to social content, we handle every aspect of production with cinematic quality and strategic thinking."
+            ]
+        },
+        features: [
+            {
+                icon: "🎬",
+                title: "Brand Films",
+                description: "Cinematic videos that tell your story and create emotional connection."
+            },
+            {
+                icon: "📹",
+                title: "Product Videos",
+                description: "Engaging demonstrations and explainer videos that convert."
+            },
+            {
+                icon: "📱",
+                title: "Social Content",
+                description: "Short-form video content optimized for modern social platforms."
+            }
+        ],
+        approach: {
+            title: "Our Video Process",
+            steps: [
+                { number: "01", title: "Concept", description: "Define objectives and creative direction." },
+                { number: "02", title: "Production", description: "Professional filming with cinema-grade equipment." },
+                { number: "03", title: "Post-Production", description: "Expert editing, color grading, and sound design." }
+            ]
+        },
+        outcomes: {
+            title: "What You'll Achieve",
+            points: ["High engagement rates", "Cinematic brand image", "Increased conversions"]
+        },
+        stats: [
+            { number: '300+', label: 'Videos Shot', icon: '🎥' },
+            { number: '10M+', label: 'Total Views', icon: '🚀' }
+        ],
+        testimonial: {
+            quote: "The brand film HerLead produced brought me to tears. They truly captured our why. It's the best investment we've made.",
+            author: "Anita Roy",
+            role: "CEO, Hope Foundation"
+        },
+        whyChooseUs: [
+            { title: 'Cinema Grade', description: 'High-end production for every budget', icon: '🎥' },
+            { title: 'Viral Strategy', description: 'Designed for shares and engagement', icon: '🔥' }
+        ],
+        gallery: ["/images/service-legacy/brand.webp"]
+    },
+    // ==================== PR & MEDIA TAGS ====================
+    "public-relations": {
+        slug: "public-relations",
+        title: "Public Relations (PR)",
+        heroImage: "/images/service-legacy/pr1.jpg",
+        tagline: "Strategic storytelling that builds trust and authority.",
+        description: "We craft narratives that resonate with the media and your audience, ensuring your brand story is told exactly how it should be.",
+        overview: {
+            title: "Traditional & Modern PR",
+            content: ["Public Relations is about managing your brand's reputation and building relationships with the public. We combine classic PR techniques with modern digital strategies."],
+        },
+        features: [{ icon: "📢", title: "Media Relations", description: "Building lasting connections with journalists and editors." }],
+        approach: { title: "Our PR Approach", steps: [{ number: "01", title: "Narrative", description: "Finding your unique story." }] },
+        outcomes: { title: "The Result", points: ["Brand Authority", "Trust building", "Earned media"] },
+        stats: [{ number: "500+", label: "Press Releases", icon: "📰" }],
+        testimonial: { quote: "HerLead made us an industry voice.", author: "A. Khan", role: "CEO" },
+        whyChooseUs: [{ title: "Deep Networks", description: "Access to top-tier media.", icon: "🌐" }],
+        gallery: ["/images/service-legacy/pr1.jpg"]
+    },
+    "media-outreach-monitoring": {
+        slug: "media-outreach-monitoring",
+        title: "Media Outreach & Monitoring",
+        heroImage: "/images/service-legacy/pr1.jpg",
+        tagline: "Always visible, always ahead of the curve.",
+        description: "Protecting your narrative through proactive outreach and 24/7 media monitoring across all digital and print channels.",
+        overview: { title: "Intelligence & Impact", content: ["We don't just send releases; we monitor the impact and engage with the medium in real-time."] },
+        features: [{ icon: "🔍", title: "Real-time Alerts", description: "Instant monitoring of brand mentions." }],
+        approach: { title: "Our Cycle", steps: [{ number: "01", title: "Monitoring", description: "Listening to the market." }] },
+        outcomes: { title: "The Result", points: ["Crisis prevention", "Insightful reports"] },
+        stats: [{ number: "24/7", label: "Monitoring", icon: "⏱️" }],
+        testimonial: { quote: "They catch issues before they start.", author: "D. Roy", role: "Marketing Lead" },
+        whyChooseUs: [{ title: "Advanced Tools", description: "State-of-the-art tracking software.", icon: "💻" }],
+        gallery: ["/images/service-legacy/pr1.jpg"]
+    },
+    // ==================== WEB DESIGN TAGS ====================
+    "website-designing": {
+        slug: "website-designing",
+        title: "Website Designing",
+        heroImage: "/images/service-legacy/web.webp",
+        tagline: "Aesthetics meets functionality in every pixel.",
+        description: "Bespoke web designs that are visually stunning and conversion-focused, representing your brand in the digital world.",
+        overview: { title: "Digital First Impressions", content: ["Your website is your digital flagship store. We ensure it's built to impress and perform."] },
+        features: [{ icon: "🎨", title: "Custom UI", description: "Unique designs tailored to your brand identity." }],
+        approach: { title: "Design Process", steps: [{ number: "01", title: "Wireframing", description: "Mapping out the user journey." }] },
+        outcomes: { title: "The Result", points: ["Modern Aesthetic", "Responsive Layout"] },
+        stats: [{ number: "100+", label: "Websites", icon: "🌐" }],
+        testimonial: { quote: "Our traffic doubled after the redesign.", author: "J. Doe", role: "Founder" },
+        whyChooseUs: [{ title: "User Centric", description: "Driven by user behavior data.", icon: "🎯" }],
+        gallery: ["/images/service-legacy/web.webp"]
+    },
+    "ux-ui-strategy": {
+        slug: "ux-ui-strategy",
+        title: "UX/UI Strategy",
+        heroImage: "/images/service-legacy/web.webp",
+        tagline: "The bridge between business goals and user happiness.",
+        description: "Data-driven UX/UI strategy that ensures every interaction is intuitive, efficient, and delightful for the user.",
+        overview: { title: "Strategic Design", content: ["We look beyond colors to solve problems through strategic design thinking and user testing."] },
+        features: [{ icon: "🧠", title: "User Research", description: "Understanding the psychology of your users." }],
+        approach: { title: "Strategy Phase", steps: [{ number: "01", title: "Audit", description: "Analyzing current friction points." }] },
+        outcomes: { title: "The Result", points: ["Higher Conversion", "Reduced Churn"] },
+        stats: [{ number: "40%", label: "ROI uplift", icon: "📈" }],
+        testimonial: { quote: "The most intuitive design we've ever used.", author: "S. Gupta", role: "Product Manager" },
+        whyChooseUs: [{ title: "Scientific Logic", description: "Design backed by cognitive science.", icon: "🧬" }],
+        gallery: ["/images/service-legacy/web.webp"]
+    },
+    // ==================== PAID ADS TAGS ====================
+    "meta-ads": {
+        slug: "meta-ads",
+        title: "Meta Ads (FB & IG)",
+        heroImage: "/images/service-legacy/ads.webp",
+        tagline: "Targeting that turns scroll-stoppers into shoppers.",
+        description: "Harness the power of Facebook and Instagram's algorithm to reach your perfect customer with high-converting ads.",
+        overview: { title: "Algorithm Mastery", content: ["We specialize in visual storytelling and precision targeting on the Meta platform."] },
+        features: [{ icon: "📱", title: "Retargeting", description: "Stay in front of your warmest leads." }],
+        approach: { title: "Media Buying", steps: [{ number: "01", title: "Testing", description: "Iterative creative A/B testing." }] },
+        outcomes: { title: "The Result", points: ["Scalable Sales", "Brand Reach"] },
+        stats: [{ number: "10x", label: "Avg ROAS", icon: "💰" }],
+        testimonial: { quote: "Best FB ad agency we've worked with.", author: "V. Sharma", role: "E-comm Owner" },
+        whyChooseUs: [{ title: "Creative Focus", description: "Ads that actually get clicked.", icon: "📸" }],
+        gallery: ["/images/service-legacy/ads.webp"]
+    },
+    "google-ads": {
+        slug: "google-ads",
+        title: "Google Ads (SEM)",
+        heroImage: "/images/service-legacy/ads.webp",
+        tagline: "Appear exactly where your customers are searching.",
+        description: "Search Engine Marketing at its finest. We capture high-intent traffic and turn searches into sales.",
+        overview: { title: "Intent Marketing", content: ["Position your brand at the top of the SERP when customers search for what you offer."] },
+        features: [{ icon: "🔍", title: "Keyword Mastery", description: "Finding the high-intent keywords that convert." }],
+        approach: { title: "Search Strategy", steps: [{ number: "01", title: "Setup", description: "Structuring campaigns for quality score." }] },
+        outcomes: { title: "The Result", points: ["High-intent Leads", "Fast ROI"] },
+        stats: [{ number: "5M+", label: "Ad Clicks", icon: "👆" }],
+        testimonial: { quote: "Top position for our core terms.", author: "R. Singh", role: "SaaS Founder" },
+        whyChooseUs: [{ title: "Efficiency", description: "Lowest possible CPC for max volume.", icon: "📉" }],
+        gallery: ["/images/service-legacy/ads.webp"]
+    },
+    // ==================== CORPORATE TRAINING TAGS ====================
+    "leadership-communication-training": {
+        slug: "leadership-communication-training",
+        title: "Leadership & Communication",
+        heroImage: "/images/service-legacy/training.webp",
+        tagline: "Empowering leaders to communicate with impact.",
+        description: "Transform your management into a leadership powerhouse through advanced communication and EQ skills.",
+        overview: { title: "Soft Skills, Hard Impact", content: ["Leadership is communication. We train the skills that drive culture and results."] },
+        features: [{ icon: "🎤", title: "Executive Presence", description: "Commanding the room with confidence." }],
+        approach: { title: "Training Path", steps: [{ number: "01", title: "Assessment", description: "Identifying communication gaps." }] },
+        outcomes: { title: "The Result", points: ["Unified Teams", "Confident Leads"] },
+        stats: [{ number: "5000+", label: "Leaders Trained", icon: "👥" }],
+        testimonial: { quote: "Our board meetings are finally productive.", author: "B. Joshi", role: "CEO" },
+        whyChooseUs: [{ title: "Interactive", description: "No boring lectures. Pure practice.", icon: "⚡" }],
+        gallery: ["/images/service-legacy/training.webp"]
+    },
+    // ==================== CAREER MASTERY TAGS ====================
+    "live-training-program": {
+        slug: "live-training-program",
+        title: "One-Month Live Program",
+        heroImage: "/images/service-legacy/talent.webp",
+        tagline: "The ultimate bridge between education and employment.",
+        description: "An intensive 30-day program that transforms students into professionals ready for the global market.",
+        overview: { title: "Industry Prep", content: ["Learn the skills colleges don't teach you: Networking, Corporate Culture, and Strategic Thinking."] },
+        features: [{ icon: "🏫", title: "Live Mentorship", description: "Real-time access to industry veterans." }],
+        approach: { title: "Curriculum", steps: [{ number: "01", title: "Mindset", description: "Switching from student to pro." }] },
+        outcomes: { title: "The Result", points: ["Job Readiness", "Confidence Boost"] },
+        stats: [{ number: "90%", label: "Placement Rate", icon: '🎓' }],
+        testimonial: { quote: "I landed a job in 2 weeks.", author: "N. Mehta", role: "Fullstack Dev" },
+        whyChooseUs: [{ title: "Real World", description: "Experience over theory.", icon: "💼" }],
+        gallery: ["/images/service-legacy/talent.webp"]
     }
 };
