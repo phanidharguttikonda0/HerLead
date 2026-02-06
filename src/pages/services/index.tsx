@@ -138,7 +138,7 @@ const ServiceDetail = () => {
                             initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
                             animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
                             transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                            className="relative aspect-4/5 w-full max-w-lg mx-auto overflow-hidden rounded-sm bg-neutral-100 hero-img min-h-[350px]"
+                            className="relative w-full max-w-lg mx-auto overflow-hidden rounded-sm hero-img flex items-center justify-center bg-transparent"
                         >
                             {detail.heroVideo ? (
                                 <video
