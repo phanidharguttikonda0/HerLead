@@ -258,5 +258,212 @@ export const legacyDetails: Record<string, ServiceDetail> = {
             "Controlled Search Presence",
             "Resilient Market Reputation"
         ]
+    },
+    "brand-identity": {
+        slug: "brand-identity",
+        title: "Brand Identity",
+        subtitle: "We help brands own their space",
+        description: "Branding goes deeper than design; it’s a direction. We shape brands from the inside out — strategy first, identity next, impact always to ensure you become the go-to name in your space.",
+        heroImage: "/images/legacy/b2.png",
+        heroVideo: "/videos/brand.webm",
+        features: [
+            {
+                title: "1. Brand Positioning & Strategy",
+                desc: "Uncovering what makes your company unique and nailing your story, messaging, and market fit.",
+                image: "/images/services/feature-1.webp"
+            },
+            {
+                title: "2. Visual Identity & Logo Design",
+                desc: "Crafting distinct identities rooted in emotion, focusing on bold typography and purposeful imagery.",
+                image: "/images/services/feature-2.webp"
+            },
+            {
+                title: "3. Custom Branded Style Guides",
+                desc: "Building visual identity kits that empower teams to maintain consistency across all mediums.",
+                image: "/images/services/feature-3.webp"
+            }
+        ],
+        gallery: ["/images/legacy/b2.png"],
+        process: [
+            { step: "01", title: "Strategy", desc: "Insight-driven discovery to build a high-performing brand architecture." },
+            { step: "02", title: "Identity", desc: "Bold design ideas translated into a distinct and memorable visual system." },
+            { step: "03", title: "Impact", desc: "Deploying your brand with consistency and clarity across every digital touchpoint." }
+        ],
+        method: {
+            title: "Our Elevation Method.",
+            description: "A 360° approach to help your business stand out online, offline, and everywhere in between.",
+            buttonText: "Request a Quote"
+        },
+        outcomes: [
+            "Gain Customer Trust",
+            "Boost Brand Awareness",
+            "Fuel Customer Loyalty",
+            "Increase Marketing ROI"
+        ]
+    },
+    "visual-branding": {
+        slug: "visual-branding",
+        title: "Visual Branding",
+        subtitle: "Unmistakably Yours",
+        description: "We design cohesive visual systems that reflect your brand’s personality across every touchpoint. From palettes to typography, every detail is crafted for consistency, professionalism, and impact.",
+        heroImage: "/images/legacy/v1.jpeg",
+        features: [
+            {
+                title: "1. Distinctive Color Palettes",
+                desc: "Strategic color systems based on emotion and industry standards to make your brand instantly recognizable.",
+                image: "/images/services/feature-1.webp"
+            },
+            {
+                title: "2. Precision Typography",
+                desc: "Carefully selected typefaces that reflect your brand's voice and ensure clarity across all digital mediums.",
+                image: "/images/services/feature-2.webp"
+            },
+            {
+                title: "3. Brand Imagery & Elements",
+                desc: "Thoughtfully crafted visual elements and imagery guidelines that capture your brand's unique essence.",
+                image: "/images/services/feature-3.webp"
+            }
+        ],
+        gallery: ["/images/legacy/v2.avif"],
+        process: [
+            { step: "01", title: "Curation", desc: "Selecting the visual building blocks that best represent your brand values." },
+            { step: "02", title: "Design", desc: "Developing a unified look and feel that translates perfectly across all platforms." },
+            { step: "03", title: "Refinement", desc: "Polishing every detail to ensure a premium and professional brand presence." }
+        ],
+        method: {
+            title: "Our Visual Method.",
+            description: "A focus on creating familiar, credible, and unmistakable visual identities for growing brands.",
+            buttonText: "Elevate Your Look"
+        },
+        outcomes: [
+            "Instant Brand Recognition",
+            "Professional Credibility",
+            "Cohesive Visual Story",
+            "Unmistakable Identity"
+        ]
+    },
+    "messaging-positioning": {
+        slug: "messaging-positioning",
+        title: "Messaging & Positioning",
+        subtitle: "Clarity, Confidence, and Purpose",
+        description: "Consistency in communication builds authority. We define what you stand for, how you sound, and how you differentiate yourself with a narrative that makes your audience understand not just what you do, but why it matters.",
+        heroImage: "/images/legacy/mm1.jpg",
+        features: [
+            {
+                title: "1. Brand Voice & Tone",
+                desc: "Developing a unique verbal identity that resonates with your audience and reflects your core values consistently.",
+                image: "/images/services/feature-1.webp"
+            },
+            {
+                title: "2. Strategic Differentiation",
+                desc: "Positioning your brand as a unique leader by highlighting the specific value only you bring to the market.",
+                image: "/images/services/feature-2.webp"
+            },
+            {
+                title: "3. Core Narrative Development",
+                desc: "Crafting a compelling brand story that bridges the gap between your vision and your customer’s needs.",
+                image: "/images/services/feature-3.webp"
+            }
+        ],
+        gallery: ["/images/legacy/mm2.jpg"],
+        process: [
+            { step: "01", title: "Audit", desc: "Analyzing your current messaging to find gaps and opportunities for professional growth." },
+            { step: "02", title: "Strategy", desc: "Defining the unique value proposition and the narrative hooks that make you memorable." },
+            { step: "03", title: "Alignment", desc: "Ensuring your new messaging is unified across all marketing materials and team interactions." }
+        ],
+        method: {
+            title: "Our Narrative Method.",
+            description: "An intentional focus on shaping messages that connect deeply and reinforce your long-term authority.",
+            buttonText: "Nail Your Story"
+        },
+        outcomes: [
+            "Clear Brand Voice",
+            "Strong Market Distinction",
+            "Unified Brand Message",
+            "Deep Audience Connection"
+        ]
+    },
+    "brand-guidelines": {
+        slug: "brand-guidelines",
+        title: "Brand Guidelines",
+        subtitle: "A Clear Framework for Consistency",
+        description: "Consistency is the backbone of brand strength. We document your visual identity, tone of voice, and design standards to ensure every interaction with your brand is as professional and impactful as the first.",
+        heroImage: "/images/legacy/v1.jpeg",
+        features: [
+            {
+                title: "1. Visual Standard Manual",
+                desc: "Comprehensive documentation of logo usage, type scales, and color systems for pixel-perfect implementation.",
+                image: "/images/services/feature-1.webp"
+            },
+            {
+                title: "2. Verbal Identity Kit",
+                desc: "Defining your tone of voice and messaging style to ensure internal teams share a unified brand personality.",
+                image: "/images/services/feature-2.webp"
+            },
+            {
+                title: "3. Digital Asset Management",
+                desc: "Setting the rules for how your brand appears on web, social, and print, protecting your visual integrity.",
+                image: "/images/services/feature-3.webp"
+            }
+        ],
+        gallery: ["/images/legacy/bb1.jpg"],
+        process: [
+            { step: "01", title: "Codification", desc: "Turning your visual and verbal identity into a set of set-in-stone rules." },
+            { step: "02", title: "Documentation", desc: "Creating a professional, easy-to-use guide for internal teams and external partners." },
+            { step: "03", title: "Empowerment", desc: "Providing the tools needed to maintain brand recognition and trust for the long haul." }
+        ],
+        method: {
+            title: "Our Framework Method.",
+            description: "A reference-first approach that ensures your brand is communicated accurately and professionally by anyone, anywhere.",
+            buttonText: "Secure Your Standards"
+        },
+        outcomes: [
+            "Unified Brand Presence",
+            "Internal Team Alignment",
+            "Long-Term Brand Strength",
+            "Professional Partner Readiness"
+        ]
+    },
+    "videography": {
+        slug: "videography",
+        title: "Videography Production",
+        subtitle: "Transforming Stories into Visual Experiences",
+        description: "Motion tells stories that static images can't. We create high-quality video content that captures attention, communicates your message with clarity, and builds a deep emotional connection with your audience.",
+        heroVideo: "/images/legacy/aa.mp4",
+        heroImage: "/images/legacy/aa1.jpg",
+        features: [
+            {
+                title: "1. Brand Films & Commercials",
+                desc: "Cinematic storytelling that captures the essence of your brand and positions you as a premium industry leader.",
+                image: "/images/services/feature-1.webp"
+            },
+            {
+                title: "2. Social Media Video Content",
+                desc: "High-impact, scroll-stopping snippets designed specifically for engagement on platforms like Instagram, TikTok, and LinkedIn.",
+                image: "/images/services/feature-2.webp"
+            },
+            {
+                title: "3. Corporate & Event Coverage",
+                desc: "Professional documentation of your biggest moments, turning events into long-term marketing assets.",
+                image: "/images/services/feature-3.webp"
+            }
+        ],
+        gallery: ["/images/legacy/aa1.jpg"],
+        process: [
+            { step: "01", title: "Creative Concept", desc: "Defining the narrative and storyboard to ensure every second serves your brand strategy." },
+            { step: "02", title: "Production", desc: "Professional filming with high-end equipment to capture your story in the best light." },
+            { step: "03", title: "Post-Production", desc: "Expert editing, color grading, and sound design to create a polished final product." }
+        ],
+        method: {
+            title: "Our Motion Method.",
+            description: "A focus on creating videos that leave a lasting impression and support your overall brand strategy through visual excellence.",
+            buttonText: "Start Your Production"
+        },
+        outcomes: [
+            "Strong Emotional Connection",
+            "High-Engagement Metrics",
+            "Premium Brand Perception",
+            "Lasting Visual Impact"
+        ]
     }
 };

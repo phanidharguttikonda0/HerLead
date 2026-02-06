@@ -85,8 +85,8 @@ const ServiceDetail = () => {
 
                     {/* Left: Typography */}
                     <div className="lg:col-span-6 space-y-12">
-                        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-black leading-[0.9] tracking-tighter uppercase text-left">
-                            <div className="reveal-text-line overflow-hidden">
+                        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-black leading-[1.1] tracking-tighter uppercase text-left">
+                            <div className="reveal-text-line overflow-hidden pb-2">
                                 <motion.span
                                     initial={{ y: "100%" }}
                                     animate={{ y: 0 }}
@@ -96,7 +96,7 @@ const ServiceDetail = () => {
                                     {detail.title.split(' ')[0]}
                                 </motion.span>
                             </div>
-                            <div className="reveal-text-line overflow-hidden">
+                            <div className="reveal-text-line overflow-hidden pb-2">
                                 <motion.span
                                     initial={{ y: "100%" }}
                                     animate={{ y: 0 }}
