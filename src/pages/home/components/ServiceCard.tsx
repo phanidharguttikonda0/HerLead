@@ -109,7 +109,7 @@ const ServiceCard = ({ group }: ServiceCardProps) => {
                 <div className="relative z-10 p-4 sm:p-6 md:p-10 lg:p-16 xl:p-20 flex flex-col justify-start lg:justify-between h-auto lg:h-full">
                     <div>
                         <h3
-                            onClick={() => navigate(`/legacy/${group.slug}`)}
+                            onClick={() => navigate(`/services/${group.slug}`)}
                             className="text-xl sm:text-2xl md:text-3xl lg:text-4xl xl:text-5xl font-heading font-black leading-[1.1] tracking-tighter mb-4 sm:mb-5 lg:mb-10 text-center lg:text-left uppercase cursor-pointer hover:opacity-80 transition-opacity"
                         >
                             {group.title}
@@ -121,7 +121,7 @@ const ServiceCard = ({ group }: ServiceCardProps) => {
                                     key={i}
                                     onClick={(e) => {
                                         e.stopPropagation();
-                                        navigate(`/legacy/${group.tagSlugs[i]}`);
+                                        navigate(`/services/${group.tagSlugs[i]}`);
                                     }}
                                     className="flex items-center justify-between gap-1.5 sm:gap-2 px-3 py-2 sm:px-4 sm:py-2.5 lg:px-6 lg:py-4 rounded-full bg-white border-2 border-black text-black text-[11px] sm:text-xs md:text-sm lg:text-base font-bold transition-colors hover:bg-black hover:text-white cursor-pointer"
                                 >

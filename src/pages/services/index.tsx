@@ -3,6 +3,7 @@ import { useParams } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus } from 'lucide-react';
 import { serviceDetails } from '../../constants/serviceDetails';
+import { legacyDetails } from '../../constants/legacyDetails';
 
 const FAQItem = ({ faq, index }: { faq: { q: string, a: string }, index: number }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -43,7 +44,7 @@ const FAQItem = ({ faq, index }: { faq: { q: string, a: string }, index: number 
 const ServiceDetail = () => {
     const { slug } = useParams();
     const containerRef = useRef<HTMLDivElement>(null);
-    const detail = serviceDetails[slug as string] || serviceDetails["pr-media-services"];
+    const detail = serviceDetails[slug as string] || legacyDetails[slug as string] || serviceDetails["pr-media-services"];
 
     useEffect(() => {
         window.scrollTo(0, 0);

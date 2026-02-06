@@ -2,7 +2,6 @@ import { createBrowserRouter } from 'react-router-dom';
 import MainLayout from '../components/layout/MainLayout';
 import Home from '../pages/home';
 import ServiceDetail from '../pages/services';
-import LegacyDetail from '../pages/legacy';
 import HireTalent from '../pages/forms/HireTalent';
 import Influencer from '../pages/forms/Influencer';
 import Talent from '../pages/forms/Talent';
@@ -22,10 +21,6 @@ export const router = createBrowserRouter([
                 element: <ServiceDetail />,
             },
             {
-                path: '/legacy/:slug',
-                element: <LegacyDetail />,
-            },
-            {
                 path: '/hire-talent',
                 element: <HireTalent />,
             },
@@ -41,7 +36,6 @@ export const router = createBrowserRouter([
                 path: '/request-quote',
                 element: <RequestQuote />,
             },
-            // Add other pages here as children to keep the nav/footer
         ],
     },
 ]);
