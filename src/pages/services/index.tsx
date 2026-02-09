@@ -360,7 +360,7 @@ const ServiceDetail = () => {
                     whileInView={{ y: 0, opacity: 1 }}
                     viewport={{ once: true, margin: "-10%" }}
                     transition={{ duration: 1 }}
-                    className="mt-20 md:mt-32"
+                    className="mt-20 md:mt-32 mb-20 md:mb-32"
                 >
                     <div className="flex flex-wrap justify-center items-center gap-4 md:gap-5">
                         <Button

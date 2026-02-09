@@ -65,16 +65,16 @@ const Footer = () => {
 
                         {/* Left Column - CTA */}
                         <div className="space-y-8">
-                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-main-heading font-heading font-black text-text leading-[1.1] md:leading-[0.9] tracking-tighter uppercase">
-                                Let's <span className="text-primary italic">Create</span><br />
-                                Something <span className="text-secondary italic">Great</span>
+                            <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-main-heading font-heading font-black text-secondary italic leading-[1.1] md:leading-[0.9] tracking-tighter uppercase">
+                                Let's Create<br />
+                                Something Great
                             </h2>
                             <p className="text-sm md:text-body-custom font-body text-text max-w-md leading-relaxed font-bold">
                                 Ready to elevate your brand? Get in touch and let's start building your digital presence together.
                             </p>
                             <a
                                 href="mailto:info@herleads.com"
-                                className="group px-8 py-4 bg-secondary text-white rounded-full font-heading font-black text-xs uppercase tracking-wider hover:brightness-110 transition-all inline-flex items-center gap-3 no-underline"
+                                className="group px-8 py-4 bg-secondary text-white rounded-full font-heading font-black text-sm uppercase tracking-wider hover:brightness-110 transition-all inline-flex items-center gap-3 no-underline"
                             >
                                 Get In Touch
                                 <span className="text-lg group-hover:translate-x-1 transition-transform">→</span>
