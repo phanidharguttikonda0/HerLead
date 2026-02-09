@@ -4,8 +4,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
     "public-relations": {
         slug: "public-relations",
         title: "Public Relations",
-        subtitle: "Because in today’s world, visibility isn’t a luxury, it’s survival.",
-        description: "In the age of digital dominance, PR is the new marketing strategy that shapes perception and builds trust. We provide 360° PR and Media solutions that blend online visibility, media coverage, and creative storytelling to ensure your brand resonates and grows.",
+        subtitle: "Where public relations meets strategy, your story finds its audience",
+        description: "As a full-service public relations agency, bold storytelling and smart strategy are at the core of everything we do. The cherry on top? Media coverage that moves the needle and makes your brand newsworthy.",
         heroVideo: "/images/legacy/p1.webm",
         heroImage: "/images/legacy/p2.png",
         features: [

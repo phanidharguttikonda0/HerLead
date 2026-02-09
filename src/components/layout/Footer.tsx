@@ -1,6 +1,6 @@
 import { Instagram, Linkedin } from "lucide-react"
 import { motion } from "motion/react"
-import { useNavigate } from "react-router-dom"
+import { useNavigate, useLocation } from "react-router-dom"
 
 const socials = [
     { label: "Instagram", href: "https://www.instagram.com/herlead_official/", Icon: Instagram, colorClass: "text-white", bgClass: "bg-social-instagram" },
@@ -17,43 +17,47 @@ const buttons = [
 
 const Footer = () => {
     const navigate = useNavigate()
+    const { pathname } = useLocation()
+    const isServicePage = pathname.includes('/services')
 
     return (
         <footer className="w-full bg-bg-light border-t border-text/10">
             <div className="max-w-7xl mx-auto px-6 md:px-12 lg:px-20">
 
-                {/* Global CTA Buttons */}
-                <div className="w-full pt-16 pb-8 border-b border-text/5">
-                    <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
-                        {buttons.map((btn, i) => {
-                            const commonClasses = `w-full md:w-auto px-8 py-4 ${btn.bg} text-white rounded-full font-heading font-black text-xs uppercase tracking-[0.15em] hover:scale-105 hover:brightness-110 active:scale-95 transition-all text-center group relative overflow-hidden flex items-center justify-center no-underline`;
+                {/* Global CTA Buttons - Hide on Service Pages */}
+                {!isServicePage && (
+                    <div className="w-full pt-16 pb-8 border-b border-text/5">
+                        <div className="flex flex-wrap items-center justify-center gap-4 md:gap-6">
+                            {buttons.map((btn, i) => {
+                                const commonClasses = `w-full md:w-auto px-8 py-4 ${btn.bg} text-white rounded-full font-heading font-black text-xs uppercase tracking-[0.15em] hover:scale-105 hover:brightness-110 active:scale-95 transition-all text-center group relative overflow-hidden flex items-center justify-center no-underline`;
 
-                            if (btn.path.startsWith('mailto')) {
+                                if (btn.path.startsWith('mailto')) {
+                                    return (
+                                        <a
+                                            key={i}
+                                            href={btn.path}
+                                            className={commonClasses}
+                                        >
+                                            <span className="relative z-10">{btn.label}</span>
+                                            <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
+                                        </a>
+                                    );
+                                }
+
                                 return (
-                                    <a
+                                    <button
                                         key={i}
-                                        href={btn.path}
+                                        onClick={() => navigate(btn.path)}
                                         className={commonClasses}
                                     >
                                         <span className="relative z-10">{btn.label}</span>
                                         <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                    </a>
+                                    </button>
                                 );
-                            }
-
-                            return (
-                                <button
-                                    key={i}
-                                    onClick={() => navigate(btn.path)}
-                                    className={commonClasses}
-                                >
-                                    <span className="relative z-10">{btn.label}</span>
-                                    <div className="absolute inset-0 bg-white/10 opacity-0 group-hover:opacity-100 transition-opacity" />
-                                </button>
-                            );
-                        })}
+                            })}
+                        </div>
                     </div>
-                </div>
+                )}
 
                 {/* Main Footer Content */}
                 <div className="py-20 md:py-32">

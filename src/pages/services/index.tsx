@@ -1,9 +1,10 @@
 import { useState, useRef, useEffect } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import { motion, AnimatePresence } from 'motion/react';
 import { Plus, Minus } from 'lucide-react';
 import { serviceDetails } from '../../constants/serviceDetails';
 import { legacyDetails } from '../../constants/legacyDetails';
+import Button from '../../components/common/Button';
 
 const FAQItem = ({ faq, index }: { faq: { q: string, a: string }, index: number }) => {
     const [isOpen, setIsOpen] = useState(false);
@@ -43,6 +44,7 @@ const FAQItem = ({ faq, index }: { faq: { q: string, a: string }, index: number 
 
 const ServiceDetail = () => {
     const { slug } = useParams();
+    const navigate = useNavigate();
     const containerRef = useRef<HTMLDivElement>(null);
     const detail = serviceDetails[slug as string] || legacyDetails[slug as string] || serviceDetails["pr-media-services"];
 
@@ -80,138 +82,145 @@ const ServiceDetail = () => {
                     </div>
                 </div>
 
-                {/* 2. Hero Section (Split Layout) */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-24 mb-20 md:mb-32">
+                {/* 2. Hero Section (Restructured Layout) */}
+                <div className="mb-20 md:mb-32">
+                    {/* Heading - Full Width */}
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-black leading-[1.1] tracking-tighter uppercase text-left text-secondary mb-12 lg:whitespace-nowrap">
+                        <motion.span
+                            initial={{ y: 50, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
+                            className="inline-block"
+                        >
+                            {detail.title}
+                        </motion.span>
+                    </h1>
 
-                    {/* Left: Typography */}
-                    <div className="lg:col-span-6 space-y-12">
-                        <h1 className="text-4xl sm:text-5xl md:text-7xl lg:text-8xl font-heading font-black leading-[1.1] tracking-tighter uppercase text-left">
-                            <div className="reveal-text-line overflow-hidden pb-2">
-                                <motion.span
-                                    initial={{ y: "100%" }}
-                                    animate={{ y: 0 }}
-                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.2 }}
-                                    className="inline-block"
-                                >
-                                    {detail.title.split(' ')[0]}
-                                </motion.span>
-                            </div>
-                            <div className="reveal-text-line overflow-hidden pb-2">
-                                <motion.span
-                                    initial={{ y: "100%" }}
-                                    animate={{ y: 0 }}
-                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1], delay: 0.3 }}
-                                    className="inline-block text-secondary"
-                                >
-                                    {detail.title.split(' ').slice(1).join(' ')}
-                                </motion.span>
-                            </div>
-                        </h1>
-
+                    {/* Content Grid: Text Left, Video Right */}
+                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
+                        {/* Left: Text Content */}
                         <motion.div
                             initial={{ y: 40, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
-                            transition={{ duration: 1, ease: "easeOut", delay: 0.8 }}
-                            className="content-block space-y-6 md:space-y-8"
+                            transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
+                            className="lg:col-span-3 space-y-6"
                         >
                             <div className="w-16 md:w-20 h-1 bg-black" />
-                            <p className="text-lg md:text-xl font-bold leading-relaxed max-w-md">
+                            <p className="text-lg md:text-xl font-bold leading-relaxed">
                                 {detail.subtitle}
                             </p>
                             <p className="text-lg md:text-xl text-black leading-relaxed">
                                 {detail.description}
                             </p>
 
-                            <div className="flex flex-wrap gap-4 pt-4">
-                                {detail.stats && detail.stats.map((stat, i) => (
-                                    <div key={i} className="border border-[#EBEBEB] px-6 py-4 min-w-[120px]">
-                                        <div className="text-3xl font-heading font-black">{stat.value}</div>
-                                        <div className="text-[10px] font-heading font-black uppercase tracking-widest text-secondary">{stat.label}</div>
-                                    </div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    </div>
-
-                    <div className="lg:col-span-6 relative mt-4 lg:mt-0">
-                        <motion.div
-                            initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
-                            animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                            className="relative w-full max-w-lg mx-auto overflow-hidden rounded-sm hero-img flex items-center justify-center bg-transparent"
-                        >
-                            {detail.heroVideo ? (
-                                <video
-                                    src={detail.heroVideo}
-                                    autoPlay
-                                    loop
-                                    muted
-                                    playsInline
-                                    className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
-                                />
-                            ) : (
-                                <img
-                                    src={detail.heroImage}
-                                    alt={detail.title}
-                                    className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
-                                />
+                            {detail.stats && detail.stats.length > 0 && (
+                                <div className="flex flex-wrap gap-4 pt-4">
+                                    {detail.stats.map((stat, i) => (
+                                        <div key={i} className="border border-[#EBEBEB] px-6 py-4 min-w-[120px]">
+                                            <div className="text-3xl font-heading font-black">{stat.value}</div>
+                                            <div className="text-[10px] font-heading font-black uppercase tracking-widest text-secondary">{stat.label}</div>
+                                        </div>
+                                    ))}
+                                </div>
                             )}
-                            {/* Removed overlay */}
                         </motion.div>
+
+                        {/* Right: Video */}
+                        <div className="lg:col-span-9 relative">
+                            <motion.div
+                                initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
+                                animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+                                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+                                className="relative w-full aspect-[400/231] overflow-hidden rounded-sm hero-img flex items-center justify-center bg-transparent"
+                            >
+                                {detail.heroVideo ? (
+                                    <video
+                                        src={detail.heroVideo}
+                                        autoPlay
+                                        loop
+                                        muted
+                                        playsInline
+                                        className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                                    />
+                                ) : (
+                                    <img
+                                        src={detail.heroImage}
+                                        alt={detail.title}
+                                        className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                                    />
+                                )}
+                            </motion.div>
+                        </div>
                     </div>
                 </div>
 
                 {/* 3. Secondary Content (Process & Features) */}
-                <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 lg:gap-24 mb-20 md:mb-32">
-                    {/* Visual 2 (Required 2nd Image) */}
+                <div className="mb-20 md:mb-32">
+                    {/* Image - Full Width at Top */}
                     <motion.div
                         initial={{ y: 50, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true, margin: "-10%" }}
                         transition={{ duration: 1 }}
-                        className="lg:col-span-5 order-2 lg:order-1"
+                        className="mb-12"
                     >
-                        <div className="relative aspect-square w-full overflow-hidden rounded-sm bg-neutral-100">
+                        <div className="relative aspect-[16/9] w-full max-w-4xl mx-auto overflow-hidden rounded-sm bg-neutral-100">
                             <img
                                 src={detail.gallery?.[0] || detail.heroImage}
                                 alt="Detail View"
                                 className="w-full h-full object-cover"
                             />
                         </div>
-                        <div className="mt-8 border-l-2 border-secondary pl-6">
-                            <p className="font-heading font-black text-xl uppercase leading-tight">
-                                "Strategic precision determines the magnitude of your impact."
-                            </p>
-                        </div>
                     </motion.div>
 
-                    {/* Features List */}
+                    {/* Core Capabilities Heading */}
+                    <motion.div
+                        initial={{ y: 30, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true, margin: "-10%" }}
+                        transition={{ duration: 0.8 }}
+                        className="text-center mb-12"
+                    >
+                        <span className="text-secondary font-heading font-black uppercase tracking-[0.2em] text-sm md:text-base">
+                            Core Capabilities
+                        </span>
+                    </motion.div>
+
+                    {/* Features Cards Grid */}
                     <motion.div
                         initial={{ y: 50, opacity: 0 }}
                         whileInView={{ y: 0, opacity: 1 }}
                         viewport={{ once: true, margin: "-10%" }}
                         transition={{ duration: 1 }}
-                        className="lg:col-span-7 order-1 lg:order-2"
+                        className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8"
                     >
-                        <span className="block text-secondary font-heading font-black uppercase tracking-[0.2em] mb-8">
-                            Core Capabilities
-                        </span>
-
-                        <div className="space-y-0 border-t border-[#EBEBEB]">
-                            {detail.features.map((f, i) => (
-                                <div key={i} className="group py-8 border-b border-[#EBEBEB] flex gap-6 md:gap-12 items-start transition-colors hover:bg-[#F5F5F5] px-4 -mx-4 h-full relative overflow-hidden">
-                                    <span className="text-2xl font-heading font-black text-black group-hover:text-secondary transition-colors">0{i + 1}</span>
-                                    <div>
-                                        <h3 className="text-3xl font-heading font-black uppercase mb-2">{f.title.replace(/^\d+\.\s*/, '')}</h3>
-                                        <p className="text-black text-lg leading-relaxed max-w-md">{f.desc}</p>
-                                    </div>
+                        {detail.features.map((f, i) => (
+                            <motion.div
+                                key={i}
+                                initial={{ y: 30, opacity: 0 }}
+                                whileInView={{ y: 0, opacity: 1 }}
+                                viewport={{ once: true }}
+                                transition={{ duration: 0.6, delay: i * 0.1 }}
+                                className={`group bg-white border border-[#EBEBEB] rounded-sm p-6 md:p-8 hover:border-secondary hover:shadow-lg transition-all duration-300 ${i >= 3 ? 'md:col-span-1 lg:col-start-' + (i === 3 ? '2' : '5') : ''
+                                    }`}
+                            >
+                                <div className="flex items-start gap-4 mb-4">
+                                    <span className="text-4xl font-heading font-black text-secondary group-hover:scale-110 transition-transform">
+                                        0{i + 1}
+                                    </span>
                                 </div>
-                            ))}
-                        </div>
+                                <h3 className="text-2xl md:text-3xl font-heading font-black uppercase mb-3 group-hover:text-secondary transition-colors">
+                                    {f.title.replace(/^\d+\.\s*/, '')}
+                                </h3>
+                                <p className="text-black text-base md:text-lg leading-relaxed">
+                                    {f.desc}
+                                </p>
+                            </motion.div>
+                        ))}
                     </motion.div>
                 </div>
 
-                {/* 4. Methodology Section */}
+                {/* 4. Why Choose Us Carousel Section */}
                 <motion.div
                     initial={{ y: 50, opacity: 0 }}
                     whileInView={{ y: 0, opacity: 1 }}
@@ -219,50 +228,103 @@ const ServiceDetail = () => {
                     transition={{ duration: 1 }}
                     className="mb-20 md:mb-32"
                 >
-                    <div className="bg-accent-blue text-white p-8 md:p-24 rounded-sm relative overflow-hidden">
-                        <div className="relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16">
-                            <div>
-                                <h2 className="text-4xl md:text-6xl font-heading font-black uppercase tracking-tighter mb-8 text-black">
-                                    {detail.method.title.split(' ').slice(0, -1).join(' ')} <span className="text-white">{detail.method.title.split(' ').slice(-1)}</span>
-                                </h2>
-                                <p className="text-white text-xl max-w-md">
-                                    {detail.method.description}
-                                </p>
-                            </div>
-                            <div className="space-y-8">
-                                {detail.process.map((p, i) => (
-                                    <div key={i} className="flex gap-6 items-center">
-                                        <div className="w-2 h-2 bg-white rounded-full" />
-                                        <div>
-                                            <span className="text-sm font-heading font-black uppercase tracking-widest text-white block mb-1">Step 0{i + 1}</span>
-                                            <h4 className="text-2xl font-bold text-white">{p.title}</h4>
-                                        </div>
-                                    </div>
-                                ))}
-                            </div>
-                        </div>
-                        {/* Removed decorative background text */}
-                    </div>
-                </motion.div>
-
-                {/* 5. Outro Block */}
-                <motion.div
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true, margin: "-10%" }}
-                    transition={{ duration: 1 }}
-                    className="mb-20 md:mb-32"
-                >
-                    <div className="max-w-4xl mx-auto text-center space-y-8">
-                        <h2 className="text-3xl md:text-5xl font-heading font-black uppercase tracking-tighter leading-tight">
-                            The Future of Your Brand Starts with the <span className="text-secondary">Right PR Partner</span>
+                    <div className="bg-gradient-to-br from-yellow-200 to-yellow-300 text-black p-8 md:p-16 rounded-xl relative overflow-hidden">
+                        <h2 className="text-3xl md:text-5xl font-heading font-black mb-12 text-center">
+                            We're the agency for people who hate agencies
                         </h2>
-                        <p className="text-xl md:text-2xl text-black font-body italic leading-relaxed">
-                            Your brand deserves to be seen, heard, and celebrated. We’ll craft your story, strengthen your presence, and help you dominate both online and offline landscapes.
-                        </p>
-                        <div className="pt-8 text-center flex flex-col items-center">
-                            <span className="text-sm font-heading font-black uppercase tracking-[0.4em] text-secondary">Let's Connect</span>
-                        </div>
+
+                        {(() => {
+                            const [currentSlide, setCurrentSlide] = useState(0);
+
+                            const allCards = [
+                                {
+                                    icon: "🎯",
+                                    title: "We know our sh*t",
+                                    description: "We work hard to recruit and retain the best talent in our industry. Our entire team is fully accredited in their area of expertise - and you can be certain we have the best in the biz representing your brand."
+                                },
+                                {
+                                    icon: "✓",
+                                    title: "We're selective with our clientele",
+                                    description: "We carefully select our partners to ensure we're the right fit for each other, maximizing our potential for success. Our retention rate speaks for itself, and our client portfolio consists of a list of long-term success stories."
+                                },
+                                {
+                                    icon: "👑",
+                                    title: "We don't join trends, we create them",
+                                    description: "See that wave our competitors are riding? We made it. This is your invitation to get on and start setting trends with us."
+                                },
+                                {
+                                    icon: "🏠",
+                                    title: "We're your in-house team",
+                                    description: "We take the whole \"full-service\" thing seriously. Expect to have a long-term and dedicated team on your account."
+                                },
+                                {
+                                    icon: "🔥",
+                                    title: "We don't settle for average",
+                                    description: "We're not here for a participation medal - We play to WIN. Our goal is to drive industry-leading results for our clients, with an award-winning mindset, long-term."
+                                }
+                            ];
+
+                            const getVisibleCards = () => {
+                                const startIndex = currentSlide % 2 === 0 ? 0 : 2;
+                                return allCards.slice(startIndex, startIndex + 3);
+                            };
+
+                            const nextSlide = () => {
+                                setCurrentSlide((prev) => prev + 1);
+                            };
+
+                            const prevSlide = () => {
+                                setCurrentSlide((prev) => prev - 1);
+                            };
+
+                            return (
+                                <div className="relative">
+                                    {/* Cards Grid */}
+                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                                        {getVisibleCards().map((card, idx) => (
+                                            <motion.div
+                                                key={`${currentSlide}-${idx}`}
+                                                initial={{ opacity: 0, x: 50 }}
+                                                animate={{ opacity: 1, x: 0 }}
+                                                exit={{ opacity: 0, x: -50 }}
+                                                transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                                className="bg-yellow-300 bg-opacity-60 backdrop-blur-sm border-2 border-black rounded-lg p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300"
+                                            >
+                                                <div className="text-4xl mb-4">{card.icon}</div>
+                                                <h3 className="text-xl md:text-2xl font-heading font-black mb-3">
+                                                    {card.title}
+                                                </h3>
+                                                <p className="text-sm md:text-base leading-relaxed">
+                                                    {card.description}
+                                                </p>
+                                            </motion.div>
+                                        ))}
+                                    </div>
+
+                                    {/* Navigation Arrows */}
+                                    <div className="flex justify-center gap-4">
+                                        <button
+                                            onClick={prevSlide}
+                                            className="w-12 h-12 rounded-full border-2 border-black bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                                            aria-label="Previous slide"
+                                        >
+                                            <svg className="w-6 h-6 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </button>
+                                        <button
+                                            onClick={nextSlide}
+                                            className="w-12 h-12 rounded-full border-2 border-black bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                                            aria-label="Next slide"
+                                        >
+                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                            </svg>
+                                        </button>
+                                    </div>
+                                </div>
+                            );
+                        })()}
                     </div>
                 </motion.div>
 
@@ -291,6 +353,62 @@ const ServiceDetail = () => {
                         </div>
                     </motion.div>
                 )}
+
+                {/* Contact CTA Section */}
+                <motion.div
+                    initial={{ y: 50, opacity: 0 }}
+                    whileInView={{ y: 0, opacity: 1 }}
+                    viewport={{ once: true, margin: "-10%" }}
+                    transition={{ duration: 1 }}
+                    className="mt-20 md:mt-32"
+                >
+                    <div className="flex flex-wrap justify-center items-center gap-4 md:gap-5">
+                        <Button
+                            onClick={() => navigate('/request-quote')}
+                            variant="yellow"
+                            size="sm"
+                            className="!px-6 !py-3"
+                        >
+                            Request a Quote
+                        </Button>
+
+                        <Button
+                            onClick={() => navigate('/contact')}
+                            variant="red"
+                            size="sm"
+                            className="!px-6 !py-3"
+                        >
+                            General Inquiries
+                        </Button>
+
+                        <Button
+                            onClick={() => navigate('/influencer-partnership')}
+                            variant="purple"
+                            size="sm"
+                            className="!px-6 !py-3"
+                        >
+                            I'm an Influencer
+                        </Button>
+
+                        <Button
+                            onClick={() => navigate('/talent-application')}
+                            variant="red"
+                            size="sm"
+                            className="!px-6 !py-3"
+                        >
+                            I Am a Talent
+                        </Button>
+
+                        <Button
+                            onClick={() => navigate('/hire-talent')}
+                            variant="cyan"
+                            size="sm"
+                            className="!px-6 !py-3"
+                        >
+                            I Need a Talent
+                        </Button>
+                    </div>
+                </motion.div>
             </div>
         </main >
     );

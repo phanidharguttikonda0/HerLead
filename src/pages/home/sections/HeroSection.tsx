@@ -67,6 +67,7 @@ const HeroSection = () => {
                         <video
                             ref={videoRef}
                             autoPlay
+                            loop
                             muted
                             playsInline
                             onEnded={handleVideoEnd}
