@@ -232,112 +232,114 @@ const ServiceDetail = () => {
                 </div>
 
                 {/* 4. Why Choose Us Carousel Section */}
-                <motion.div
-                    initial={{ y: 50, opacity: 0 }}
-                    whileInView={{ y: 0, opacity: 1 }}
-                    viewport={{ once: true, margin: "-10%" }}
-                    transition={{ duration: 1 }}
-                    className="mb-20 md:mb-32"
-                >
-                    <div className="bg-gradient-to-br from-yellow-200 to-yellow-300 text-black p-8 md:p-16 rounded-xl relative overflow-hidden">
-                        <h2 className="text-3xl md:text-5xl font-heading font-black mb-12 text-center">
-                            We're the agency for people who hate agencies
-                        </h2>
+                {slug !== 'web-design' && (
+                    <motion.div
+                        initial={{ y: 50, opacity: 0 }}
+                        whileInView={{ y: 0, opacity: 1 }}
+                        viewport={{ once: true, margin: "-10%" }}
+                        transition={{ duration: 1 }}
+                        className="mb-20 md:mb-32"
+                    >
+                        <div className="bg-gradient-to-br from-yellow-200 to-yellow-300 text-black p-8 md:p-16 rounded-xl relative overflow-hidden">
+                            <h2 className="text-3xl md:text-5xl font-heading font-black mb-12 text-center">
+                                We're the agency for people who hate agencies
+                            </h2>
 
-                        {(() => {
-                            const [currentSlide, setCurrentSlide] = useState(0);
+                            {(() => {
+                                const [currentSlide, setCurrentSlide] = useState(0);
 
-                            const allCards = [
-                                {
-                                    icon: "🎯",
-                                    title: "We know our sh*t",
-                                    description: "We work hard to recruit and retain the best talent in our industry. Our entire team is fully accredited in their area of expertise - and you can be certain we have the best in the biz representing your brand."
-                                },
-                                {
-                                    icon: "✓",
-                                    title: "We're selective with our clientele",
-                                    description: "We carefully select our partners to ensure we're the right fit for each other, maximizing our potential for success. Our retention rate speaks for itself, and our client portfolio consists of a list of long-term success stories."
-                                },
-                                {
-                                    icon: "👑",
-                                    title: "We don't join trends, we create them",
-                                    description: "See that wave our competitors are riding? We made it. This is your invitation to get on and start setting trends with us."
-                                },
-                                {
-                                    icon: "🏠",
-                                    title: "We're your in-house team",
-                                    description: "We take the whole \"full-service\" thing seriously. Expect to have a long-term and dedicated team on your account."
-                                },
-                                {
-                                    icon: "🔥",
-                                    title: "We don't settle for average",
-                                    description: "We're not here for a participation medal - We play to WIN. Our goal is to drive industry-leading results for our clients, with an award-winning mindset, long-term."
-                                }
-                            ];
+                                const allCards = [
+                                    {
+                                        icon: "🎯",
+                                        title: "We know our sh*t",
+                                        description: "We work hard to recruit and retain the best talent in our industry. Our entire team is fully accredited in their area of expertise - and you can be certain we have the best in the biz representing your brand."
+                                    },
+                                    {
+                                        icon: "✓",
+                                        title: "We're selective with our clientele",
+                                        description: "We carefully select our partners to ensure we're the right fit for each other, maximizing our potential for success. Our retention rate speaks for itself, and our client portfolio consists of a list of long-term success stories."
+                                    },
+                                    {
+                                        icon: "👑",
+                                        title: "We don't join trends, we create them",
+                                        description: "See that wave our competitors are riding? We made it. This is your invitation to get on and start setting trends with us."
+                                    },
+                                    {
+                                        icon: "🏠",
+                                        title: "We're your in-house team",
+                                        description: "We take the whole \"full-service\" thing seriously. Expect to have a long-term and dedicated team on your account."
+                                    },
+                                    {
+                                        icon: "🔥",
+                                        title: "We don't settle for average",
+                                        description: "We're not here for a participation medal - We play to WIN. Our goal is to drive industry-leading results for our clients, with an award-winning mindset, long-term."
+                                    }
+                                ];
 
-                            const getVisibleCards = () => {
-                                const startIndex = currentSlide % 2 === 0 ? 0 : 2;
-                                return allCards.slice(startIndex, startIndex + 3);
-                            };
+                                const getVisibleCards = () => {
+                                    const startIndex = currentSlide % 2 === 0 ? 0 : 2;
+                                    return allCards.slice(startIndex, startIndex + 3);
+                                };
 
-                            const nextSlide = () => {
-                                setCurrentSlide((prev) => prev + 1);
-                            };
+                                const nextSlide = () => {
+                                    setCurrentSlide((prev) => prev + 1);
+                                };
 
-                            const prevSlide = () => {
-                                setCurrentSlide((prev) => prev - 1);
-                            };
+                                const prevSlide = () => {
+                                    setCurrentSlide((prev) => prev - 1);
+                                };
 
-                            return (
-                                <div className="relative">
-                                    {/* Cards Grid */}
-                                    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                                        {getVisibleCards().map((card, idx) => (
-                                            <motion.div
-                                                key={`${currentSlide}-${idx}`}
-                                                initial={{ opacity: 0, x: 50 }}
-                                                animate={{ opacity: 1, x: 0 }}
-                                                exit={{ opacity: 0, x: -50 }}
-                                                transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                                className="bg-yellow-300 bg-opacity-60 backdrop-blur-sm border-2 border-black rounded-lg p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300"
+                                return (
+                                    <div className="relative">
+                                        {/* Cards Grid */}
+                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                                            {getVisibleCards().map((card, idx) => (
+                                                <motion.div
+                                                    key={`${currentSlide}-${idx}`}
+                                                    initial={{ opacity: 0, x: 50 }}
+                                                    animate={{ opacity: 1, x: 0 }}
+                                                    exit={{ opacity: 0, x: -50 }}
+                                                    transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                                    className="bg-yellow-300 bg-opacity-60 backdrop-blur-sm border-2 border-black rounded-lg p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300"
+                                                >
+                                                    <div className="text-4xl mb-4">{card.icon}</div>
+                                                    <h3 className="text-xl md:text-2xl font-heading font-black mb-3">
+                                                        {card.title}
+                                                    </h3>
+                                                    <p className="text-sm md:text-base leading-relaxed">
+                                                        {card.description}
+                                                    </p>
+                                                </motion.div>
+                                            ))}
+                                        </div>
+
+                                        {/* Navigation Arrows */}
+                                        <div className="flex justify-center gap-4">
+                                            <button
+                                                onClick={prevSlide}
+                                                className="w-12 h-12 rounded-full border-2 border-black bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                                                aria-label="Previous slide"
                                             >
-                                                <div className="text-4xl mb-4">{card.icon}</div>
-                                                <h3 className="text-xl md:text-2xl font-heading font-black mb-3">
-                                                    {card.title}
-                                                </h3>
-                                                <p className="text-sm md:text-base leading-relaxed">
-                                                    {card.description}
-                                                </p>
-                                            </motion.div>
-                                        ))}
+                                                <svg className="w-6 h-6 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </button>
+                                            <button
+                                                onClick={nextSlide}
+                                                className="w-12 h-12 rounded-full border-2 border-black bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
+                                                aria-label="Next slide"
+                                            >
+                                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                </svg>
+                                            </button>
+                                        </div>
                                     </div>
-
-                                    {/* Navigation Arrows */}
-                                    <div className="flex justify-center gap-4">
-                                        <button
-                                            onClick={prevSlide}
-                                            className="w-12 h-12 rounded-full border-2 border-black bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                                            aria-label="Previous slide"
-                                        >
-                                            <svg className="w-6 h-6 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                            </svg>
-                                        </button>
-                                        <button
-                                            onClick={nextSlide}
-                                            className="w-12 h-12 rounded-full border-2 border-black bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                                            aria-label="Next slide"
-                                        >
-                                            <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                            </svg>
-                                        </button>
-                                    </div>
-                                </div>
-                            );
-                        })()}
-                    </div>
-                </motion.div>
+                                );
+                            })()}
+                        </div>
+                    </motion.div>
+                )}
 
                 {/* 6. FAQ Section */}
                 {detail.faqs && detail.faqs.length > 0 && (
