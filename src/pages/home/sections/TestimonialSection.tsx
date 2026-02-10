@@ -29,9 +29,9 @@ const TestimonialSection = () => {
     return (
         <section
             ref={containerRef}
-            className='relative w-full bg-accent-blue mt-12 md:mt-20 py-16 md:py-24 px-6 md:px-12 lg:px-20 overflow-hidden rounded-t-3xl md:rounded-t-[2.5rem]'
+            className='relative w-[90%] md:w-[80%] mx-auto bg-[#FFE4E1] mt-12 md:mt-20 py-16 md:py-24 overflow-hidden rounded-t-3xl md:rounded-t-[2.5rem]'
         >
-            <div className='max-w-7xl mx-auto'>
+            <div className='w-full px-8 md:px-16 lg:px-24 mx-auto'>
                 {/* Header (Centered) */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
@@ -44,22 +44,22 @@ const TestimonialSection = () => {
                             initial={{ scaleX: 0 }}
                             whileInView={{ scaleX: 1 }}
                             transition={{ duration: 0.8 }}
-                            className='w-12 md:w-20 h-[2px] bg-white origin-right'
+                            className='w-12 md:w-20 h-[2px] bg-black origin-right'
                         />
-                        <h2 className='text-2xl sm:text-3xl md:text-5xl lg:text-section-label font-heading font-black uppercase tracking-[0.2em] text-white whitespace-nowrap'>
+                        <h2 className='text-2xl sm:text-3xl md:text-5xl lg:text-section-label font-heading font-black uppercase tracking-[0.2em] text-black whitespace-nowrap'>
                             Testimonials
                         </h2>
                         <motion.div
                             initial={{ scaleX: 0 }}
                             whileInView={{ scaleX: 1 }}
                             transition={{ duration: 0.8 }}
-                            className='w-12 md:w-20 h-[2px] bg-white origin-left'
+                            className='w-12 md:w-20 h-[2px] bg-black origin-left'
                         />
                     </div>
                     <div className='mt-8 md:mt-12'>
-                        <h3 className='text-4xl font-heading font-black text-white leading-none tracking-tighter uppercase'>
+                        <h3 className='text-4xl font-heading font-black text-black leading-none tracking-tighter uppercase'>
                             What our clients <br className='hidden md:block' />
-                            <span className="italic text-white">love about us</span>
+                            <span className="italic text-secondary">love about us</span>
                         </h3>
                     </div>
                 </motion.div>
@@ -76,16 +76,16 @@ const TestimonialSection = () => {
                         <motion.div
                             key={t.id}
                             variants={cardVariants}
-                            className='space-y-6 flex flex-col'
+                            className='space-y-6 flex flex-col bg-white p-8 rounded-2xl shadow-lg hover:shadow-xl transition-shadow duration-300'
                         >
                             {/* Quote Icon SVG */}
-                            <div className='text-white'>
+                            <div className='text-secondary'>
                                 <svg width="32" height="24" viewBox="0 0 48 36" fill="currentColor">
                                     <path d="M0 21.6001C0 14.4001 2.4 -5.72205e-05 14.4 -5.72205e-05V7.20002C9.6 7.20002 7.2 12 7.2 16.8001V21.6001H14.4V36H0V21.6001ZM26.4 21.6001C26.4 14.4001 28.8 -5.72205e-05 40.8 -5.72205e-05V7.20002C36 7.20002 33.6 12 33.6 16.8001V21.6001H40.8V36H26.4V21.6001Z" />
                                 </svg>
                             </div>
 
-                            <p className='text-white text-sm md:text-body-custom font-body font-bold leading-[1.6] flex-1'>
+                            <p className='text-black/80 text-sm md:text-body-custom font-body font-bold leading-[1.6] flex-1'>
                                 "{t.quote}"
                             </p>
 
@@ -97,10 +97,15 @@ const TestimonialSection = () => {
                                     ))}
                                 </div>
                                 <div className='flex flex-col'>
-                                    <span className='text-white font-heading font-black uppercase text-sm tracking-[0.2em]'>
-                                        {t.company}
+                                    <span className='text-black font-heading font-black uppercase text-lg tracking-wide'>
+                                        {t.author}
                                     </span>
-                                    <span className='text-white text-[10px] uppercase font-bold tracking-widest'>Verified Client</span>
+                                    <span className='text-black/60 font-body text-sm font-bold'>
+                                        {t.role}
+                                    </span>
+                                    <span className='text-primary text-[10px] uppercase font-bold tracking-widest mt-1'>
+                                        {t.service}
+                                    </span>
                                 </div>
                             </div>
                         </motion.div>

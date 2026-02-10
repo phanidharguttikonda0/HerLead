@@ -1,17 +1,26 @@
 export const testimonials = [
     {
         id: 1,
-        quote: "Wow - what an event! We are still buzzing over here. It was truly a memorable evening. The attention to detail was particularly impressive. Every element, from the décor, the drink menu names, the photo booth, the signage, etc., was meticulously planned and executed. It's clear there was a lot of thought and care into making the event special.",
-        company: "LuxBeauty",
+        quote: "Working with this team completely transformed our social media presence. They built a clear and consistent brand identity for MadLab across Facebook and LinkedIn, which helped us look far more professional and aligned with our vision. The strategy, visuals, and execution were all handled seamlessly. Communication was smooth, deadlines were met, and the results spoke for themselves. I’d highly recommend them to any brand looking to strengthen their online presence.",
+        author: "Rachael",
+        role: "Founder, MadLab UK",
+        service: "Social Media & Brand Identity",
+        company: "MadLab UK",
     },
     {
         id: 2,
-        quote: "I've had the pleasure of working with HerLead for over five years, and they continue to impress me with their professionalism, creativity, and genuine care for the people they work with. As they've grown, they've managed to maintain the same kind and collaborative spirit that made them stand out from the start. The team goes above and beyond to advocate for their clients.",
-        company: "TechFlow",
+        quote: "From website development to SEO, the entire experience was outstanding. They understood our business needs quickly and delivered a clean, high-performing website for MedSync. On top of that, the SEO work helped improve our visibility and overall online credibility. Everything was well-structured, transparent, and results-driven. It felt like working with a partner rather than a vendor.",
+        author: "Jeff Merrick",
+        role: "Founder, MedSync",
+        service: "Website Development & SEO",
+        company: "MedSync",
     },
     {
         id: 3,
-        quote: "HerLead is phenomenal. They're incredible outside-the-box thinkers and we're a great alternative to the traditional marketing efforts taken for the NFP I work for. We worked directly with the team, who had a high level understanding of the industry and a completely professional approach to social promotion. Looking forward to working with their team again!",
-        company: "Vogue Collective",
+        quote: "They supported us with worldwide hiring, brand ads, and influencer collaborations for MUZM, including an influencer meet in Mexico. The coordination, planning, and execution were handled professionally from start to finish. Their ability to manage international hiring and global brand exposure was impressive. We saw strong engagement and meaningful connections for our brand.",
+        author: "Murti",
+        role: "Founder, MUZM Gallery",
+        service: "Global Hiring, Ads & Influencer Marketing",
+        company: "MUZM Gallery",
     }
 ];
