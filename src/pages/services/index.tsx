@@ -83,9 +83,10 @@ const ServiceDetail = () => {
                 </div>
 
                 {/* 2. Hero Section (Restructured Layout) */}
+                {/* 2. Hero Section (Restructured Layout) */}
                 <div className="mb-20 md:mb-32">
                     {/* Heading - Full Width */}
-                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-black leading-[1.1] tracking-tighter uppercase text-left text-secondary mb-12 lg:whitespace-nowrap">
+                    <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-heading font-black leading-[1.1] tracking-tighter uppercase text-left text-secondary mb-8">
                         <motion.span
                             initial={{ y: 50, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
@@ -96,19 +97,56 @@ const ServiceDetail = () => {
                         </motion.span>
                     </h1>
 
-                    {/* Content Grid: Text Left, Video Right */}
-                    <div className="grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12 items-start">
-                        {/* Left: Text Content */}
+                    {/* Content Stack: Subtitle -> Video -> Description */}
+                    <div className="flex flex-col gap-8 md:gap-12 items-start">
+                        {/* Subtitle */}
+                        <motion.div
+                            initial={{ y: 30, opacity: 0 }}
+                            animate={{ y: 0, opacity: 1 }}
+                            transition={{ duration: 1, ease: "easeOut", delay: 0.4 }}
+                        >
+                            <p className="text-xl md:text-2xl font-bold leading-relaxed">
+                                {detail.subtitle}
+                            </p>
+                        </motion.div>
+
+                        {/* Visual: Video or Image */}
+                        {(detail.heroVideo || detail.heroImage) && (
+                            <div className="w-full relative">
+                                <motion.div
+                                    initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
+                                    animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
+                                    transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
+                                    className="relative w-full aspect-[16/9] overflow-hidden rounded-sm hero-img flex items-center justify-center bg-transparent"
+                                >
+                                    {detail.heroVideo ? (
+                                        <video
+                                            src={detail.heroVideo}
+                                            autoPlay
+                                            loop
+                                            muted
+                                            playsInline
+                                            className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                                        />
+                                    ) : (
+                                        <img
+                                            src={detail.heroImage}
+                                            alt={detail.title}
+                                            className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+                                        />
+                                    )}
+                                </motion.div>
+                            </div>
+                        )}
+
+                        {/* Description & Stats */}
                         <motion.div
                             initial={{ y: 40, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
-                            className="lg:col-span-3 space-y-6"
+                            className="space-y-8 max-w-4xl"
                         >
                             <div className="w-16 md:w-20 h-1 bg-black" />
-                            <p className="text-lg md:text-xl font-bold leading-relaxed">
-                                {detail.subtitle}
-                            </p>
                             <p className="text-lg md:text-xl text-black leading-relaxed">
                                 {detail.description}
                             </p>
@@ -124,33 +162,6 @@ const ServiceDetail = () => {
                                 </div>
                             )}
                         </motion.div>
-
-                        {/* Right: Video */}
-                        <div className="lg:col-span-9 relative">
-                            <motion.div
-                                initial={{ clipPath: "inset(0% 100% 0% 0%)" }}
-                                animate={{ clipPath: "inset(0% 0% 0% 0%)" }}
-                                transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1], delay: 0.5 }}
-                                className="relative w-full aspect-[400/231] overflow-hidden rounded-sm hero-img flex items-center justify-center bg-transparent"
-                            >
-                                {detail.heroVideo ? (
-                                    <video
-                                        src={detail.heroVideo}
-                                        autoPlay
-                                        loop
-                                        muted
-                                        playsInline
-                                        className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
-                                    />
-                                ) : (
-                                    <img
-                                        src={detail.heroImage}
-                                        alt={detail.title}
-                                        className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
-                                    />
-                                )}
-                            </motion.div>
-                        </div>
                     </div>
                 </div>
 
@@ -337,15 +348,13 @@ const ServiceDetail = () => {
                         transition={{ duration: 1 }}
                         className="mb-12 md:mb-16"
                     >
-                        <div className="border-t-2 border-black pt-10 md:pt-16 flex flex-col lg:flex-row gap-10 md:gap-16">
-                            <div className="lg:w-1/3">
-                                <h3 className="text-4xl md:text-5xl font-heading font-black uppercase tracking-tighter leading-none sticky top-32">
-                                    Frequently <br />
-                                    <span className="text-secondary italic">Asked</span> <br />
-                                    Questions
+                        <div className="border-t-2 border-black pt-10 md:pt-16 flex flex-col gap-10 md:gap-16">
+                            <div className="w-full">
+                                <h3 className="text-4xl md:text-5xl font-heading font-black uppercase tracking-tighter leading-none text-secondary">
+                                    Frequently Asked Questions
                                 </h3>
                             </div>
-                            <div className="lg:w-2/3 space-y-12">
+                            <div className="w-full space-y-12">
                                 {detail.faqs.slice(0, 5).map((faq, i) => (
                                     <FAQItem key={i} faq={faq} index={i} />
                                 ))}

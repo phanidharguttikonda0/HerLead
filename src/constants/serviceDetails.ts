@@ -3,7 +3,7 @@ export interface ServiceDetail {
     title: string;
     subtitle: string;
     description: string;
-    heroImage: string;
+    heroImage?: string;
     heroVideo?: string;
     stats?: { label: string; value: string }[];
     features: { title: string; desc: string; image: string }[];
@@ -20,8 +20,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         title: "PR & Media Services",
         subtitle: "Because in today’s world, visibility isn’t a luxury — it’s survival.",
         description: "In the age of digital dominance, Public Relations (PR) has evolved into the new marketing strategy, one that shapes perception, builds trust, and establishes long-term brand authority. Consumers today don’t just buy products; they buy stories, reputations, and experiences. PR bridges the gap between what you do and how the world perceives it. Our PR & Media Services are designed to help businesses across industries develop, communicate, and manage a strong and authentic brand image. We don’t just promote your business; we create a brand presence that inspires trust and drives growth.",
-        heroImage: "/images/services/hero-pr.png",
-        heroVideo: "/videos/pr1.mp4",
+        // heroImage: "/images/services/hero-pr.png",
+        // heroVideo: "/videos/pr.webm",
         gallery: ["/images/service-details/pr1.jpg"],
         features: [
             {
@@ -233,8 +233,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         title: "Brand Creation",
         subtitle: "Strategy first, identity next, impact always.",
         description: "Brand Creation at HerLead goes beyond logos and color palettes. We shape brands from the inside out—strategy first, identity next, impact always. Alongside defining your positioning, messaging, and visual identity, we strategically optimize your social media presence to reflect authority, consistency, and clarity. Every platform, every visual, and every word is designed to build recognition and make you the go-to name in your space.",
-        heroImage: "/images/services/5.webp",
-        heroVideo: "/videos/influencer.mp4",
+        // heroImage: "/images/services/5.webp",
+        // heroVideo: "/videos/influencer.mp4",
         gallery: ["/images/service-details/brand.webp"],
         features: [
             {
@@ -441,8 +441,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         title: "Social Media Management",
         subtitle: "A presence that feels active, thoughtful, and trusted.",
         description: "Not every brand needs to be online all the time—just in the right way. At HerLead, we fix scattered and inconsistent social media and turn it into a clear, reliable presence. We manage your platforms so your brand stays visible, relevant, and aligned, without demanding your constant attention. The result is a presence that feels active, thoughtful, and trusted even when you’re not posting every day.",
-        heroImage: "/images/service-details/media.webp",
-        heroVideo: "/videos/vintage.mp4",
+        // heroImage: "/images/service-details/media.webp",
+        // heroVideo: "/videos/vintage.mp4",
         gallery: ["/images/service-details/review.png"],
         features: [
             {
