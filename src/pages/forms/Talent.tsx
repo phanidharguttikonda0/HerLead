@@ -4,7 +4,7 @@ const TalentPage = () => {
     return (
         <FormPageLayout
             hero={{
-                title: <>{'Fine!!!'} <br /> <span className="text-black">Impress Us.</span></>,
+                title: <>{'Fine!!!'} <br /> <span>Impress Us.</span></>,
                 subtext: (
                     <div className="space-y-4">
                         <p className="text-xl md:text-3xl font-body font-black leading-relaxed text-black">

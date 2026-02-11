@@ -4,7 +4,7 @@ const HireTalentPage = () => {
     return (
         <FormPageLayout
             hero={{
-                title: <>Hire Talent. <br /> <span className="text-black">Retire Headaches.</span></>,
+                title: <>Hire Talent. <br /> <span className="">Retire Headaches.</span></>,
                 subtext: (
                     <p className="text-xl md:text-3xl font-body font-black leading-relaxed text-black">
                         We don’t send “almost right.” <br />

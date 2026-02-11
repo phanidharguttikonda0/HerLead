@@ -4,7 +4,7 @@ const RequestQuotePage = () => {
     return (
         <FormPageLayout
             hero={{
-                title: <>Begin Your <br /> <span className="text-black text-[0.9em]">Partnership With Us</span></>,
+                title: <>Begin Your <br /> <span className="text-[0.9em]">Partnership With Us</span></>,
                 subtext: (
                     <p className="text-xl md:text-3xl font-body font-black leading-relaxed text-black">
                         At HerLead, we support brands that are ready to grow with clarity and confidence.
