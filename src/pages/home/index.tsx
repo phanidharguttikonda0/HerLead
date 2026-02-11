@@ -31,6 +31,7 @@ const Home = () => {
             <section id="blogs">
                 <BlogsSection />
             </section>
+
             <section id="partners">
                 <PartnersSection />
             </section>
