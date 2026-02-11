@@ -240,104 +240,94 @@ const ServiceDetail = () => {
                         transition={{ duration: 1 }}
                         className="mb-20 md:mb-32"
                     >
-                        <div className="bg-gradient-to-br from-yellow-200 to-yellow-300 text-black p-8 md:p-16 rounded-xl relative overflow-hidden">
-                            <h2 className="text-3xl md:text-5xl font-heading font-black mb-12 text-center">
-                                We're the agency for people who hate agencies
-                            </h2>
+                        {(() => {
+                            const defaultStyle = {
+                                sectionBg: "bg-gradient-to-br from-yellow-200 to-yellow-300",
+                                textColor: "text-black",
+                                cardBg: "bg-yellow-300 bg-opacity-60 backdrop-blur-sm",
+                                cardBorder: "border-black",
+                                cardTitleColor: "text-black",
+                                cardTextColor: "text-black",
+                                buttonStyle: "border-black bg-white hover:bg-black hover:text-white"
+                            };
 
-                            {(() => {
-                                const [currentSlide, setCurrentSlide] = useState(0);
+                            const style = detail.agencyStyle || serviceDetails['pr-media-services'].agencyStyle || defaultStyle;
 
-                                const allCards = [
-                                    {
-                                        icon: "🎯",
-                                        title: "We know our sh*t",
-                                        description: "We work hard to recruit and retain the best talent in our industry. Our entire team is fully accredited in their area of expertise - and you can be certain we have the best in the biz representing your brand."
-                                    },
-                                    {
-                                        icon: "✓",
-                                        title: "We're selective with our clientele",
-                                        description: "We carefully select our partners to ensure we're the right fit for each other, maximizing our potential for success. Our retention rate speaks for itself, and our client portfolio consists of a list of long-term success stories."
-                                    },
-                                    {
-                                        icon: "👑",
-                                        title: "We don't join trends, we create them",
-                                        description: "See that wave our competitors are riding? We made it. This is your invitation to get on and start setting trends with us."
-                                    },
-                                    {
-                                        icon: "🏠",
-                                        title: "We're your in-house team",
-                                        description: "We take the whole \"full-service\" thing seriously. Expect to have a long-term and dedicated team on your account."
-                                    },
-                                    {
-                                        icon: "🔥",
-                                        title: "We don't settle for average",
-                                        description: "We're not here for a participation medal - We play to WIN. Our goal is to drive industry-leading results for our clients, with an award-winning mindset, long-term."
-                                    }
-                                ];
+                            return (
+                                <div className={`${style.sectionBg} ${style.textColor} p-8 md:p-16 rounded-xl relative overflow-hidden transition-colors duration-500`}>
+                                    <h2 className="text-3xl md:text-5xl font-heading font-black mb-12 text-center">
+                                        We're the agency for people who hate agencies
+                                    </h2>
 
-                                const getVisibleCards = () => {
-                                    const startIndex = currentSlide % 2 === 0 ? 0 : 2;
-                                    return allCards.slice(startIndex, startIndex + 3);
-                                };
+                                    {(() => {
+                                        const [currentSlide, setCurrentSlide] = useState(0);
 
-                                const nextSlide = () => {
-                                    setCurrentSlide((prev) => prev + 1);
-                                };
+                                        const allCards = detail.agencyCards || serviceDetails['pr-media-services'].agencyCards || [];
 
-                                const prevSlide = () => {
-                                    setCurrentSlide((prev) => prev - 1);
-                                };
+                                        const getVisibleCards = () => {
+                                            const startIndex = currentSlide % 2 === 0 ? 0 : 2;
+                                            return allCards.slice(startIndex, startIndex + 3);
+                                        };
 
-                                return (
-                                    <div className="relative">
-                                        {/* Cards Grid */}
-                                        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
-                                            {getVisibleCards().map((card, idx) => (
-                                                <motion.div
-                                                    key={`${currentSlide}-${idx}`}
-                                                    initial={{ opacity: 0, x: 50 }}
-                                                    animate={{ opacity: 1, x: 0 }}
-                                                    exit={{ opacity: 0, x: -50 }}
-                                                    transition={{ duration: 0.5, delay: idx * 0.1 }}
-                                                    className="bg-yellow-300 bg-opacity-60 backdrop-blur-sm border-2 border-black rounded-lg p-6 shadow-[4px_4px_0px_0px_rgba(0,0,0,1)] hover:shadow-[6px_6px_0px_0px_rgba(0,0,0,1)] hover:-translate-y-1 transition-all duration-300"
-                                                >
-                                                    <div className="text-4xl mb-4">{card.icon}</div>
-                                                    <h3 className="text-xl md:text-2xl font-heading font-black mb-3">
-                                                        {card.title}
-                                                    </h3>
-                                                    <p className="text-sm md:text-base leading-relaxed">
-                                                        {card.description}
-                                                    </p>
-                                                </motion.div>
-                                            ))}
-                                        </div>
+                                        const nextSlide = () => {
+                                            setCurrentSlide((prev) => prev + 1);
+                                        };
 
-                                        {/* Navigation Arrows */}
-                                        <div className="flex justify-center gap-4">
-                                            <button
-                                                onClick={prevSlide}
-                                                className="w-12 h-12 rounded-full border-2 border-black bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                                                aria-label="Previous slide"
-                                            >
-                                                <svg className="w-6 h-6 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </button>
-                                            <button
-                                                onClick={nextSlide}
-                                                className="w-12 h-12 rounded-full border-2 border-black bg-white hover:bg-black hover:text-white transition-all duration-300 flex items-center justify-center shadow-[2px_2px_0px_0px_rgba(0,0,0,1)] hover:shadow-[4px_4px_0px_0px_rgba(0,0,0,1)]"
-                                                aria-label="Next slide"
-                                            >
-                                                <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                                                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                                                </svg>
-                                            </button>
-                                        </div>
-                                    </div>
-                                );
-                            })()}
-                        </div>
+                                        const prevSlide = () => {
+                                            setCurrentSlide((prev) => prev - 1);
+                                        };
+
+                                        return (
+                                            <div className="relative">
+                                                {/* Cards Grid */}
+                                                <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 mb-8">
+                                                    {getVisibleCards().map((card, idx) => (
+                                                        <motion.div
+                                                            key={`${currentSlide}-${idx}`}
+                                                            initial={{ opacity: 0, x: 50 }}
+                                                            animate={{ opacity: 1, x: 0 }}
+                                                            exit={{ opacity: 0, x: -50 }}
+                                                            transition={{ duration: 0.5, delay: idx * 0.1 }}
+                                                            className={`${style.cardBg} ${style.cardBorder} border-2 rounded-lg p-6 hover:-translate-y-1 transition-all duration-300 shadow-sm`}
+                                                        >
+                                                            <div className={`text-4xl mb-4 ${style.cardTitleColor}`}>{card.icon}</div>
+                                                            <h3 className={`text-xl md:text-2xl font-heading font-black mb-3 ${style.cardTitleColor}`}>
+                                                                {card.title}
+                                                            </h3>
+                                                            <p className={`text-sm md:text-base leading-relaxed opacity-90 ${style.cardTextColor}`}>
+                                                                {card.description}
+                                                            </p>
+                                                        </motion.div>
+                                                    ))}
+                                                </div>
+
+                                                {/* Navigation Arrows */}
+                                                <div className="flex justify-center gap-4">
+                                                    <button
+                                                        onClick={prevSlide}
+                                                        className={`w-12 h-12 rounded-full border-2 ${style.buttonStyle} transition-all duration-300 flex items-center justify-center shadow-sm`}
+                                                        aria-label="Previous slide"
+                                                    >
+                                                        <svg className="w-6 h-6 rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                        </svg>
+                                                    </button>
+                                                    <button
+                                                        onClick={nextSlide}
+                                                        className={`w-12 h-12 rounded-full border-2 ${style.buttonStyle} transition-all duration-300 flex items-center justify-center shadow-sm`}
+                                                        aria-label="Next slide"
+                                                    >
+                                                        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                                                        </svg>
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        );
+                                    })()}
+                                </div>
+                            );
+                        })()}
                     </motion.div>
                 )}
 

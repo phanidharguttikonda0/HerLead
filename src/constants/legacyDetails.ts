@@ -1,7 +1,10 @@
 import type { ServiceDetail } from './serviceDetails';
+import { prCards, brandCards, webCards, adsCards, trainingCards, talentCards, prStyle, brandStyle, webStyle, adsStyle, trainingStyle, talentStyle } from './serviceDetails';
 
 export const legacyDetails: Record<string, ServiceDetail> = {
     "public-relations": {
+        agencyStyle: prStyle,
+        agencyCards: prCards,
         slug: "public-relations",
         title: "Public Relations",
         subtitle: "Where public relations meets strategy, your story finds its audience",
@@ -54,6 +57,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "media-outreach-monitoring": {
+        agencyStyle: prStyle,
+        agencyCards: prCards,
         slug: "media-outreach-monitoring",
         title: "Media Outreach & Monitoring",
         subtitle: "What we do best",
@@ -95,6 +100,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "influencer-pr-collaborations": {
+        agencyStyle: prStyle,
+        agencyCards: prCards,
         slug: "influencer-pr-collaborations",
         title: "Influencer PR & Collaborations",
         subtitle: "Influencer PR & Collaborations That Actually Hit Different",
@@ -136,6 +143,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "event-publicity": {
+        agencyStyle: prStyle,
+        agencyCards: prCards,
         slug: "event-publicity",
         title: "Event Publicity",
         subtitle: "Event Publicity That Turns Moments Into Media Moments",
@@ -178,6 +187,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "press-release-writing": {
+        agencyStyle: prStyle,
+        agencyCards: prCards,
         slug: "press-release-writing",
         title: "Press Release Writing & Distribution",
         subtitle: "Press Release Writing & Distribution That Makes Headlines Happen",
@@ -219,6 +230,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "reputation-crisis-management": {
+        agencyStyle: prStyle,
+        agencyCards: prCards,
         slug: "reputation-crisis-management",
         title: "Reputation & Crisis Management",
         subtitle: "Protecting What You’ve Built with Precision",
@@ -260,6 +273,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "brand-identity": {
+        agencyStyle: brandStyle,
+        agencyCards: brandCards,
         slug: "brand-identity",
         title: "Brand Identity",
         subtitle: "We help brands own their space",
@@ -302,6 +317,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "visual-branding": {
+        agencyStyle: brandStyle,
+        agencyCards: brandCards,
         slug: "visual-branding",
         title: "Visual Branding",
         subtitle: "Unmistakably Yours",
@@ -343,6 +360,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "messaging-positioning": {
+        agencyStyle: brandStyle,
+        agencyCards: brandCards,
         slug: "messaging-positioning",
         title: "Messaging & Positioning",
         subtitle: "Clarity, Confidence, and Purpose",
@@ -384,6 +403,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "brand-guidelines": {
+        agencyStyle: brandStyle,
+        agencyCards: brandCards,
         slug: "brand-guidelines",
         title: "Brand Guidelines",
         subtitle: "A Clear Framework for Consistency",
@@ -425,6 +446,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "videography": {
+        agencyStyle: brandStyle,
+        agencyCards: brandCards,
         slug: "videography",
         title: "Videography Production",
         subtitle: "Transforming Stories into Visual Experiences",
@@ -467,6 +490,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "website-designing": {
+        agencyStyle: webStyle,
+        agencyCards: webCards,
         slug: "website-designing",
         title: "Website Designing",
         subtitle: "We help businesses use their website as a growth engine",
@@ -508,6 +533,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "website-redesign-development": {
+        agencyStyle: webStyle,
+        agencyCards: webCards,
         slug: "website-redesign-development",
         title: "Website Redesign & Development",
         subtitle: "Modern, High-Performing Digital Experiences",
@@ -550,6 +577,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "ux-ui-strategy": {
+        agencyStyle: webStyle,
+        agencyCards: webCards,
         slug: "ux-ui-strategy",
         title: "UX/UI Strategy",
         subtitle: "Intuitive, Engaging, and Effortless Experiences",
@@ -591,6 +620,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "website-content-structuring": {
+        agencyStyle: webStyle,
+        agencyCards: webCards,
         slug: "website-content-structuring",
         title: "Website Content Structuring",
         subtitle: "Organized, Intentional, and Action-Oriented",
@@ -633,6 +664,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "meta-ads": {
+        agencyStyle: adsStyle,
+        agencyCards: adsCards,
         slug: "meta-ads",
         title: "Meta Ads",
         subtitle: "Precision, Impact, and Measurable Growth",
@@ -674,6 +707,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "google-ads": {
+        agencyStyle: adsStyle,
+        agencyCards: adsCards,
         slug: "google-ads",
         title: "Google Ads",
         subtitle: "Precision, Relevance, and Intent",
@@ -715,6 +750,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "facebook-ads": {
+        agencyStyle: adsStyle,
+        agencyCards: adsCards,
         slug: "facebook-ads",
         title: "Facebook Ads",
         subtitle: "Tapping Into Facebook’s Advertising Potential",
@@ -756,6 +793,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "instagram-ads": {
+        agencyStyle: adsStyle,
+        agencyCards: adsCards,
         slug: "instagram-ads",
         title: "Instagram Ads",
         subtitle: "Visual Storytelling that Stops the Scroll",
@@ -797,6 +836,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "linkedin-ads": {
+        agencyStyle: adsStyle,
+        agencyCards: adsCards,
         slug: "linkedin-ads",
         title: "LinkedIn Ads",
         subtitle: "B2B Authority & Professional Precision",
@@ -838,6 +879,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "corporate-trainings": {
+        agencyStyle: trainingStyle,
+        agencyCards: trainingCards,
         slug: "corporate-trainings",
         title: "Corporate Trainings",
         subtitle: "Shaping People and Organizations",
@@ -879,6 +922,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "leadership-communication-training": {
+        agencyStyle: trainingStyle,
+        agencyCards: trainingCards,
         slug: "leadership-communication-training",
         title: "Leadership & Communication",
         subtitle: "Lead with Power and Clarity",
@@ -920,6 +965,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "team-productivity-culture": {
+        agencyStyle: trainingStyle,
+        agencyCards: trainingCards,
         slug: "team-productivity-culture",
         title: "Productivity & Culture",
         subtitle: "Building High-Performing Communities",
@@ -961,6 +1008,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "personal-branding-professionals": {
+        agencyStyle: trainingStyle,
+        agencyCards: trainingCards,
         slug: "personal-branding-professionals",
         title: "Personal Branding",
         subtitle: "Be the Go-To Name in Your Industry",
@@ -1002,6 +1051,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "live-training-program": {
+        agencyStyle: talentStyle,
+        agencyCards: talentCards,
         slug: "live-training-program",
         title: "Live Training Program",
         subtitle: "Bridge the Gap to Your Dream Career",
@@ -1043,6 +1094,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "mock-interviews-feedback": {
+        agencyStyle: talentStyle,
+        agencyCards: talentCards,
         slug: "mock-interviews-feedback",
         title: "Mock Interviews",
         subtitle: "Perfect Your First Impression",
@@ -1084,6 +1137,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "professional-grooming-training": {
+        agencyStyle: talentStyle,
+        agencyCards: talentCards,
         slug: "professional-grooming-training",
         title: "Professional Grooming",
         subtitle: "Appearance and Presence Mastery",
@@ -1125,6 +1180,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         ]
     },
     "resume-building-job-search": {
+        agencyStyle: talentStyle,
+        agencyCards: talentCards,
         slug: "resume-building-job-search",
         title: "Resume & Job Search",
         subtitle: "Get Noticed by the Right People",
