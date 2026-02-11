@@ -95,7 +95,7 @@ const Navbar = () => {
                             onClick={() => navigate('/hire-talent')}
                             variant="cyan"
                             size="sm"
-                            className="!px-6 !py-3"
+                            className="!px-5 !py-2.5"
                         >
                             I Need a Talent
                         </Button>
@@ -104,7 +104,7 @@ const Navbar = () => {
                             onClick={() => navigate('/talent-application')}
                             variant="red"
                             size="sm"
-                            className="!px-6 !py-3"
+                            className="!px-5 !py-2.5"
                         >
                             I Am a Talent
                         </Button>
@@ -117,7 +117,7 @@ const Navbar = () => {
                                 key={link.name}
                                 to={link.path}
                                 onClick={(e) => handleNavClick(e, link)}
-                                className="text-[21px] uppercase tracking-[0.2em] font-heading font-bold text-text hover:text-secondary transition-colors duration-300 relative group whitespace-nowrap cursor-pointer"
+                                className="text-[19px] uppercase tracking-[0.2em] font-heading font-bold text-text hover:text-secondary transition-colors duration-300 relative group whitespace-nowrap cursor-pointer"
                             >
                                 {link.name}
                                 <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-gradient-to-r from-secondary to-primary group-hover:w-full transition-all duration-500" />
@@ -131,7 +131,7 @@ const Navbar = () => {
                             onClick={() => navigate('/influencer-partnership')}
                             variant="orange"
                             size="sm"
-                            className="!px-6 !py-3"
+                            className="!px-5 !py-2.5"
                         >
                             I Am an Influencer
                         </Button>
@@ -140,7 +140,7 @@ const Navbar = () => {
                             onClick={() => navigate('/request-quote')}
                             variant="yellow"
                             size="sm"
-                            className="!px-6 !py-3"
+                            className="!px-5 !py-2.5"
                         >
                             Request for Quote
                         </Button>
@@ -232,7 +232,7 @@ const Navbar = () => {
                                             variant={btn.variant as any}
                                             size="lg"
                                             fullWidth
-                                            className="!py-5"
+                                            className="!py-[18px]"
                                         >
                                             {btn.label}
                                         </Button>
