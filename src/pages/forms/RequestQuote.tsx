@@ -10,7 +10,7 @@ const RequestQuotePage = () => {
                         At HerLead, we support brands that are ready to grow with clarity and confidence.
                     </p>
                 ),
-                image: "/images/forms/3.webp",
+                image: "/images/forms/request_quote.jpg",
                 imageAlt: "Partnership Hero"
             }}
             message={{

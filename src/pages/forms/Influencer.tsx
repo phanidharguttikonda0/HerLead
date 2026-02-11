@@ -10,7 +10,7 @@ const InfluencerPage = () => {
                         Okay!!! So you’re here.
                     </p>
                 ),
-                image: "/images/forms/4.webp",
+                image: "/images/forms/im_influencer.jpg",
                 imageAlt: "Influencer Hero"
             }}
             message={{
