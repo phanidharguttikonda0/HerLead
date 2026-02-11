@@ -11,7 +11,7 @@ const HireTalentPage = () => {
                         We send people who actually fit.
                     </p>
                 ),
-                image: "/images/forms/12.webp",
+                image: "/images/forms/talent.png",
                 imageAlt: "Hire Talent Hero"
             }}
             message={{

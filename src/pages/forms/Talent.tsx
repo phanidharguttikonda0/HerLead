@@ -15,7 +15,7 @@ const TalentPage = () => {
                         </p>
                     </div>
                 ),
-                image: "/images/forms/14.webp",
+                image: "/images/forms/iam_talent.jpeg",
                 imageAlt: "Talent Hero"
             }}
             message={{
