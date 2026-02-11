@@ -6,7 +6,7 @@ const RequestQuotePage = () => {
             hero={{
                 title: <>Begin Your <br /> <span className="text-[0.9em]">Partnership With Us</span></>,
                 subtext: (
-                    <p className="text-xl md:text-3xl font-body font-black leading-relaxed text-black">
+                    <p className="text-xl md:text-3xl font-heading font-black leading-tight text-black">
                         At HerLead, we support brands that are ready to grow with clarity and confidence.
                     </p>
                 ),

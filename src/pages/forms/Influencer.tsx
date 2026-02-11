@@ -6,7 +6,7 @@ const InfluencerPage = () => {
             hero={{
                 title: <>Influencer Partnerships <br /> <span className="text-[0.8em] flex items-center gap-4">Expression of Interest</span></>,
                 subtext: (
-                    <p className="text-xl md:text-3xl font-body font-black leading-relaxed text-black italic">
+                    <p className="text-xl md:text-3xl font-heading font-black leading-tight text-black">
                         Okay!!! So you’re here.
                     </p>
                 ),

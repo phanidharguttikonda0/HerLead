@@ -6,7 +6,7 @@ const HireTalentPage = () => {
             hero={{
                 title: <>Hire Talent. <br /> <span className="">Retire Headaches.</span></>,
                 subtext: (
-                    <p className="text-xl md:text-3xl font-body font-black leading-relaxed text-black">
+                    <p className="text-xl md:text-3xl font-heading font-black leading-tight text-black">
                         We don’t send “almost right.” <br />
                         We send people who actually fit.
                     </p>
