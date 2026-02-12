@@ -29,9 +29,9 @@ const TestimonialSection = () => {
     return (
         <section
             ref={containerRef}
-            className='relative w-[90%] md:w-[80%] mx-auto bg-[#FFE4E1] mt-12 md:mt-20 py-16 md:py-24 overflow-hidden rounded-t-3xl md:rounded-t-[2.5rem]'
+            className='relative w-[95%] md:w-[90%] mx-auto bg-[#FFE4E1] mt-12 md:mt-20 py-16 md:py-24 overflow-hidden rounded-t-3xl md:rounded-t-[2.5rem]'
         >
-            <div className='w-full px-8 md:px-16 lg:px-24 mx-auto'>
+            <div className='w-full px-4 md:px-8 lg:px-12 mx-auto'>
                 {/* Header (Centered) */}
                 <motion.div
                     initial={{ opacity: 0, y: 20 }}
