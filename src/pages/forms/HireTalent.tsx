@@ -4,14 +4,14 @@ const HireTalentPage = () => {
     return (
         <FormPageLayout
             hero={{
-                title: <>Hire Talent. <br /> <span className="text-black">Retire Headaches.</span></>,
+                title: <>Hire Talent. <br /> <span className="">Retire Headaches.</span></>,
                 subtext: (
-                    <p className="text-xl md:text-3xl font-body font-black leading-relaxed text-black">
+                    <p className="text-xl md:text-3xl font-heading font-black leading-tight text-black">
                         We don’t send “almost right.” <br />
                         We send people who actually fit.
                     </p>
                 ),
-                image: "/images/forms/12.webp",
+                image: "/images/forms/talent.png",
                 imageAlt: "Hire Talent Hero"
             }}
             message={{

@@ -1,61 +1,12 @@
 import { motion } from 'motion/react';
-import Lottie from "lottie-react";
+
 import { Instagram, Linkedin } from "lucide-react";
-import { blogPosts } from "../../../constants/blogs";
+
 import { socialPosts } from "../../../constants/socials";
 
 const BlogsSection = () => {
     return (
         <section className="relative w-full bg-bg-light overflow-hidden pb-4 md:pb-6 pt-8">
-            {/* SECTION HEADER (Centered) */}
-            <div className="max-w-7xl mx-auto px-6 mb-16 md:mb-24 text-center">
-                <div className='inline-flex items-center justify-center gap-3 md:gap-6 mb-8'>
-                    <div className='w-12 md:w-20 h-[2px] bg-secondary' />
-                    <h2 className='text-2xl sm:text-3xl md:text-5xl lg:text-section-label font-heading font-black uppercase tracking-[0.2em] text-secondary'>
-                        Publications
-                    </h2>
-                    <div className='w-12 md:w-20 h-[2px] bg-secondary' />
-                </div>
-                <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-main-heading font-heading font-black text-black leading-[1.1] md:leading-none tracking-tighter uppercase">
-                    You read our <br className="hidden md:block" />
-                    publications right?
-                </h2>
-            </div>
-
-            {/* BLOG CARDS */}
-            <div className="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-12 px-6 mb-24">
-                {blogPosts.map((post, index) => (
-                    <motion.div
-                        key={post.id}
-                        initial={{ opacity: 0, y: 30 }}
-                        whileInView={{ opacity: 1, y: 0 }}
-                        viewport={{ once: true, margin: "-50px" }}
-                        transition={{ duration: 0.6, delay: index * 0.05 }}
-                        className="group relative w-full will-change-transform transform-gpu"
-                    >
-                        <div className="relative w-full aspect-square rounded-[3rem] overflow-hidden bg-gray-200 mb-8">
-                            <img
-                                src={post.image}
-                                alt={post.title}
-                                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700"
-                                loading="lazy"
-                            />
-                            <div className="absolute top-6 left-6 px-4 py-1.5 bg-black text-white text-[10px] font-black uppercase tracking-widest skew-x-[-10deg] rounded-sm">
-                                {post.tag}
-                            </div>
-                        </div>
-                        <div className="relative">
-                            <h3 className="text-2xl md:text-3xl font-black text-black leading-[1.1] tracking-tighter uppercase group-hover:text-secondary transition-colors">
-                                {post.title}
-                            </h3>
-                            <p className="mt-4 text-sm md:text-body-custom text-black font-bold leading-relaxed ">
-                                {post.description}
-                            </p>
-                        </div>
-                    </motion.div>
-                ))}
-            </div>
-
             {/* SOCIAL CTA */}
             <div className="w-full py-12 md:py-16 flex flex-col items-center">
                 <div className="w-full max-w-7xl mx-auto flex flex-wrap justify-center gap-8 px-6 mb-16">
@@ -70,9 +21,9 @@ const BlogsSection = () => {
                         >
                             <div className="bg-white rounded-3xl p-3 border border-black/5 shadow-xl">
                                 <div className="w-full aspect-square rounded-[1.25rem] overflow-hidden bg-secondary/20">
-                                    <Lottie
-                                        animationData={post.animation}
-                                        loop={true}
+                                    <img
+                                        src={post.animation}
+                                        alt="Social post"
                                         className="w-full h-full object-cover"
                                     />
                                 </div>

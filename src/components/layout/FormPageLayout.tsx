@@ -35,7 +35,7 @@ export const FormPageLayout = ({
     const containerRef = useRef<HTMLDivElement>(null);
 
     return (
-        <main ref={containerRef} className={`bg-[#F7F7F7] text-black min-h-screen ${containerClassName}`}>
+        <main ref={containerRef} className={`bg-[#F7F7F7] text-black min-h-screen pt-32 ${containerClassName}`}>
             {/* Header / Navigation Back */}
             <div className="fixed top-28 left-6 md:top-24 md:left-12 z-40">
                 <Link to="/" className="flex items-center gap-2 group">
@@ -47,15 +47,15 @@ export const FormPageLayout = ({
             </div>
 
             {/* Hero Section */}
-            <section className="relative min-h-[85vh] md:min-h-[90vh] flex flex-col md:flex-row items-stretch overflow-hidden">
+            <section className="relative min-h-[65vh] md:min-h-[68vh] flex flex-col md:flex-row items-stretch overflow-hidden">
                 {/* Text Side */}
-                <div className="flex-1 flex flex-col justify-center px-6 md:px-20 pt-44 pb-12 md:py-20 z-10">
+                <div className="flex-1 flex flex-col justify-center px-6 md:px-20 py-12 md:py-20 z-10">
                     <motion.div
                         initial={{ opacity: 0, y: 50 }}
                         animate={{ opacity: 1, y: 0 }}
                         transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
                     >
-                        <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-heading font-black leading-[1.1] md:leading-[0.9] tracking-tighter uppercase text-black">
+                        <h1 className="text-3xl sm:text-6xl md:text-7xl lg:text-[5.5rem] font-heading font-black leading-[1.1] md:leading-[0.9] tracking-tighter uppercase text-secondary">
                             {hero.title}
                         </h1>
                         <motion.div
@@ -70,15 +70,30 @@ export const FormPageLayout = ({
                 </div>
 
                 {/* Visual Side */}
-                <div className="flex-1 relative min-h-[300px] md:min-h-0 bg-black overflow-hidden border-l border-[#EBEBEB]">
-                    <motion.img
-                        initial={{ scale: 1.1, opacity: 0 }}
-                        animate={{ scale: 1, opacity: 0.8 }}
-                        transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
-                        src={hero.image}
-                        alt={hero.imageAlt || "Hero"}
-                        className="w-full h-full object-cover"
-                    />
+                <div className="flex-1 relative min-h-[300px] md:min-h-0 bg-[#F7F7F7] overflow-hidden px-[5%] py-[5vh] flex items-center justify-center">
+                    <div className="relative w-full h-full overflow-hidden">
+                        <motion.img
+                            initial={{ scale: 1.1, opacity: 0 }}
+                            animate={{ scale: 1, opacity: 0.8 }}
+                            transition={{ duration: 1.5, ease: [0.16, 1, 0.3, 1] }}
+                            src={hero.image}
+                            alt={hero.imageAlt || "Hero"}
+                            className="w-full h-full object-cover"
+                        />
+                        {/* Dissolve Border Animation */}
+                        <motion.div
+                            initial={{ opacity: 0.8 }}
+                            animate={{
+                                boxShadow: [
+                                    "inset 0 0 60px 30px #F7F7F7",
+                                    "inset 0 0 100px 50px #F7F7F7",
+                                    "inset 0 0 60px 30px #F7F7F7"
+                                ]
+                            }}
+                            transition={{ duration: 4, repeat: Infinity, ease: "easeInOut" }}
+                            className="absolute inset-0 z-10 pointer-events-none"
+                        />
+                    </div>
                     {/* Replaced gradient with solid subtle border/overlay if needed, but per rules keeping it clean */}
                 </div>
             </section>

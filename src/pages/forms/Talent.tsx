@@ -4,10 +4,10 @@ const TalentPage = () => {
     return (
         <FormPageLayout
             hero={{
-                title: <>{'Fine!!!'} <br /> <span className="text-black">Impress Us.</span></>,
+                title: <>{'Fine!!!'} <br /> <span>Impress Us.</span></>,
                 subtext: (
                     <div className="space-y-4">
-                        <p className="text-xl md:text-3xl font-body font-black leading-relaxed text-black">
+                        <p className="text-xl md:text-3xl font-heading font-black leading-tight text-black">
                             Yes, we’ll ask for your resume.
                         </p>
                         <p className="text-base md:text-xl font-bold text-black border-l-4 border-secondary pl-6">
@@ -15,7 +15,7 @@ const TalentPage = () => {
                         </p>
                     </div>
                 ),
-                image: "/images/forms/14.webp",
+                image: "/images/forms/iam_talent.jpeg",
                 imageAlt: "Talent Hero"
             }}
             message={{

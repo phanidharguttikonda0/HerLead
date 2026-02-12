@@ -81,10 +81,8 @@ const AboutSection = () => {
                     {/* Content - Second on Mobile */}
                     <div className='lg:col-span-6 space-y-10 -mt-4 lg:mt-0'>
                         <div className='space-y-6'>
-                            <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-main-heading font-heading font-black leading-[1.1] md:leading-[0.9] tracking-tighter text-text uppercase'>
-                                <span className="block">BUILDING</span>
-                                <span className="block text-secondary">DIGITAL</span>
-                                <span className="block text-primary">IMPACT.</span>
+                            <h2 className='text-3xl sm:text-4xl md:text-5xl lg:text-main-heading font-heading font-black leading-[1.1] md:leading-[0.9] tracking-tighter text-secondary uppercase'>
+                                BUILDING DIGITAL IMPACT.
                             </h2>
                         </div>
 
@@ -105,7 +103,7 @@ const AboutSection = () => {
                                     { label: 'Results', value: '100%' }
                                 ].map((stat, i) => (
                                     <div key={i} className='space-y-1'>
-                                        <span className='block text-xs uppercase tracking-[0.3em] font-heading font-black text-secondary'>{stat.label}</span>
+                                        <span className='block text-xl uppercase tracking-[0.3em] font-heading font-black text-secondary'>{stat.label}</span>
                                         <span className='text-4xl md:text-5xl font-black font-heading text-text'>{stat.value}</span>
                                     </div>
                                 ))}

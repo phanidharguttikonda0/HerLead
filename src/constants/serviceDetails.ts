@@ -3,7 +3,7 @@ export interface ServiceDetail {
     title: string;
     subtitle: string;
     description: string;
-    heroImage: string;
+    heroImage?: string;
     heroVideo?: string;
     stats?: { label: string; value: string }[];
     features: { title: string; desc: string; image: string }[];
@@ -12,16 +12,340 @@ export interface ServiceDetail {
     method: { title: string; description: string; buttonText: string };
     outcomes: string[];
     faqs?: { q: string; a: string }[];
+    agencyCards?: { icon: string; title: string; description: string }[];
+    agencyStyle?: {
+        sectionBg: string;
+        textColor: string;
+        cardBg: string;
+        cardBorder: string;
+        cardTitleColor: string;
+        cardTextColor: string;
+        buttonStyle: string;
+    };
 }
+
+export const prStyle = {
+    sectionBg: "bg-gradient-to-br from-yellow-200 to-yellow-300",
+    textColor: "text-black",
+    cardBg: "bg-yellow-300 bg-opacity-60 backdrop-blur-sm",
+    cardBorder: "border-black",
+    cardTitleColor: "text-black",
+    cardTextColor: "text-black",
+    buttonStyle: "border-black bg-white hover:bg-black hover:text-white"
+};
+
+export const brandStyle = {
+    sectionBg: "bg-gradient-to-br from-[#FF9F43] to-[#FF6B6B]",
+    textColor: "text-white",
+    cardBg: "bg-white shadow-xl",
+    cardBorder: "border-[#FF9F43]",
+    cardTitleColor: "text-[#FF9F43]",
+    cardTextColor: "text-gray-800",
+    buttonStyle: "border-white bg-white text-[#FF9F43] hover:bg-[#FF9F43] hover:text-white"
+};
+
+export const webStyle = {
+    sectionBg: "bg-gradient-to-br from-[#7C3AED] to-[#5B21B6]",
+    textColor: "text-white",
+    cardBg: "bg-white shadow-xl",
+    cardBorder: "border-[#7C3AED]",
+    cardTitleColor: "text-[#7C3AED]",
+    cardTextColor: "text-gray-800",
+    buttonStyle: "border-white bg-white text-[#7C3AED] hover:bg-[#7C3AED] hover:text-white"
+};
+
+export const adsStyle = {
+    sectionBg: "bg-gradient-to-br from-[#10B981] to-[#059669]",
+    textColor: "text-white",
+    cardBg: "bg-white shadow-xl",
+    cardBorder: "border-[#10B981]",
+    cardTitleColor: "text-[#10B981]",
+    cardTextColor: "text-gray-800",
+    buttonStyle: "border-white bg-white text-[#10B981] hover:bg-[#10B981] hover:text-white"
+};
+
+export const trainingStyle = {
+    sectionBg: "bg-gradient-to-br from-[#D946EF] to-[#C026D3]",
+    textColor: "text-white",
+    cardBg: "bg-white shadow-xl",
+    cardBorder: "border-[#D946EF]",
+    cardTitleColor: "text-[#D946EF]",
+    cardTextColor: "text-gray-800",
+    buttonStyle: "border-white bg-white text-[#D946EF] hover:bg-[#D946EF] hover:text-white"
+};
+
+export const talentStyle = {
+    sectionBg: "bg-gradient-to-br from-[#E1306C] to-[#BE123C]",
+    textColor: "text-white",
+    cardBg: "bg-white shadow-xl",
+    cardBorder: "border-[#E1306C]",
+    cardTitleColor: "text-[#E1306C]",
+    cardTextColor: "text-gray-800",
+    buttonStyle: "border-white bg-white text-[#E1306C] hover:bg-[#E1306C] hover:text-white"
+};
+
+export const prCards = [
+    {
+        icon: "🎯",
+        title: "We know our sh*t",
+        description: "We work hard to recruit and retain the best talent in our industry. Our entire team is fully accredited in their area of expertise - and you can be certain we have the best in the biz representing your brand."
+    },
+    {
+        icon: "✓",
+        title: "We're selective with our clientele",
+        description: "We carefully select our partners to ensure we're the right fit for each other, maximizing our potential for success. Our retention rate speaks for itself, and our client portfolio consists of a list of long-term success stories."
+    },
+    {
+        icon: "👑",
+        title: "We don't join trends, we create them",
+        description: "See that wave our competitors are riding? We made it. This is your invitation to get on and start setting trends with us."
+    },
+    {
+        icon: "🏠",
+        title: "We're your in-house team",
+        description: "We take the whole \"full-service\" thing seriously. Expect to have a long-term and dedicated team on your account."
+    },
+    {
+        icon: "🔥",
+        title: "We don't settle for average",
+        description: "We're not here for a participation medal - We play to WIN. Our goal is to drive industry-leading results for our clients, with an award-winning mindset, long-term."
+    }
+];
+
+export const brandCards = [
+    {
+        icon: "🎨",
+        title: "Identity Over Aesthetics",
+        description: "We don't just make things look pretty; we make them mean something. Your brand will have a soul, not just a logo."
+    },
+    {
+        icon: "🗣️",
+        title: "Voice That Echoes",
+        description: "We craft narratives that stick. Your brand voice will cut through the noise and speak directly to your audience's core."
+    },
+    {
+        icon: "👁️",
+        title: "Visuals That Convert",
+        description: "Design isn't art; it's communication. Every pixel we place is calculated to build trust and drive action."
+    },
+    {
+        icon: "🚀",
+        title: "Future-Proof Branding",
+        description: "We build identities that grow with you. No need for a rebrand in two years; we design for the long haul."
+    },
+    {
+        icon: "💡",
+        title: "Strategy First, Design Second",
+        description: "We don't touch a pixel until we understand your market, your goals, and your competition."
+    }
+];
+
+export const webCards = [
+    {
+        icon: "⚡",
+        title: "Speed is Non-Negotiable",
+        description: "We build sites that load faster than your customers can blink. Slow sites kill conversions; ours strictly don't."
+    },
+    {
+        icon: "📱",
+        title: "Mobile-First Obsession",
+        description: "Your customers are on their phones. We design for the thumbs-first generation, ensuring perfect experiences on any screen."
+    },
+    {
+        icon: "🧠",
+        title: "Psychology-Driven UX",
+        description: "We don't guess where buttons go. We use user behavior data to design paths that lead straight to \"Checkout\" or \"Contact Us\"."
+    },
+    {
+        icon: "🛠️",
+        title: "Built to Scale",
+        description: "No spaghetti code here. We build clean, scalable frames that allow your digital presence to grow without breaking."
+    },
+    {
+        icon: "🔒",
+        title: "Security Standard",
+        description: "We take security as seriously as aesthetics. Your site will be a fortress for your data and your customers'."
+    }
+];
+
+export const adsCards = [
+    {
+        icon: "💰",
+        title: "ROI or Nothing",
+        description: "We don't care about \"vanity metrics\" like likes. We care about leads, sales, and money in the bank."
+    },
+    {
+        icon: "🎯",
+        title: "Sniper Targeting",
+        description: "We don't spray and pray. We find the exact people who need your product right now and put your offer in front of them."
+    },
+    {
+        icon: "🧪",
+        title: "Relentless A/B Testing",
+        description: "We assume nothing and test everything. We let the data dictate the winning strategy, not our gut feelings."
+    },
+    {
+        icon: "🛑",
+        title: "Stop the Scroll",
+        description: "In a world of infinite content, our ads are designed to freeze thumbs and command attention instantly."
+    },
+    {
+        icon: "📈",
+        title: "Predictable Scaling",
+        description: "Once we find what works, we pour fuel on the fire. We turn your ad spend into a predictable revenue machine."
+    }
+];
+
+export const trainingCards = [
+    {
+        icon: "🚫",
+        title: "No Boring Lectures",
+        description: "We banish \"death by PowerPoint\". Our trainings are interactive, energetic, and engaging enough to keep everyone awake and involved."
+    },
+    {
+        icon: "🛠️",
+        title: "Real-World Application",
+        description: "We don't teach theory; we teach practice. Your team will leave with tools they can use the very next minute."
+    },
+    {
+        icon: "🤝",
+        title: "Culture Builders",
+        description: "We don't just train skills; we build teams. We foster communication and trust that transforms office dynamics."
+    },
+    {
+        icon: "🧠",
+        title: "Mindset Shifts",
+        description: "We go deeper than skills. We address the attitudes and beliefs that drive behavior, creating lasting change from the inside out."
+    },
+    {
+        icon: "📊",
+        title: "Measurable Impact",
+        description: "We don't just do a session and leave. We provide frameworks to measure the improvement in performance and morale."
+    }
+];
+
+export const talentCards = [
+    {
+        icon: "💎",
+        title: "Quality Over Quantity",
+        description: "We don't flood your inbox with resumes. We send you the *one* right candidate who fits your culture and needs."
+    },
+    {
+        icon: "🕵️",
+        title: "Vetting That Matters",
+        description: "Our screening process is rigorous. By the time you see a candidate, they've already passed our high bar for skills and attitude."
+    },
+    {
+        icon: "🤝",
+        title: "Retention Focused",
+        description: "We don't just fill seats; we fill futures. We match candidates who are looking for a home, not just a paycheck."
+    },
+    {
+        icon: "🚀",
+        title: "Career Architects",
+        description: "For candidates, we don't just find jobs; we build careers. We prepare you to own your value and ace the interview."
+    },
+    {
+        icon: "🧠",
+        title: "CHRO-Backed Insights",
+        description: "Our processes are designed by HR leaders who know exactly what hiring managers are looking for."
+    }
+];
+
+export const seoCards = [
+    {
+        icon: "🔍",
+        title: "Found, Not Just Searchable",
+        description: "We don't just rank you; we make sure you're the clear choice when found."
+    },
+    {
+        icon: "📈",
+        title: "Long-Game Strategy",
+        description: "No black-hat tricks. We build sustainable authority that survives algorithm updates."
+    },
+    {
+        icon: "🏗️",
+        title: "Technical Foundation",
+        description: "We fix the cracks in your site's foundation so Google loves you as much as users do."
+    },
+    {
+        icon: "✍️",
+        title: "Content That Ranks",
+        description: "We write for humans first, engines second. The result is content that actually gets read."
+    },
+    {
+        icon: "🔗",
+        title: "Authority Building",
+        description: "We earn trust through high-quality backlinks, not spammy shortcuts."
+    }
+];
+
+export const influencerCards = [
+    {
+        icon: "🤝",
+        title: "Real Relationships",
+        description: "We treat influencers as partners, not ad space. The result is authentic content that converts."
+    },
+    {
+        icon: "📊",
+        title: "Data-Driven Selection",
+        description: "We look past follower counts to find engagement and alignment that actually moves the needle."
+    },
+    {
+        icon: "🎭",
+        title: "Creative Freedom",
+        description: "We empower creators to tell your story in their voice, because that's what their audience trusts."
+    },
+    {
+        icon: "📢",
+        title: "Amplified Reach",
+        description: "We turn influencer content into paid ads to maximize the lifespan and reach of every asset."
+    },
+    {
+        icon: "📉",
+        title: "ROI Focused",
+        description: "We track everything. You'll know exactly what you're getting for every dollar spent."
+    }
+];
+
+export const socialCards = [
+    {
+        icon: "📅",
+        title: "Consistency is King",
+        description: "We show up every day so you don't have to. Your brand stays top-of-mind, always."
+    },
+    {
+        icon: "🎨",
+        title: "Aesthetic Excellence",
+        description: "Your feed is your storefront. We make sure it looks premium, polished, and professional."
+    },
+    {
+        icon: "💬",
+        title: "Community First",
+        description: "We don't just post; we engage. We build loyal communities that advocate for your brand."
+    },
+    {
+        icon: "🚀",
+        title: "Trend Aware",
+        description: "We ride waves without wiping out. We adapt trends to fit your brand voice perfectly."
+    },
+    {
+        icon: "🧠",
+        title: "Strategic Content",
+        description: "Every post has a purpose. We align social strategy with your broader business goals."
+    }
+];
 
 export const serviceDetails: Record<string, ServiceDetail> = {
     "pr-media-services": {
+        agencyStyle: prStyle,
+        agencyCards: prCards,
         slug: "pr-media-services",
         title: "PR & Media Services",
         subtitle: "Because in today’s world, visibility isn’t a luxury — it’s survival.",
         description: "In the age of digital dominance, Public Relations (PR) has evolved into the new marketing strategy, one that shapes perception, builds trust, and establishes long-term brand authority. Consumers today don’t just buy products; they buy stories, reputations, and experiences. PR bridges the gap between what you do and how the world perceives it. Our PR & Media Services are designed to help businesses across industries develop, communicate, and manage a strong and authentic brand image. We don’t just promote your business; we create a brand presence that inspires trust and drives growth.",
-        heroImage: "/images/services/hero-pr.png",
-        heroVideo: "/videos/pr1.mp4",
+        // heroImage: "/images/services/hero-pr.png",
+        // heroVideo: "/videos/pr.webm",
         gallery: ["/images/service-details/pr1.jpg"],
         features: [
             {
@@ -90,6 +414,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         ]
     },
     "seo": {
+        agencyStyle: webStyle,
+        agencyCards: seoCards,
         slug: "seo",
         title: "Search Engine Optimization",
         subtitle: "Credibility starts with being found first and being trusted.",
@@ -159,6 +485,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         ]
     },
     "influencer-marketing": {
+        agencyStyle: prStyle,
+        agencyCards: influencerCards,
         slug: "influencer-marketing",
         title: "Influencer Marketing",
         subtitle: "It's never about numbers—it’s about alignment and authority.",
@@ -229,12 +557,14 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         ]
     },
     "brand-creation": {
+        agencyStyle: brandStyle,
+        agencyCards: brandCards,
         slug: "brand-creation",
         title: "Brand Creation",
         subtitle: "Strategy first, identity next, impact always.",
         description: "Brand Creation at HerLead goes beyond logos and color palettes. We shape brands from the inside out—strategy first, identity next, impact always. Alongside defining your positioning, messaging, and visual identity, we strategically optimize your social media presence to reflect authority, consistency, and clarity. Every platform, every visual, and every word is designed to build recognition and make you the go-to name in your space.",
-        heroImage: "/images/services/5.webp",
-        heroVideo: "/videos/influencer.mp4",
+        // heroImage: "/images/services/5.webp",
+        // heroVideo: "/videos/influencer.mp4",
         gallery: ["/images/service-details/brand.webp"],
         features: [
             {
@@ -299,6 +629,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         ]
     },
     "paid-ads": {
+        agencyStyle: adsStyle,
+        agencyCards: adsCards,
         slug: "paid-ads",
         title: "Paid Ads",
         subtitle: "The starting push every brand needs.",
@@ -368,6 +700,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         ]
     },
     "find-talent": {
+        agencyStyle: talentStyle,
+        agencyCards: talentCards,
         slug: "find-talent",
         title: "Find the Talent Staffing Service",
         subtitle: "One Requirement. The Right Talent.",
@@ -437,12 +771,14 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         ]
     },
     "social-media": {
+        agencyStyle: brandStyle,
+        agencyCards: socialCards,
         slug: "social-media",
         title: "Social Media Management",
         subtitle: "A presence that feels active, thoughtful, and trusted.",
         description: "Not every brand needs to be online all the time—just in the right way. At HerLead, we fix scattered and inconsistent social media and turn it into a clear, reliable presence. We manage your platforms so your brand stays visible, relevant, and aligned, without demanding your constant attention. The result is a presence that feels active, thoughtful, and trusted even when you’re not posting every day.",
-        heroImage: "/images/service-details/media.webp",
-        heroVideo: "/videos/vintage.mp4",
+        // heroImage: "/images/service-details/media.webp",
+        // heroVideo: "/videos/vintage.mp4",
         gallery: ["/images/service-details/review.png"],
         features: [
             {
@@ -507,6 +843,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         ]
     },
     "web-design": {
+        agencyStyle: webStyle,
+        agencyCards: webCards,
         slug: "web-design",
         title: "Website Design",
         subtitle: "Clear, current, and conversion-ready.",
@@ -576,6 +914,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         ]
     },
     "career-mastery": {
+        agencyStyle: talentStyle,
+        agencyCards: talentCards,
         slug: "career-mastery",
         title: "Career Confidence & Interview Mastery",
         subtitle: "Don't just be prepared—be Ready to Own it.",
@@ -645,6 +985,8 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         ]
     },
     "corporate-training": {
+        agencyStyle: trainingStyle,
+        agencyCards: trainingCards,
         slug: "corporate-training",
         title: "Corporate Training & Development",
         subtitle: "Practical. People-focused. Performance-driven.",
