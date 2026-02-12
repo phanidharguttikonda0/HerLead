@@ -1,137 +1,156 @@
-import { motion } from 'motion/react';
+import { useRef } from 'react';
+import { motion, useMotionValue, useSpring, useTransform } from 'motion/react';
 import { useSplash } from '../../../hooks/useSplash';
 
 const HeroSection = () => {
     const { isSplashFinished } = useSplash();
+    const containerRef = useRef<HTMLElement>(null);
 
-    // Text variants for the staggered reveal
-    const letterContainer = {
-        hidden: { opacity: 0 },
-        show: {
-            opacity: 1,
-            transition: {
-                staggerChildren: 0.1,
-                delayChildren: 0.5,
-            },
-        },
+    // Mouse position state for interaction
+    const mouseX = useMotionValue(0);
+    const mouseY = useMotionValue(0);
+
+    // Smooth spring animation for mouse movement (adjusted for responsiveness)
+    const springConfig = { damping: 30, stiffness: 200, mass: 1 };
+    const springX = useSpring(mouseX, springConfig);
+    const springY = useSpring(mouseY, springConfig);
+
+    // Parallax Transforms for Background (Amplified Depth)
+    const bgX = useTransform(springX, [-0.5, 0.5], [-60, 60]);
+    const bgY = useTransform(springY, [-0.5, 0.5], [-60, 60]);
+
+    // Strong 3D Tilt for "360 View" feel
+    // Increased range significantly to make it obvious
+    const rotateX = useTransform(springY, [-0.5, 0.5], [15, -15]);
+    const rotateY = useTransform(springX, [-0.5, 0.5], [-15, 15]);
+
+    const handleMouseMove = (e: React.MouseEvent) => {
+        const { clientX, clientY } = e;
+        const { innerWidth, innerHeight } = window;
+        mouseX.set((clientX / innerWidth) - 0.5);
+        mouseY.set((clientY / innerHeight) - 0.5);
     };
 
-    const letterAnimation = {
-        hidden: { y: 20, opacity: 0 },
-        show: { y: 0, opacity: 1, transition: { type: "spring" as const, stiffness: 100 } },
+    const handleScrollDown = () => {
+        const aboutSection = document.getElementById('about');
+        if (aboutSection) {
+            aboutSection.scrollIntoView({ behavior: 'smooth' });
+        } else {
+            window.scrollTo({ top: window.innerHeight, behavior: 'smooth' });
+        }
+    };
+
+    const containerVariants = {
+        hidden: { opacity: 0 },
+        visible: {
+            opacity: 1,
+            transition: { duration: 1.2, ease: [0.16, 1, 0.3, 1] }
+        }
     };
 
     return (
-        <section className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#fffefc]">
+        <section
+            id="hero"
+            ref={containerRef}
+            onMouseMove={handleMouseMove}
+            className="relative h-screen w-full overflow-hidden flex items-center justify-center bg-[#F5F5F7] perspective-500" // perspective-500 for strong 3D
+        >
 
-            {/* Liquid Gradient Background - Colorful & Realistic */}
-            <div className="absolute inset-0 overflow-hidden pointer-events-none">
-                <motion.div
-                    animate={{
-                        scale: [1, 1.2, 1],
-                        x: [0, 100, 0],
-                        y: [0, -50, 0],
-                    }}
-                    transition={{
-                        duration: 20,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                    className="absolute top-[-10%] left-[-10%] w-[70vw] h-[70vw] bg-[#ff6666]/30 rounded-full blur-[100px] mix-blend-multiply"
-                />
-                <motion.div
-                    animate={{
-                        scale: [1, 1.3, 1],
-                        x: [0, -100, 0],
-                        y: [0, 50, 0],
-                    }}
-                    transition={{
-                        duration: 25,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                    className="absolute top-[20%] right-[-10%] w-[60vw] h-[60vw] bg-[#d4af38]/30 rounded-full blur-[100px] mix-blend-multiply"
-                />
+            {/* Ethereal Mesh Gradients - Soft, Diffused, Premium */}
+            <motion.div
+                style={{ x: bgX, y: bgY }}
+                className="absolute inset-0 overflow-hidden pointer-events-none"
+            >
+                {/* Gold/Warm Aura */}
                 <motion.div
                     animate={{
                         scale: [1, 1.1, 1],
-                        x: [0, 50, 0],
-                        y: [0, 50, 0],
+                        opacity: [0.4, 0.6, 0.4],
                     }}
-                    transition={{
-                        duration: 22,
-                        repeat: Infinity,
-                        ease: "easeInOut",
-                    }}
-                    className="absolute bottom-[-10%] left-[20%] w-[60vw] h-[60vw] bg-[#0891B2]/20 rounded-full blur-[100px] mix-blend-multiply"
+                    transition={{ duration: 10, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-[-20%] left-[-10%] w-[80vw] h-[80vw] bg-[#E8C07D] rounded-full blur-[140px] opacity-40 mix-blend-multiply"
                 />
-            </div>
 
-            {/* Glassmorphism / Texture Overlay (Optional, ensures "Realistic" feel) */}
-            <div className="absolute inset-0 bg-white/30 backdrop-blur-[1px] pointer-events-none" />
-
-            {/* Main Content */}
-            <motion.div
-                initial={{ opacity: 0 }}
-                animate={{ opacity: isSplashFinished ? 1 : 0 }}
-                transition={{ duration: 1 }}
-                className="relative z-10 flex flex-col items-center justify-center text-center px-4"
-            >
-                {/* Logo Container */}
+                {/* Rose/Pink Aura */}
                 <motion.div
-                    initial={{ scale: 0.8, opacity: 0 }}
-                    animate={{ scale: 1, opacity: 1 }}
-                    transition={{ duration: 1.2, ease: "easeOut" }}
-                    className="relative mb-8 md:mb-12"
-                >
-                    {/* Central Glow (White/Light) */}
-                    <div className="absolute inset-0 bg-white blur-3xl rounded-full scale-125 opacity-80" />
+                    animate={{
+                        scale: [1, 1.2, 1],
+                        opacity: [0.3, 0.5, 0.3],
+                    }}
+                    transition={{ duration: 12, repeat: Infinity, ease: "easeInOut", delay: 2 }}
+                    className="absolute bottom-[-10%] right-[-10%] w-[70vw] h-[70vw] bg-[#FFA4A4] rounded-full blur-[140px] opacity-40 mix-blend-multiply"
+                />
 
+                {/* Subtle Cool Tone for Balance */}
+                <motion.div
+                    animate={{
+                        scale: [1, 1.1, 1],
+                    }}
+                    transition={{ duration: 15, repeat: Infinity, ease: "easeInOut" }}
+                    className="absolute top-[40%] left-[30%] w-[50vw] h-[50vw] bg-[#E0E7FF] rounded-full blur-[120px] opacity-30 mix-blend-multiply"
+                />
+            </motion.div>
+
+            {/* Main Content - 3D Rotatable */}
+            <motion.div
+                initial="hidden"
+                animate={isSplashFinished ? "visible" : "hidden"}
+                variants={containerVariants}
+                style={{ rotateX, rotateY, transformStyle: "preserve-3d" }}
+                className="relative z-10 flex flex-col items-center justify-center text-center px-6 md:px-12 max-w-5xl mx-auto will-change-transform"
+            >
+                {/* Visual Anchor: Logo (Pops out) */}
+                <motion.div
+                    className="relative mb-12 md:mb-16"
+                    style={{ translateZ: 60 }} // Stronger pop
+                >
+                    <div className="absolute inset-0 bg-white/40 blur-3xl rounded-full scale-150" />
                     <img
                         src="/images/brand/logo.webp"
                         alt="HerLead Logo"
-                        className="w-[200px] md:w-[400px] lg:w-[600px] h-auto relative z-10 drop-shadow-xl"
+                        className="w-[180px] md:w-[320px] lg:w-[480px] h-auto relative z-10 drop-shadow-2xl"
                     />
                 </motion.div>
 
-                {/* Animated Motto */}
+                {/* Typography (Sits behind logo, but in front of bg) */}
                 <motion.div
-                    variants={letterContainer}
-                    initial="hidden"
-                    animate="show"
-                    className="relative"
+                    className="relative flex flex-col items-center gap-6"
+                    style={{ translateZ: 30 }}
                 >
-                    <motion.h2 className="text-2xl md:text-5xl lg:text-7xl font-heading font-black uppercase tracking-widest text-[#121212] drop-shadow-sm">
-                        {Array.from("360° DIGITAL IMPACT").map((char, index) => (
-                            <motion.span key={index} variants={letterAnimation}>
-                                {char}
-                            </motion.span>
-                        ))}
-                    </motion.h2>
+                    <h2 className="text-4xl md:text-7xl lg:text-8xl font-heading font-bold tracking-tighter text-[#1d1d1f] leading-tight drop-shadow-sm">
+                        <span className="block bg-clip-text text-transparent bg-gradient-to-br from-[#1d1d1f] to-[#434344]">
+                            360° DIGITAL
+                        </span>
+                        <span className="block bg-clip-text text-transparent bg-gradient-to-r from-[#d4af38] to-[#ff6666]">
+                            IMPACT
+                        </span>
+                    </h2>
 
-                    {/* Elegant Separator Line (Dark) */}
-                    <motion.div
-                        initial={{ width: 0, opacity: 0 }}
-                        animate={{ width: "100%", opacity: 1 }}
-                        transition={{ delay: 1.5, duration: 1 }}
-                        className="h-[2px] bg-gradient-to-r from-transparent via-[#d4af38] to-transparent mt-6 md:mt-10 mx-auto max-w-xs md:max-w-xl opacity-80"
-                    />
-                </motion.div>
+                    <p className="max-w-xl text-lg md:text-xl font-medium text-[#86868b] tracking-wide mt-2">
+                        Empowering Visionaries. Defining Futures.
+                    </p>
 
-                {/* Scroll Indicator (Dark) */}
-                <motion.div
-                    initial={{ opacity: 0, y: -20 }}
-                    animate={{ opacity: 1, y: 0 }}
-                    transition={{ delay: 2, duration: 1 }}
-                    className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-                >
-                    <motion.div
-                        animate={{ y: [0, 10, 0] }}
-                        transition={{ duration: 1.5, repeat: Infinity, ease: "easeInOut" }}
-                        className="w-6 h-10 border-2 border-black/20 rounded-full flex justify-center p-1"
+                    {/* Button / Call to Action - Functional */}
+                    <div
+                        onClick={handleScrollDown}
+                        className="mt-12 flex items-center justify-center group cursor-pointer"
+                        role="button"
+                        aria-label="Scroll down"
                     >
-                        <div className="w-1 h-2 bg-black rounded-full" />
-                    </motion.div>
+                        <div className="w-12 h-12 rounded-full border border-[#1d1d1f]/10 flex items-center justify-center bg-white/50 backdrop-blur-md shadow-sm transition-all duration-300 group-hover:scale-110 group-hover:bg-white">
+                            <svg
+                                width="24"
+                                height="24"
+                                viewBox="0 0 24 24"
+                                fill="none"
+                                stroke="#1d1d1f"
+                                strokeWidth="1.5"
+                                className="transform translate-y-px transition-transform duration-300 group-hover:translate-y-1"
+                            >
+                                <path d="M12 5V19M12 19L19 12M12 19L5 12" strokeLinecap="round" strokeLinejoin="round" />
+                            </svg>
+                        </div>
+                    </div>
                 </motion.div>
 
             </motion.div>
