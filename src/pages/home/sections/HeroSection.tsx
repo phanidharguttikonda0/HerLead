@@ -42,8 +42,8 @@ const HeroSection = () => {
                     opacity: 0
                 }}
                 transition={{
-                    duration: 7, // User requested 6-7 seconds
-                    ease: "easeInOut", // Smoother consistency
+                    duration: 5, // Speed up by 2s as requested (7->5)
+                    ease: "easeInOut",
                     delay: 0.2
                 }}
                 className="relative w-full h-full flex items-center justify-center"
@@ -52,7 +52,7 @@ const HeroSection = () => {
                 <div className="relative z-10 flex flex-col items-center justify-center text-center px-6 md:px-12 max-w-5xl mx-auto">
                     {/* Logo */}
                     <motion.div
-                        className="relative mb-12 md:mb-16"
+                        className="relative mb-12 md:mb-16 mt-20 md:mt-32"
                     >
                         <img
                             src="/images/brand/logo.webp"
