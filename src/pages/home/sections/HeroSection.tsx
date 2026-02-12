@@ -42,8 +42,8 @@ const HeroSection = () => {
                     opacity: 0
                 }}
                 transition={{
-                    duration: 2.5, // Slow motion 2.5s
-                    ease: [0.16, 1, 0.3, 1], // Premium expo ease
+                    duration: 7, // User requested 6-7 seconds
+                    ease: "easeInOut", // Smoother consistency
                     delay: 0.2
                 }}
                 className="relative w-full h-full flex items-center justify-center"
