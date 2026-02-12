@@ -345,7 +345,7 @@ export const serviceDetails: Record<string, ServiceDetail> = {
         subtitle: "Because in today’s world, visibility isn’t a luxury — it’s survival.",
         description: "In the age of digital dominance, Public Relations (PR) has evolved into the new marketing strategy, one that shapes perception, builds trust, and establishes long-term brand authority. Consumers today don’t just buy products; they buy stories, reputations, and experiences. PR bridges the gap between what you do and how the world perceives it. Our PR & Media Services are designed to help businesses across industries develop, communicate, and manage a strong and authentic brand image. We don’t just promote your business; we create a brand presence that inspires trust and drives growth.",
         // heroImage: "/images/services/hero-pr.png",
-        // heroVideo: "/videos/pr.webm",
+        heroVideo: "/videos/pr1.mp4",
         gallery: ["/images/service-details/pr1.jpg"],
         features: [
             {
