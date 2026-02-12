@@ -144,7 +144,7 @@ const ServiceDetail = () => {
                             initial={{ y: 40, opacity: 0 }}
                             animate={{ y: 0, opacity: 1 }}
                             transition={{ duration: 1, ease: "easeOut", delay: 0.6 }}
-                            className="space-y-8 max-w-4xl"
+                            className="space-y-8 max-w-5xl"
                         >
                             <div className="w-16 md:w-20 h-1 bg-black" />
                             <p className="text-lg md:text-xl text-black leading-relaxed">
