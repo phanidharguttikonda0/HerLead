@@ -96,7 +96,7 @@ const PartnersSection = () => {
                     </div>
 
                     <motion.a
-                        href="/hire-talent"
+                        href="/request-quote"
                         initial={{ opacity: 0, scale: 0.9 }}
                         whileInView={{ opacity: 1, scale: 1 }}
                         transition={{ duration: 0.6, delay: 0.2 }}

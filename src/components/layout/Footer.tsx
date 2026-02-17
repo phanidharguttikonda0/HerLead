@@ -136,7 +136,7 @@ const Footer = () => {
                 <div className="py-8 border-t border-white/10">
                     <div className="flex flex-col md:flex-row justify-between items-center gap-6">
                         <div className="flex items-center gap-4 text-[10px] md:text-xs font-body font-bold text-white/60 uppercase tracking-widest">
-                            <span>© 2026 Her Lead</span>
+                            <span>© 2018 Her Lead</span>
                             <span className="text-primary italic">•</span>
                             <a href="#" className="hover:text-secondary transition-colors">Privacy</a>
                             <span className="text-primary italic">•</span>

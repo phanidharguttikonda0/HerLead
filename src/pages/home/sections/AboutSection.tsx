@@ -152,7 +152,7 @@ const AboutSection = () => {
 
                 {/* Meta Data */}
                 <div className="absolute top-12 left-8 md:top-16 md:left-12 z-30 flex flex-col gap-2">
-                    <span className="font-heading font-black text-[10px] uppercase tracking-widest text-black">Est. 2026</span>
+                    <span className="font-heading font-black text-[10px] uppercase tracking-widest text-black">Est. 2018</span>
                     <div className="w-10 h-px bg-black/20"></div>
                 </div>
 
