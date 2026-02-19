@@ -80,7 +80,12 @@ const ServicesSection = () => {
                                 className="space-y-6 md:space-y-8 flex flex-col items-center cursor-pointer group transition-all duration-500 ease-out"
                             >
                                 {/* Responsive Media Container */}
-                                <div className="relative w-[280px] sm:w-[320px] md:w-[420px] aspect-square rounded-full overflow-hidden border-4 md:border-8 border-white bg-[#1A1A1A] transition-transform duration-500 group-hover:scale-[1.02]">
+                                <div className={`relative transition-transform duration-500 group-hover:scale-[1.02] border-4 md:border-8 border-white bg-[#1A1A1A] overflow-hidden
+                                    ${services[hoveredIndex].slug === 'corporate-training'
+                                        ? 'w-[280px] sm:w-[320px] md:w-[480px] aspect-video rounded-3xl'
+                                        : 'w-[280px] sm:w-[320px] md:w-[420px] aspect-square rounded-full'
+                                    }
+                                `}>
                                     <AnimatePresence mode="wait">
                                         <motion.div
                                             key={services[hoveredIndex].id}
@@ -103,7 +108,7 @@ const ServicesSection = () => {
                                                 <img
                                                     src={services[hoveredIndex].images[0]}
                                                     alt={services[hoveredIndex].name}
-                                                    className="w-full h-full object-cover"
+                                                    className={`w-full h-full ${services[hoveredIndex].slug === 'corporate-training' ? 'object-cover' : 'object-cover'}`}
                                                 />
                                             )}
                                         </motion.div>

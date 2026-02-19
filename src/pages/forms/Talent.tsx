@@ -1,6 +1,55 @@
+import { useState } from 'react';
+import { useEmailSender } from '../../hooks/useEmailSender';
 import { FormPageLayout, FormGroup, FormField, SubmitButton } from '../../components/layout/FormPageLayout';
 
 const TalentPage = () => {
+    const { sendEmail, loading } = useEmailSender();
+    const [formData, setFormData] = useState({
+        fullName: '',
+        email: '',
+        contact: '',
+        location: '',
+        relocation: 'Yes, absolutely',
+        currentCompany: '',
+        designation: '',
+        totalExperience: '',
+        nextGoal: '',
+        employmentStatus: 'Employed',
+        noticePeriod: '',
+        resumeLink: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async () => {
+        if (!formData.fullName || !formData.email || !formData.contact) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        const response = await sendEmail(formData);
+        alert(response.message);
+        if (response.success) {
+            setFormData({
+                fullName: '',
+                email: '',
+                contact: '',
+                location: '',
+                relocation: 'Yes, absolutely',
+                currentCompany: '',
+                designation: '',
+                totalExperience: '',
+                nextGoal: '',
+                employmentStatus: 'Employed',
+                noticePeriod: '',
+                resumeLink: ''
+            });
+        }
+    };
+
     return (
         <FormPageLayout
             hero={{
@@ -43,6 +92,9 @@ const TalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="John Doe"
                     />
@@ -51,6 +103,9 @@ const TalentPage = () => {
                     <input
                         type="email"
                         required
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="john@example.com"
                     />
@@ -59,6 +114,9 @@ const TalentPage = () => {
                     <input
                         type="tel"
                         required
+                        name="contact"
+                        value={formData.contact}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="+1 234 567 890"
                     />
@@ -67,6 +125,9 @@ const TalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="location"
+                        value={formData.location}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Dubai, UAE"
                     />
@@ -76,7 +137,12 @@ const TalentPage = () => {
             <FormGroup number="02" title="Career Status">
                 <FormField label="Relocation? *">
                     <div className="relative">
-                        <select className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold appearance-none cursor-pointer hover:border-black">
+                        <select
+                            name="relocation"
+                            value={formData.relocation}
+                            onChange={handleChange}
+                            className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold appearance-none cursor-pointer hover:border-black"
+                        >
                             <option>Yes, absolutely</option>
                             <option>Maybe / Depending on offer</option>
                             <option>No</option>
@@ -90,6 +156,9 @@ const TalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="currentCompany"
+                        value={formData.currentCompany}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Company Name"
                     />
@@ -98,6 +167,9 @@ const TalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="designation"
+                        value={formData.designation}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Senior Manager"
                     />
@@ -106,6 +178,9 @@ const TalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="totalExperience"
+                        value={formData.totalExperience}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="e.g. 5 Years"
                     />
@@ -117,13 +192,21 @@ const TalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="nextGoal"
+                        value={formData.nextGoal}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="I am aiming for..."
                     />
                 </FormField>
                 <FormField label="Employment Status *">
                     <div className="relative">
-                        <select className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black">
+                        <select
+                            name="employmentStatus"
+                            value={formData.employmentStatus}
+                            onChange={handleChange}
+                            className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black"
+                        >
                             <option>Employed</option>
                             <option>Freelancing</option>
                             <option>Not Working</option>
@@ -138,6 +221,9 @@ const TalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="noticePeriod"
+                        value={formData.noticePeriod}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="e.g. 30 Days / Immediate"
                     />
@@ -146,6 +232,9 @@ const TalentPage = () => {
                     <input
                         type="url"
                         required
+                        name="resumeLink"
+                        value={formData.resumeLink}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="https://drive.google.com/..."
                     />
@@ -153,8 +242,8 @@ const TalentPage = () => {
             </FormGroup>
 
             <SubmitButton
-                text="Submit Application"
-                onClick={() => alert('Application Sent!')}
+                text={loading ? "Sending..." : "Submit Application"}
+                onClick={handleSubmit}
             />
         </FormPageLayout>
     );

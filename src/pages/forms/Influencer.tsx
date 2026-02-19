@@ -1,6 +1,57 @@
+import { useState } from 'react';
+import { useEmailSender } from '../../hooks/useEmailSender';
 import { FormPageLayout, FormGroup, FormField, SubmitButton } from '../../components/layout/FormPageLayout';
 
 const InfluencerPage = () => {
+    const { sendEmail, loading } = useEmailSender();
+    const [formData, setFormData] = useState({
+        name: '',
+        publicName: '',
+        email: '',
+        contact: '',
+        platform: 'Instagram',
+        portfolioLink: '',
+        niche: '',
+        audienceSize: 'Under 10K',
+        audienceProfile: '',
+        collaborationTypes: '',
+        creativeApproach: '',
+        motivation: '',
+        additionalContext: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async () => {
+        if (!formData.name || !formData.email || !formData.publicName) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        const response = await sendEmail(formData);
+        alert(response.message);
+        if (response.success) {
+            setFormData({
+                name: '',
+                publicName: '',
+                email: '',
+                contact: '',
+                platform: 'Instagram',
+                portfolioLink: '',
+                niche: '',
+                audienceSize: 'Under 10K',
+                audienceProfile: '',
+                collaborationTypes: '',
+                creativeApproach: '',
+                motivation: '',
+                additionalContext: ''
+            });
+        }
+    };
+
     return (
         <FormPageLayout
             hero={{
@@ -38,6 +89,9 @@ const InfluencerPage = () => {
                     <input
                         type="text"
                         required
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Legal Name"
                     />
@@ -46,6 +100,9 @@ const InfluencerPage = () => {
                     <input
                         type="text"
                         required
+                        name="publicName"
+                        value={formData.publicName}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="@handle or Brand Name"
                     />
@@ -54,6 +111,9 @@ const InfluencerPage = () => {
                     <input
                         type="email"
                         required
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="hello@example.com"
                     />
@@ -62,13 +122,21 @@ const InfluencerPage = () => {
                     <input
                         type="tel"
                         required
+                        name="contact"
+                        value={formData.contact}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="+1 234 567 890"
                     />
                 </FormField>
                 <FormField label="Primary Platform *" hint="(Instagram / YouTube / LinkedIn / X / Facebook / Podcast / Other)" fullWidth>
                     <div className="relative">
-                        <select className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold appearance-none cursor-pointer hover:border-black">
+                        <select
+                            name="platform"
+                            value={formData.platform}
+                            onChange={handleChange}
+                            className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold appearance-none cursor-pointer hover:border-black"
+                        >
                             <option>Instagram</option>
                             <option>YouTube</option>
                             <option>LinkedIn</option>
@@ -89,6 +157,9 @@ const InfluencerPage = () => {
                     <input
                         type="url"
                         required
+                        name="portfolioLink"
+                        value={formData.portfolioLink}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="https://"
                     />
@@ -97,13 +168,21 @@ const InfluencerPage = () => {
                     <input
                         type="text"
                         required
+                        name="niche"
+                        value={formData.niche}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Your Niche"
                     />
                 </FormField>
                 <FormField label="Audience Scale *" hint="(Under 10K / 10K-50K / 50K-100K / 100K-500K / 500K+)">
                     <div className="relative">
-                        <select className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black">
+                        <select
+                            name="audienceSize"
+                            value={formData.audienceSize}
+                            onChange={handleChange}
+                            className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black"
+                        >
                             <option>Under 10K</option>
                             <option>10K–50K</option>
                             <option>50K–100K</option>
@@ -119,6 +198,9 @@ const InfluencerPage = () => {
                     <input
                         type="text"
                         required
+                        name="audienceProfile"
+                        value={formData.audienceProfile}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Describe your community"
                     />
@@ -130,6 +212,9 @@ const InfluencerPage = () => {
                     <input
                         type="text"
                         required
+                        name="collaborationTypes"
+                        value={formData.collaborationTypes}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="What excites you?"
                     />
@@ -138,6 +223,9 @@ const InfluencerPage = () => {
                     <textarea
                         required
                         rows={4}
+                        name="creativeApproach"
+                        value={formData.creativeApproach}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black resize-none"
                         placeholder="Define your artistic fingerprint..."
                     />
@@ -146,6 +234,9 @@ const InfluencerPage = () => {
                     <input
                         type="text"
                         required
+                        name="motivation"
+                        value={formData.motivation}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Your motivation"
                     />
@@ -153,6 +244,9 @@ const InfluencerPage = () => {
                 <FormField label="Additional context you would like to share?" fullWidth>
                     <textarea
                         rows={3}
+                        name="additionalContext"
+                        value={formData.additionalContext}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black resize-none"
                         placeholder="Anything else we should know..."
                     />
@@ -160,8 +254,8 @@ const InfluencerPage = () => {
             </FormGroup>
 
             <SubmitButton
-                text="Submit Profile"
-                onClick={() => alert('Submission Received!')}
+                text={loading ? "Sending..." : "Submit Profile"}
+                onClick={handleSubmit}
             />
         </FormPageLayout>
     );

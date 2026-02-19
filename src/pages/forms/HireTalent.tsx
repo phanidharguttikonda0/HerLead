@@ -1,6 +1,63 @@
+import { useState } from 'react';
+import { useEmailSender } from '../../hooks/useEmailSender';
 import { FormPageLayout, FormGroup, FormField, SubmitButton } from '../../components/layout/FormPageLayout';
 
 const HireTalentPage = () => {
+    const { sendEmail, loading } = useEmailSender();
+    const [formData, setFormData] = useState({
+        fullName: '',
+        companyName: '',
+        email: '',
+        contact: '',
+        location: '',
+        website: '',
+        industry: '',
+        hiringType: 'Permanent',
+        experienceLevel: 'Fresher',
+        roles: '',
+        positionCount: '',
+        budget: '',
+        workModel: 'Onsite',
+        hiringUrgency: 'Immediate',
+        requirements: '',
+        jdLink: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async () => {
+        if (!formData.fullName || !formData.email || !formData.companyName) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        const response = await sendEmail(formData);
+        alert(response.message);
+        if (response.success) {
+            setFormData({
+                fullName: '',
+                companyName: '',
+                email: '',
+                contact: '',
+                location: '',
+                website: '',
+                industry: '',
+                hiringType: 'Permanent',
+                experienceLevel: 'Fresher',
+                roles: '',
+                positionCount: '',
+                budget: '',
+                workModel: 'Onsite',
+                hiringUrgency: 'Immediate',
+                requirements: '',
+                jdLink: ''
+            });
+        }
+    };
+
     return (
         <FormPageLayout
             hero={{
@@ -100,6 +157,9 @@ const HireTalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="fullName"
+                        value={formData.fullName}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Full Name"
                     />
@@ -108,6 +168,9 @@ const HireTalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Business Entity"
                     />
@@ -116,6 +179,9 @@ const HireTalentPage = () => {
                     <input
                         type="email"
                         required
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="email@company.com"
                     />
@@ -124,6 +190,9 @@ const HireTalentPage = () => {
                     <input
                         type="tel"
                         required
+                        name="contact"
+                        value={formData.contact}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="+1 234 567 890"
                     />
@@ -132,6 +201,9 @@ const HireTalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="location"
+                        value={formData.location}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="City, Country"
                     />
@@ -140,6 +212,9 @@ const HireTalentPage = () => {
                     <input
                         type="url"
                         required
+                        name="website"
+                        value={formData.website}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="https://"
                     />
@@ -148,6 +223,9 @@ const HireTalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="industry"
+                        value={formData.industry}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="e.g. Fintech, Healthcare, E-commerce"
                     />
@@ -156,7 +234,12 @@ const HireTalentPage = () => {
 
             <FormGroup number="02" title="Requirements">
                 <FormField label="What kind of hiring support are you looking for? *" hint="(Permanent / Contract / Leadership / Bulk / Confidential)">
-                    <select className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black">
+                    <select
+                        name="hiringType"
+                        value={formData.hiringType}
+                        onChange={handleChange}
+                        className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black"
+                    >
                         <option>Permanent</option>
                         <option>Contract</option>
                         <option>Leadership</option>
@@ -165,7 +248,12 @@ const HireTalentPage = () => {
                     </select>
                 </FormField>
                 <FormField label="Experience level required *" hint="(Fresher / Mid / Senior / Leadership)">
-                    <select className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black">
+                    <select
+                        name="experienceLevel"
+                        value={formData.experienceLevel}
+                        onChange={handleChange}
+                        className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black"
+                    >
                         <option>Fresher</option>
                         <option>Mid</option>
                         <option>Senior</option>
@@ -176,6 +264,9 @@ const HireTalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="roles"
+                        value={formData.roles}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="e.g. Creative Design Manager"
                     />
@@ -184,6 +275,9 @@ const HireTalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="positionCount"
+                        value={formData.positionCount}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="e.g. 3"
                     />
@@ -192,6 +286,9 @@ const HireTalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="budget"
+                        value={formData.budget}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Target Range"
                     />
@@ -200,7 +297,12 @@ const HireTalentPage = () => {
 
             <FormGroup number="03" title="Strategy">
                 <FormField label="Work model *" hint="(Onsite / Hybrid / Remote / Flexible)">
-                    <select className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black">
+                    <select
+                        name="workModel"
+                        value={formData.workModel}
+                        onChange={handleChange}
+                        className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black"
+                    >
                         <option>Onsite</option>
                         <option>Hybrid</option>
                         <option>Remote</option>
@@ -208,7 +310,12 @@ const HireTalentPage = () => {
                     </select>
                 </FormField>
                 <FormField label="Hiring Urgency *" hint="(Immediate / 15–30 days / 30–60 days / Planned)">
-                    <select className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black">
+                    <select
+                        name="hiringUrgency"
+                        value={formData.hiringUrgency}
+                        onChange={handleChange}
+                        className="w-full bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold appearance-none cursor-pointer hover:border-black"
+                    >
                         <option>Immediate</option>
                         <option>15–30 days</option>
                         <option>30–60 days</option>
@@ -219,6 +326,9 @@ const HireTalentPage = () => {
                     <input
                         type="text"
                         required
+                        name="requirements"
+                        value={formData.requirements}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="I am looking for..."
                     />
@@ -227,6 +337,9 @@ const HireTalentPage = () => {
                     <input
                         type="url"
                         required
+                        name="jdLink"
+                        value={formData.jdLink}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="https://drive.google.com/..."
                     />
@@ -234,8 +347,8 @@ const HireTalentPage = () => {
             </FormGroup>
 
             <SubmitButton
-                text="Send Hiring Request"
-                onClick={() => alert('Request Sent!')}
+                text={loading ? "Sending..." : "Send Hiring Request"}
+                onClick={handleSubmit}
             />
         </FormPageLayout>
     );

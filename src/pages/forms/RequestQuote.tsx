@@ -1,6 +1,49 @@
+import { useState } from 'react';
+import { useEmailSender } from '../../hooks/useEmailSender';
 import { FormPageLayout, FormGroup, FormField, SubmitButton } from '../../components/layout/FormPageLayout';
 
 const RequestQuotePage = () => {
+    const { sendEmail, loading } = useEmailSender();
+    const [formData, setFormData] = useState({
+        name: '',
+        companyName: '',
+        role: '',
+        contact: '',
+        email: '',
+        industry: '',
+        supportAreas: '',
+        requirement: '',
+        additionalContext: ''
+    });
+
+    const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>) => {
+        const { name, value } = e.target;
+        setFormData(prev => ({ ...prev, [name]: value }));
+    };
+
+    const handleSubmit = async () => {
+        if (!formData.name || !formData.email || !formData.companyName) {
+            alert('Please fill in all required fields.');
+            return;
+        }
+
+        const response = await sendEmail(formData);
+        alert(response.message);
+        if (response.success) {
+            setFormData({
+                name: '',
+                companyName: '',
+                role: '',
+                contact: '',
+                email: '',
+                industry: '',
+                supportAreas: '',
+                requirement: '',
+                additionalContext: ''
+            });
+        }
+    };
+
     return (
         <FormPageLayout
             hero={{
@@ -38,6 +81,9 @@ const RequestQuotePage = () => {
                     <input
                         type="text"
                         required
+                        name="name"
+                        value={formData.name}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl md:text-2xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Full Name"
                     />
@@ -46,6 +92,9 @@ const RequestQuotePage = () => {
                     <input
                         type="text"
                         required
+                        name="companyName"
+                        value={formData.companyName}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="Business Entity"
                     />
@@ -54,6 +103,9 @@ const RequestQuotePage = () => {
                     <input
                         type="text"
                         required
+                        name="role"
+                        value={formData.role}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="e.g. CEO, Marketing Head"
                     />
@@ -62,6 +114,9 @@ const RequestQuotePage = () => {
                     <input
                         type="tel"
                         required
+                        name="contact"
+                        value={formData.contact}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="+1 234 567 890"
                     />
@@ -70,6 +125,9 @@ const RequestQuotePage = () => {
                     <input
                         type="email"
                         required
+                        name="email"
+                        value={formData.email}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="email@company.com"
                     />
@@ -81,6 +139,9 @@ const RequestQuotePage = () => {
                     <input
                         type="text"
                         required
+                        name="industry"
+                        value={formData.industry}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="e.g. Fintech, Retail"
                     />
@@ -89,6 +150,9 @@ const RequestQuotePage = () => {
                     <input
                         type="text"
                         required
+                        name="supportAreas"
+                        value={formData.supportAreas}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black"
                         placeholder="e.g. Branding, Hiring, Operations"
                     />
@@ -97,6 +161,9 @@ const RequestQuotePage = () => {
                     <textarea
                         required
                         rows={4}
+                        name="requirement"
+                        value={formData.requirement}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black resize-none"
                         placeholder="Tell us about the problem we are solving..."
                     />
@@ -104,6 +171,9 @@ const RequestQuotePage = () => {
                 <FormField label="Any additional context you’d like to share?" fullWidth>
                     <textarea
                         rows={3}
+                        name="additionalContext"
+                        value={formData.additionalContext}
+                        onChange={handleChange}
                         className="bg-transparent border-b-2 border-black py-4 focus:border-secondary transition-all outline-none text-xl font-bold placeholder:text-black/30 hover:border-black resize-none"
                         placeholder="Goals, timeline, or specific preferences..."
                     />
@@ -111,8 +181,8 @@ const RequestQuotePage = () => {
             </FormGroup>
 
             <SubmitButton
-                text="Submit Inquiry"
-                onClick={() => alert('Inquiry Sent!')}
+                text={loading ? "Sending..." : "Submit Inquiry"}
+                onClick={handleSubmit}
             />
         </FormPageLayout>
     );
