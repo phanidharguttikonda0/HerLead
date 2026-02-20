@@ -149,8 +149,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Event Publicity",
         subtitle: "Event Publicity That Turns Moments Into Media Moments",
         description: "We don’t just plan publicity, we engineer buzz. Every event we work on is designed to make headlines, fill rooms, and flood social feeds with genuine excitement and cultural impact.",
-        heroImage: "/images/legacy/e2.jpg",
-        heroVideo: "/videos/pr.webm",
+        heroImage: "/event-publicity/mini_magick20260203-14484-whdpsm.jpg",
+        heroVideo: "/event-publicity/80f1d5727b8f869dbbd70e756edc96f0.mp4",
         features: [
             {
                 title: "1. Media Strategy & Buzz",
@@ -168,7 +168,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/legacy/e2.jpg"],
+        gallery: ["/event-publicity/mini_magick20260203-14484-whdpsm.jpg"],
         process: [
             { step: "01", title: "Discovery", desc: "Understanding what makes your event special and who needs to see it." },
             { step: "02", title: "Strategy", desc: "Crafting a precision-based media plan to engineer excitement and buzz." },
@@ -341,7 +341,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/legacy/v2.avif"],
+        gallery: ["/images/legacy/v2.avif", "/images/visual_branding_image_2.png"],
         process: [
             { step: "01", title: "Curation", desc: "Selecting the visual building blocks that best represent your brand values." },
             { step: "02", title: "Design", desc: "Developing a unified look and feel that translates perfectly across all platforms." },
@@ -409,7 +409,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Brand Guidelines",
         subtitle: "A Clear Framework for Consistency",
         description: "Consistency is the backbone of brand strength. We document your visual identity, tone of voice, and design standards to ensure every interaction with your brand is as professional and impactful as the first.",
-        heroImage: "/images/legacy/v1.jpeg",
+        heroVideo: "/videos/dfc54a6735e760cf008e52b7fbb828cc.mp4",
         features: [
             {
                 title: "1. Visual Standard Manual",
@@ -427,7 +427,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/legacy/bb1.jpg"],
+        gallery: [],
         process: [
             { step: "01", title: "Codification", desc: "Turning your visual and verbal identity into a set of set-in-stone rules." },
             { step: "02", title: "Documentation", desc: "Creating a professional, easy-to-use guide for internal teams and external partners." },
@@ -496,7 +496,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Website Designing",
         subtitle: "We help businesses use their website as a growth engine",
         description: "Your website is your brand’s online base. We build and redesign websites that match your voice, values, and growth stage, ensuring your digital HQ is clear, current, and conversion-ready.",
-        heroImage: "/images/legacy/w.jpg",
+        heroImage: "/images/Website & Digital Experience/Website-Desining/mini_magick20260202-14148-2w625i.jpg",
         features: [
             {
                 title: "1. Strategic UI/UX Design",
@@ -514,7 +514,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/legacy/w1.avif"],
+        gallery: [],
         process: [
             { step: "01", title: "Structure", desc: "Defining the information architecture and content flow to align with your brand voice." },
             { step: "02", title: "Design", desc: "Crafting pixel-perfect visuals that put the 'fun' in functionality and build instant trust." },
@@ -539,8 +539,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Website Redesign & Development",
         subtitle: "Modern, High-Performing Digital Experiences",
         description: "An outdated website signals that your brand is standing still. We transform existing sites into modern experiences that reflect your growth and ambition through improved structure and seamless functionality.",
-        heroVideo: "/images/legacy/wr.mp4",
-        heroImage: "/images/legacy/wr1.jpg",
+        heroVideo: "/images/Website & Digital Experience/website-redesign-and-development/website-redesign.mp4",
+        heroImage: "/images/Website & Digital Experience/website-redesign-and-development/mini_magick20260204-6552-qk6n8b.jpg",
         features: [
             {
                 title: "1. Performance Auditing",
@@ -558,7 +558,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/legacy/wr1.jpg"],
+        gallery: [],
         process: [
             { step: "01", title: "Analyze", desc: "Identifying friction points and opportunities in your current digital presence." },
             { step: "02", title: "Reconstruct", desc: "Redeveloping the core structure and visual identity for modern standards." },
@@ -583,7 +583,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "UX/UI Strategy",
         subtitle: "Intuitive, Engaging, and Effortless Experiences",
         description: "An effective digital experience guides users to take specific actions. We design every interaction with your user in mind, ensuring your website looks compelling and functions with clarity and purpose.",
-        heroImage: "/images/legacy/ux1.jpg",
+        heroImage: "/images/Website & Digital Experience/ux-ui-strategy/ux-design-services.jpg",
         features: [
             {
                 title: "1. User Journey Mapping",
@@ -601,7 +601,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/legacy/ux2.jpg"],
+        gallery: ["/images/Website & Digital Experience/ux-ui-strategy/ui-ux-agency.jpg"],
         process: [
             { step: "01", title: "Discovery", desc: "Understanding your audience's behavior to eliminate digital corners." },
             { step: "02", title: "Prototype", desc: "Building intuitive interfaces that prioritize usability and focused engagement." },
@@ -626,8 +626,8 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Website Content Structuring",
         subtitle: "Organized, Intentional, and Action-Oriented",
         description: "Website Content Structuring at HerLead ensures your message is organized and easy for visitors to understand. We plan and arrange your content to guide users naturally through your website, leading them toward action with clarity.",
-        heroVideo: "/images/legacy/ww.mp4",
-        heroImage: "/images/legacy/ww1.jpg",
+        heroVideo: "/images/Website & Digital Experience/website-content-structuring/website-content.mp4",
+        heroImage: "/images/Website & Digital Experience/website-content-structuring/coding-technology.jpg",
         features: [
             {
                 title: "1. Strategic Content Flow",
@@ -645,7 +645,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/legacy/ww1.jpg"],
+        gallery: [],
         process: [
             { step: "01", title: "Assessment", desc: "Evaluating your existing content to identify priorities and message clarity." },
             { step: "02", title: "Architecture", desc: "Building the skeletal structure of your pages to ensure a logical and engaging flow." },
@@ -713,7 +713,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Google Ads",
         subtitle: "Precision, Relevance, and Intent",
         description: "There’s more to Google than meets the eye. We create high-performing campaigns ranked by intent and quality, ensuring your products get the visibility they need at the exact moment people are searching for them.",
-        heroImage: "/images/services/ads.webp",
+        heroImage: "/images/paid-ads/google-ads/mini_magick20260202-13418-a3r3p7.jpg",
         features: [
             {
                 title: "1. Intent-Based Targeting",
@@ -731,7 +731,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/service-legacy/ads.webp"],
+        gallery: ["/images/paid-ads/google-ads/rest-review.png"],
         process: [
             { step: "01", title: "Analysis", desc: "Identifying high-value keywords and competitor gaps to sharpen your bid strategy." },
             { step: "02", title: "Deployment", desc: "Launching newsroom-ready copy and creative across Search and Display networks." },
@@ -756,7 +756,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Facebook Ads",
         subtitle: "Tapping Into Facebook’s Advertising Potential",
         description: "Facebook is the largest social community on the internet with over 3 billion monthly users. We create impression-leaving image and video ads that capture your audience’s attention and catapult your brand to immense recognizability.",
-        heroImage: "/images/services/ads.webp",
+        heroVideo: "/images/paid-ads/facebook-ads/55511811413c3bef8dc30e623680c045_540w.mp4",
         features: [
             {
                 title: "1. Micro-Targeting",
@@ -774,7 +774,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/service-legacy/ads.webp"],
+        gallery: [],
         process: [
             { step: "01", title: "Segmentation", desc: "Identifying the highly specific audience groups that fit your brand perfectly." },
             { step: "02", title: "Creative", desc: "Developing compelling image, video, and carousel ads that shine the spotlight on your brand." },
@@ -799,7 +799,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Instagram Ads",
         subtitle: "Visual Storytelling that Stops the Scroll",
         description: "Instagram is where your brand comes to life visually. At HerLead, we create stunning, high-impact ads that don't just sit in the feed—they capture imagination and turn followers into loyal customers through beautiful storytelling.",
-        heroImage: "/images/services/media.webp",
+        heroImage: "/images/paid-ads/instagram-ads/instagram-social-media.jpg",
         features: [
             {
                 title: "1. Aesthetic Ad Creative",
@@ -817,7 +817,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/service-legacy/media.webp"],
+        gallery: [],
         process: [
             { step: "01", title: "Visual Strategy", desc: "Defining the 'vibe' and aesthetic that will resonate deepest with your Instagram audience." },
             { step: "02", title: "Creative Build", desc: "Producing stunning images and videos that feel natural yet premium in the user's feed." },
@@ -842,7 +842,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "LinkedIn Ads",
         subtitle: "B2B Authority & Professional Precision",
         description: "LinkedIn is the world's premier professional network. HerLead helps you reach decision-makers and high-value leads with laser-focused ads that establish your authority and drive professional growth.",
-        heroImage: "/images/services/brand.webp",
+        heroImage: "/images/paid-ads/linkedin-ads/linkedin-marketing.jpg",
         features: [
             {
                 title: "1. Professional Targeting",
@@ -860,7 +860,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/service-legacy/training.webp"],
+        gallery: [],
         process: [
             { step: "01", title: "Authority Audit", desc: "Mapping out your professional strengths to create an ad narrative that commands respect." },
             { step: "02", title: "Launch", desc: "Deploying targeted ads that speak the language of business and solve professional pain points." },
@@ -885,7 +885,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Corporate Trainings",
         subtitle: "Shaping People and Organizations",
         description: "Excellence is not an accident—it's a system. HerLead provides comprehensive corporate training programs designed to align your workforce with your company's highest ambitions, fostering a culture of clarity and control.",
-        heroImage: "/images/services/training.webp",
+        heroImage: "/images/corporate-training-and-development/corporate-trainings/pexels-pavel-danilyuk-6405773.jpg",
         features: [
             {
                 title: "1. Strategic Skill Development",
@@ -903,7 +903,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/services/brand.webp"],
+        gallery: ["/images/corporate-training-and-development/corporate-trainings/corporate2.avif"],
         process: [
             { step: "01", title: "Discovery", desc: "Identifying the specific knowledge gaps and cultural needs within your organization." },
             { step: "02", title: "Curated Content", desc: "Developing training materials that are specifically tailored to your industry and team dynamic." },
@@ -928,7 +928,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Leadership & Communication",
         subtitle: "Lead with Power and Clarity",
         description: "True leadership is the ability to communicate vision with unshakable confidence. HerLead's leadership programs refine your voice and strategy to ensure you lead your organization with authority.",
-        heroImage: "/images/services/brand.webp",
+        heroImage: "/images/corporate-training-and-development/leadership-and-communication-training/mini_magick20260202-13811-4f66vz.jpg",
         features: [
             {
                 title: "1. Executive Presence",
@@ -946,7 +946,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/services/training.webp"],
+        gallery: ["/images/corporate-training-and-development/leadership-and-communication-training/leadership-celebration.jpg"],
         process: [
             { step: "01", title: "Audit", desc: "Analyzing your current leadership style to find opportunities for more powerful communication." },
             { step: "02", title: "Practice", desc: "Live coaching sessions that put your communication skills to the test in real-world scenarios." },
@@ -971,7 +971,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Productivity & Culture",
         subtitle: "Building High-Performing Communities",
         description: "Culture is the silent driver of every result. HerLead helps you engineer a workplace environment where productivity and purpose go hand-in-hand, making your company the destination for top talent.",
-        heroImage: "/images/services/web.webp",
+        heroImage: "/images/corporate-training-and-development/Team-Productivity-and-Cultural-Workshops/pexels-mikael-blomkvist-6476249.jpg",
         features: [
             {
                 title: "1. Efficiency Workflows",
@@ -989,7 +989,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/services/training.webp"],
+        gallery: ["/images/corporate-training-and-development/Team-Productivity-and-Cultural-Workshops/team-collaboration.jpg"],
         process: [
             { step: "01", title: "Assessment", desc: "Measuring your current culture pulse to identify bottlenecks and morale boosters." },
             { step: "02", title: "Framework", desc: "Designing rituals and workflows that encourage high-performance habits daily." },
@@ -1014,7 +1014,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Personal Branding",
         subtitle: "Be the Go-To Name in Your Industry",
         description: "In the professional world, your name is your most valuable asset. HerLead helps you build a personal brand that reflects your expertise, authority, and unique value to become impossible to ignore.",
-        heroImage: "/images/services/influencer.webp",
+        heroImage: "/images/corporate-training-and-development/Personal-Branding-and-Proffessionals/mini_magick20260202-13418-3kywp9.jpg",
         features: [
             {
                 title: "1. Professional Identity",
@@ -1032,7 +1032,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/services/brand.webp"],
+        gallery: ["/images/corporate-training-and-development/Personal-Branding-and-Proffessionals/mini_magick20260202-13418-tc7tci.jpg"],
         process: [
             { step: "01", title: "定位 (Positioning)", desc: "Uncovering the specific value you bring to your peers and the wider market." },
             { step: "02", title: "Polish", desc: "Refining your visual and verbal presentation to match your professional ambition." },
@@ -1057,7 +1057,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Live Training Program",
         subtitle: "Bridge the Gap to Your Dream Career",
         description: "Opportunity favors the prepared. HerLead's intensive one-month live training program is designed to transform high-potential talent into career-ready professionals through real-world guidance.",
-        heroImage: "/images/services/talent.webp",
+        heroImage: "/images/talent-requirement-and-carrier/One-Month Live Training Program/live-training.jpg",
         features: [
             {
                 title: "1. Real-World Skill Lab",
@@ -1075,7 +1075,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/services/job.webp"],
+        gallery: [],
         process: [
             { step: "01", title: "Enrollment", desc: "Assessing your current trajectory to tailor the training to your professional goals." },
             { step: "02", title: "Intensive", desc: "Four weeks of deep-dive sessions covering everything from communication to technical execution." },
@@ -1100,7 +1100,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Mock Interviews",
         subtitle: "Perfect Your First Impression",
         description: "The interview is where your career begins. HerLead provides realistic mock interview sessions with personal feedback to ensure you walk into every room prepared, confident, and credible.",
-        heroImage: "/images/services/job.webp",
+        heroImage: "/images/talent-requirement-and-carrier/Mock-Interviews/mock-interview-session.jpg",
         features: [
             {
                 title: "1. Realistic Scenarios",
@@ -1118,7 +1118,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/services/talent.webp"],
+        gallery: ["/images/talent-requirement-and-carrier/Mock-Interviews/great-leaders.jpeg"],
         process: [
             { step: "01", title: "Matching", desc: "Aligning your mock session with the specific industry or role you are aiming for." },
             { step: "02", title: "Execution", desc: "A deep-dive interview session that covers technical, behavioral, and cultural fit." },
@@ -1143,7 +1143,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Professional Grooming",
         subtitle: "Appearance and Presence Mastery",
         description: "You are the face of your professional brand. HerLead's grooming and appearance training ensures your visual presentation matches your professional ambition and industry standards.",
-        heroImage: "/images/services/influencer.webp",
+        heroImage: "/images/talent-requirement-and-carrier/Professional-Grooming/interview-sessions.png",
         features: [
             {
                 title: "1. Visual Branding Audit",
@@ -1161,7 +1161,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/services/brand.webp"],
+        gallery: ["/images/talent-requirement-and-carrier/Professional-Grooming/professional-grooming.jpg"],
         process: [
             { step: "01", title: "Consultation", desc: "Understanding your professional goals and the visual standards of your specific industry." },
             { step: "02", title: "Transformation", desc: "Practical styling and grooming workshops to elevate your daily professional presence." },
@@ -1186,7 +1186,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
         title: "Resume & Job Search",
         subtitle: "Get Noticed by the Right People",
         description: "Your resume is your gatekeeper. HerLead helps you craft powerful professional documents and job search strategies that cut through the noise and land you the opportunities you deserve.",
-        heroImage: "/images/services/job.webp",
+        heroImage: "/images/talent-requirement-and-carrier/Resume Building & Job Search/resume-writing.jpg",
         features: [
             {
                 title: "1. ATS-Optimized Resumes",
@@ -1204,7 +1204,7 @@ export const legacyDetails: Record<string, ServiceDetail> = {
                 image: "/images/services/feature-3.webp"
             }
         ],
-        gallery: ["/images/services/talent.webp"],
+        gallery: ["/images/talent-requirement-and-carrier/Resume Building & Job Search/job-search.jpg"],
         process: [
             { step: "01", title: "Audit", desc: "Reviewing your current professional history to extract the high-value impact stories." },
             { step: "02", title: "Creation", desc: "Developing a suite of professional documents including resumes, bios, and LinkedIn copy." },

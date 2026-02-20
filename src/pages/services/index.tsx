@@ -121,13 +121,23 @@ const ServiceDetail = () => {
                                 >
                                     {detail.heroVideo ? (
                                         <video
-                                            src={detail.heroVideo}
                                             autoPlay
                                             loop
                                             muted
                                             playsInline
+                                            poster={detail.heroImage}
                                             className="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
-                                        />
+                                        >
+                                            <source src={detail.heroVideo} type="video/mp4" />
+                                            {/* Fallback if video can't play */}
+                                            {detail.heroImage && (
+                                                <img
+                                                    src={detail.heroImage}
+                                                    alt={detail.title}
+                                                    className="w-full h-full object-cover"
+                                                />
+                                            )}
+                                        </video>
                                     ) : (
                                         <img
                                             src={detail.heroImage}
@@ -167,22 +177,28 @@ const ServiceDetail = () => {
 
                 {/* 3. Secondary Content (Process & Features) */}
                 <div className="mb-20 md:mb-32">
-                    {/* Image - Full Width at Top */}
-                    <motion.div
-                        initial={{ y: 50, opacity: 0 }}
-                        whileInView={{ y: 0, opacity: 1 }}
-                        viewport={{ once: true, margin: "-10%" }}
-                        transition={{ duration: 1 }}
-                        className="mb-12"
-                    >
-                        <div className="relative aspect-[16/9] w-full max-w-4xl mx-auto overflow-hidden rounded-sm bg-neutral-100">
-                            <img
-                                src={detail.gallery?.[0] || detail.heroImage}
-                                alt="Detail View"
-                                className="w-full h-full object-cover"
-                            />
+                    {/* Image - Full Width at Top — render all gallery images with proper aspect ratio */}
+                    {detail.gallery && detail.gallery.length > 0 && (
+                        <div className="mb-12 space-y-8">
+                            {detail.gallery.map((imgSrc, idx) => (
+                                <motion.div
+                                    key={idx}
+                                    initial={{ y: 50, opacity: 0 }}
+                                    whileInView={{ y: 0, opacity: 1 }}
+                                    viewport={{ once: true, margin: "-10%" }}
+                                    transition={{ duration: 1, delay: idx * 0.2 }}
+                                    className="relative aspect-[16/9] w-full max-w-4xl mx-auto overflow-hidden rounded-sm bg-neutral-100"
+                                >
+                                    <img
+                                        src={imgSrc}
+                                        alt={`Detail view ${idx + 1}`}
+                                        className="w-full h-full object-cover"
+                                    />
+                                </motion.div>
+                            ))}
                         </div>
-                    </motion.div>
+                    )}
+
 
                     {/* Core Capabilities Heading */}
                     <motion.div
